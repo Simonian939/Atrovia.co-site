@@ -1,7 +1,7 @@
-const { stripe } = require("./lib/stripe");
-const { sendWelcomeEmail, sendInternalNotification } = require("./lib/email");
-const { triggerProvisioning } = require("./lib/provision");
-const { PLANS } = require("./lib/stripe");
+const { stripe } = require("./_lib/stripe");
+const { sendWelcomeEmail, sendInternalNotification } = require("./_lib/email");
+const { triggerProvisioning } = require("./_lib/provision");
+const { PLANS } = require("./_lib/stripe");
 
 // Vercel must see the raw body to verify Stripe signatures.
 // Export config to disable body parsing.

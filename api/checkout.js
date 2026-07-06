@@ -1,4 +1,4 @@
-const { stripe, PLANS, priceIdForTier } = require("./lib/stripe");
+const { stripe, PLANS, priceIdForTier } = require("./_lib/stripe");
 
 const TIERS = ["atrium", "kova", "both"];
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://atrovia.co";
