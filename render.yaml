@@ -1,0 +1,20 @@
+# Optional Render.com static site (Vercel is primary)
+services:
+  - type: web
+    name: atrovia-co-site
+    runtime: static
+    buildCommand: echo "Static HTML — no build"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /beta
+        destination: /beta.html
+      - type: rewrite
+        source: /signup
+        destination: /signup.html
+      - type: rewrite
+        source: /about
+        destination: /about.html
+      - type: rewrite
+        source: /app
+        destination: /atrovia-site.html

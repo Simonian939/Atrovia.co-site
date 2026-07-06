@@ -1,0 +1,14 @@
+{
+  "name": "atrovia-co-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Atrovia marketing site — static HTML + Vercel serverless API",
+  "scripts": {
+    "dev": "npx --yes serve . -p 3000",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-and-deploy.ps1"
+  },
+  "dependencies": {
+    "stripe": "^16.12.0",
+    "resend": "^3.5.0"
+  }
+}
