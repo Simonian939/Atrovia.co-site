@@ -3,11 +3,15 @@ const { sendWelcomeEmail, sendInternalNotification } = require("./_lib/email");
 const { triggerProvisioning } = require("./_lib/provision");
 const { PLANS } = require("./_lib/stripe");
 
-// Vercel must see the raw body to verify Stripe signatures.
-// Export config to disable body parsing.
-module.exports.config = { api: { bodyParser: false } };
+// Stripe signature verification needs the exact raw request bytes.
+// (config is exported at the bottom, AFTER module.exports is assigned — setting
+//  it before the assignment below would silently discard it.)
 
 async function getRawBody(req) {
+  // Express (express.raw) hands us a Buffer already; Vercel (bodyParser:false)
+  // gives an unread stream. Support both so one handler runs on either host.
+  if (Buffer.isBuffer(req.body)) return req.body;
+  if (typeof req.body === "string") return Buffer.from(req.body);
   return new Promise((resolve, reject) => {
     const chunks = [];
     req.on("data", (chunk) => chunks.push(chunk));
@@ -16,7 +20,7 @@ async function getRawBody(req) {
   });
 }
 
-module.exports = async function handler(req, res) {
+async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).send("Method not allowed");
   }
@@ -87,4 +91,8 @@ module.exports = async function handler(req, res) {
   }
 
   return res.status(200).json({ received: true });
-};
+}
+
+module.exports = handler;
+// Vercel only: preserve the raw body for signature verification (Express ignores this).
+module.exports.config = { api: { bodyParser: false } };
