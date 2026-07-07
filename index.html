@@ -230,6 +230,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 50px;background:var(--foo
 .combo .inner{background:linear-gradient(180deg,rgba(124,58,237,.10),rgba(52,224,200,.06));border:1px solid var(--line);border-radius:24px;padding:44px 36px;text-align:center}
 .combo .kicker{font-family:'Montserrat';font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:var(--dim);margin-bottom:22px}
 .combo .lockup{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap}
+/* --- LOGO SLOTS: replace each .logo-mark block with your real <img src="images/kova-logo.jpg"> etc. --- */
 .logo-mark{display:flex;align-items:center;gap:12px;background:rgba(15,18,40,.55);border:1px solid var(--line);border-radius:16px;padding:16px 26px;min-height:76px}
 .logo-mark .badge{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex-shrink:0}
 .logo-mark .badge svg{width:22px;height:22px}
@@ -251,6 +252,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 50px;background:var(--foo
 .combo .combo-sub{margin-top:14px;font-family:'Montserrat';font-weight:800;letter-spacing:.02em;font-size:clamp(18px,2.4vw,26px);color:var(--text-strong)}
 .combo .combo-sub .gg{color:var(--green-bright)}
 
+/* ===== PURPOSE / COMMUNITY BAND ===== */
 .purpose{padding:56px 0}
 .purpose-inner{max-width:760px;margin:0 auto;text-align:center}
 .purpose h2{font-size:clamp(24px,3.4vw,38px)}
@@ -258,6 +260,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 50px;background:var(--foo
 .purpose .link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Montserrat';font-weight:800;font-size:14px;letter-spacing:.04em;color:var(--green-bright)}
 .purpose .link:hover{color:var(--text-strong)}
 
+/* ===== BUSINESS CHECK / SURVEY (dark) ===== */
 .survey-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
 .scard{background:linear-gradient(180deg,rgba(var(--c-hi),.55),rgba(var(--c-lo),.35));border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:9px;min-width:0;transition:border-color .2s,transform .2s}
 .scard:hover{transform:translateY(-3px)}
@@ -281,6 +284,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 50px;background:var(--foo
 .scard.m .mval{color:var(--purple-bright)}.scard.c .mval{color:var(--green-bright)}
 .mval span{color:var(--dim);font-weight:600;font-size:12px}
 .survey-cta{text-align:center;margin-top:34px}
+/* how-to panel + animated demo slider */
 .survey-howto{max-width:560px;margin:30px auto 0;background:linear-gradient(180deg,rgba(var(--c-hi),.5),rgba(var(--c-lo),.3));border:1px solid var(--line);border-radius:18px;padding:22px 26px}
 .survey-howto .ht-step{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--soft)}
 .survey-howto .ht-step b{color:var(--text-strong)}
@@ -289,10 +293,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 50px;background:var(--foo
 .demo-track{position:relative;height:8px;border-radius:6px;background:var(--track);margin:14px 0 8px}
 .demo-fill{position:absolute;left:0;top:0;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--purple),var(--green));width:20%;animation:demofill 3.4s ease-in-out infinite}
 .demo-thumb{position:absolute;top:50%;left:20%;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--purple-bright);box-shadow:0 2px 8px rgba(0,0,0,.5);transform:translate(-50%,-50%);animation:demoslide 3.4s ease-in-out infinite}
+.demo-hand{position:absolute;top:calc(50% + 4px);left:20%;font-size:18px;transform:translateX(-50%);animation:demoslide 3.4s ease-in-out infinite;pointer-events:none}
 @keyframes demoslide{0%{left:8%}45%{left:92%}55%{left:92%}100%{left:8%}}
 @keyframes demofill{0%{width:8%}45%{width:92%}55%{width:92%}100%{width:8%}}
 .ht-scale{display:flex;justify-content:space-between;font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.04em;color:var(--dim)}
+/* pulse the real sliders until first interaction */
 .hint-active .scard .rng::-webkit-slider-thumb{animation:thumbpulse 1.6s ease-in-out infinite}
+.hint-active .scard .rng::-moz-range-thumb{animation:thumbpulse 1.6s ease-in-out infinite}
 @keyframes thumbpulse{0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,.55),0 2px 8px rgba(0,0,0,.5)}50%{box-shadow:0 0 0 9px rgba(139,92,246,0),0 2px 8px rgba(0,0,0,.5)}}
 .survey-hint{text-align:center;color:var(--dim);font-size:14px;margin-top:14px;display:none}.survey-hint.show{display:block}
 .survey-result{max-width:640px;margin:34px auto 0;display:none}.survey-result.show{display:block;animation:fadeup .5s ease}
@@ -313,18 +320,21 @@ footer{border-top:1px solid var(--line);padding:56px 0 50px;background:var(--foo
 .rdiv{height:1px;background:var(--line);margin:24px 0 20px}
 .result-card .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
+/* ===== DEMO VIDEO MODAL ===== */
 .vmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(4,5,12,.86);backdrop-filter:blur(6px)}
 .vmodal.open{display:flex;animation:fadeup .3s ease}
 .vmodal .box{width:min(960px,100%);background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .vmodal .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
 .vmodal .bar .t{font-family:'Montserrat';font-weight:800;font-size:15px}
 .vmodal .x{background:none;border:0;color:var(--dim);cursor:pointer;font-size:26px;line-height:1;padding:0 4px}
+.vmodal .x:hover{color:var(--text-strong)}
 .vframe{position:relative;aspect-ratio:16/9;background:#05060e}
 .vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .vframe .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--dim);font-size:14px;padding:20px}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.reveal,.stagger>*{opacity:1!important;transform:none!important}}
 
+/* ================= THEMING (Dynamic dark / Professional light) ================= */
 :root{
   --text-strong:#fff;
   --c-hi:33,39,72; --c-lo:16,20,42; --nav-rgb:6,6,14;
@@ -344,13 +354,38 @@ html[data-theme="light"]{
   --track:#E9E2F4; --input:#FBF9FE; --chip:#F2ECFA; --footer:#F5EFE3;
   --btn-bg:#7C3AED; --btn-bg-h:#6D28D9; --btn-fg:#FFFCF5;
 }
+html{transition:background .3s}
+body{transition:background .3s,color .3s}
+html[data-theme="light"] .orb{opacity:.2}
+html[data-theme="light"] .nav.scrolled{box-shadow:0 2px 22px rgba(80,50,140,.09)}
+/* logos are neon-on-black jpgs: show as small dark badges in light mode (screen-blend would wash out) */
+html[data-theme="light"] .plan .logo{mix-blend-mode:normal;background:#0B0B16;border-radius:10px;padding:4px}
+/* combined-band logo pills stay dark showcase tiles in light mode, with light Atrium/Kova text */
+html[data-theme="light"] .logo-mark:not(.result),
+html[data-theme="light"] .pillbrand,
+html[data-theme="light"] .lm:not(.result){background:#0B193D;border-color:rgba(255,255,255,.14)}
+html[data-theme="light"] .logo-mark.atrium .wm,html[data-theme="light"] .lm.atrium .wm,html[data-theme="light"] .pillbrand.atrium .nm{color:#B49BFF}
+html[data-theme="light"] .logo-mark.kova .wm,html[data-theme="light"] .lm.kova .wm,html[data-theme="light"] .pillbrand.kova .nm{color:#6DF5E2}
+html[data-theme="light"] .logo-mark .wm small{color:#b0b6d6}
+html[data-theme="light"] .btn-outline{border-color:var(--line)}
+html[data-theme="light"] .stars,html[data-theme="light"] .sparks{opacity:.35}
+/* keep the dark-image final CTA readable in light mode */
+html[data-theme="light"] .final{--text:#F1F3FF;--soft:#D7DCF0;--dim:#AEB4CE;--text-strong:#fff}
+html[data-theme="light"] .final{background:linear-gradient(180deg,rgba(8,10,24,.76),rgba(8,10,24,.93)),url('images/image3.jpg') center/cover}
+/* responsive type: larger on desktop, smaller on phone */
+@media (min-width:1280px){ body{font-size:16.5px} }
+@media (max-width:600px){ body{font-size:15px} .lead{font-size:16px} }
+
+/* theme chooser popup */
 .theme-pop{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(6,6,14,.72);backdrop-filter:blur(8px)}
 .theme-pop.show{display:flex}
 .theme-pop-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px 32px;max-width:460px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .tp-eyebrow{font-family:'Montserrat';font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--dim);margin-bottom:10px}
 .theme-pop-card h3{font-family:'Montserrat';font-weight:900;font-size:23px;color:var(--text)}
+.theme-pop-card p{color:var(--soft);font-size:14.5px;margin-top:8px}
 .tp-choices{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
 .tp-choice{background:transparent;border:2px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;transition:.2s;display:flex;flex-direction:column;align-items:center;gap:8px}
+.tp-choice:hover{border-color:var(--purple);transform:translateY(-3px)}
 .tp-swatch{width:100%;height:48px;border-radius:10px;display:flex;overflow:hidden;border:1px solid var(--line)}
 .tp-swatch span{flex:1}
 .tp-swatch.light span:first-child{background:#FBF8F1}.tp-swatch.light span:last-child{background:#7C3AED}
@@ -358,21 +393,61 @@ html[data-theme="light"]{
 .tp-name{font-family:'Montserrat';font-weight:800;font-size:16px;color:var(--text)}
 .tp-sub{font-size:12px;color:var(--dim)}
 .tp-skip{margin-top:18px;background:none;border:0;color:var(--dim);font-size:13px;cursor:pointer;text-decoration:underline}
+.tp-skip:hover{color:var(--text)}
+/* floating toggle */
 .theme-toggle{position:fixed;left:18px;bottom:18px;z-index:130;width:46px;height:46px;border-radius:50%;background:var(--surface);border:1px solid var(--line);color:var(--text);cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.28);transition:transform .2s,border-color .2s}
+.theme-toggle:hover{transform:translateY(-2px);border-color:var(--purple)}
 .theme-toggle svg{width:22px;height:22px}
+
+
+/* ================= MOBILE POLISH ================= */
+/* business-check tiles: 3-up on tablet, 2-up on phone */
 @media (max-width:900px){ .survey-grid{grid-template-columns:repeat(3,1fr)} }
 @media (max-width:600px){ .survey-grid{grid-template-columns:1fr 1fr;gap:10px} .scard{padding:13px} }
+/* signup form rows stack on phone */
+@media (max-width:600px){ .field.row2,.field.row3{grid-template-columns:1fr} }
+/* mobile nav: collapse links into a dropdown, move the button inside it */
 @media (max-width:820px){
+  .nav .row{position:relative}
   .menu-toggle{display:block!important}
-  .nav .links{position:absolute;top:calc(100% + 8px);right:12px;left:12px;flex-direction:column;align-items:stretch;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 24px 60px rgba(0,0,0,.38);display:none}
+  .nav .links{
+    position:absolute;top:calc(100% + 8px);right:12px;left:12px;
+    flex-direction:column;align-items:stretch;gap:4px;
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:10px;box-shadow:0 24px 60px rgba(0,0,0,.38);display:none;
+  }
   .nav.open .links{display:flex}
   .nav .links a{display:block!important;padding:12px 14px;border-radius:11px;font-size:15px;color:var(--text);width:auto}
+  .nav .links a:hover{background:var(--surface2)}
+  .nav .links a.btn-primary{margin-top:6px;justify-content:center;padding:13px;font-size:15px}
+  .nav .links a.btn-primary:hover{background:var(--btn-bg-h)}
 }
+
+
+/* ================= DEPTH / SEPARATION (both themes) ================= */
 body{background:
   radial-gradient(1100px 640px at 12% -6%, rgba(124,58,237,.09), transparent 55%),
   radial-gradient(1000px 600px at 106% 16%, rgba(52,224,200,.06), transparent 55%),
   var(--bg);}
-.panel,.umod,.scard,.result-card,.ind,.price,.quote,.survey-howto,.combo-card{box-shadow:var(--card-shadow)}
+html[data-theme="light"] body{background:
+  radial-gradient(1100px 640px at 12% -6%, rgba(124,58,237,.08), transparent 58%),
+  radial-gradient(1000px 620px at 106% 16%, rgba(14,158,138,.06), transparent 58%),
+  var(--bg);}
+/* lift content cards off the background in both modes */
+.panel,.umod,.scard,.result-card,.ind,.price,.quote,.survey-howto,
+.combo-card,.val,.stat,.founder,.pillar,.form,
+.plan,.ceo,.rec,.su-form,.summary{box-shadow:var(--card-shadow)}
+/* stronger, more defined borders on light cards */
+html[data-theme="light"] .panel,html[data-theme="light"] .umod,html[data-theme="light"] .scard,
+html[data-theme="light"] .val,html[data-theme="light"] .stat,html[data-theme="light"] .founder,
+html[data-theme="light"] .pillar,html[data-theme="light"] .form,html[data-theme="light"] .plan,
+html[data-theme="light"] .ceo,html[data-theme="light"] .rec,html[data-theme="light"] .su-form,
+html[data-theme="light"] .summary,html[data-theme="light"] .combo-card,html[data-theme="light"] .price,
+html[data-theme="light"] .quote{border-color:#CDBFEA}
+/* alternating section bands to break up the page (About + any page) */
+.band-tint{background:linear-gradient(180deg, rgba(124,58,237,.07), transparent)}
+html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,58,237,.07), rgba(14,158,138,.035))}
+
 </style>
 </head>
 <body>
@@ -389,6 +464,7 @@ body{background:
   <button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
 </div></nav>
 
+<!-- HERO -->
 <header class="hero" id="top"><div class="hero-sparks" id="sparks"></div><div class="wrap hero-grid">
   <div class="reveal in">
     <h1>You don't need more software.<br>You need a <span class="g">plan, a team,</span><br>and a clear path forward.</h1>
@@ -402,6 +478,11 @@ body{background:
   <div class="hero-visual"><img class="hero-logo" src="images/image5.jpg" alt="Atrovia"></div>
 </div><div class="scroll-cue">scroll</div></header>
 
+<!-- SECTION 0: TWO PROGRAMS, COMBINED -->
+<!-- ============================================================
+     LOGO SLOTS: swap each .logo-mark (Atrium / Kova) for your real
+     logo, e.g. <img src="images/atrium-logo.jpg" alt="Atrium" style="height:44px">
+     ============================================================ -->
 <section class="combo reveal"><div class="wrap">
   <div class="inner">
     <div class="kicker">Two powerful programs. One platform.</div>
@@ -425,6 +506,7 @@ body{background:
   </div>
 </div></section>
 
+<!-- PURPOSE / COMMUNITY -->
 <section class="purpose reveal"><div class="wrap">
   <div class="purpose-inner">
     <div class="eyebrow" style="color:var(--green-bright)">Why we do this</div>
@@ -434,6 +516,7 @@ body{background:
   </div>
 </div></section>
 
+<!-- SECTION 1: THE REAL PROBLEM -->
 <section class="block problem" id="problem"><div class="wrap">
   <div class="reveal"><div class="eyebrow">The Real Problem</div>
   <h2>The problem isn't the tools.<br>It's <span class="pp">everything around them.</span></h2></div>
@@ -443,6 +526,27 @@ body{background:
     <p>You hire a third party to build the system. They don't understand your business. It still doesn't work.</p>
     <p>Now you're spending all your time inside one program — and your business is suffering because it needs you everywhere else.</p>
   </div>
+
+  <div class="ba reveal">
+    <div class="panel before"><div class="tag">✕ Before Atrovia</div>
+      <div class="scatter">
+        <span class="chip tilt1" style="left:3%;top:6%">CRM</span>
+        <span class="chip tilt2" style="left:42%;top:2%">Ads</span>
+        <span class="chip tilt3" style="left:75%;top:10%">Email</span>
+        <span class="chip tilt4" style="left:6%;top:40%">Spreadsheets</span>
+        <span class="chip tilt1" style="left:63%;top:44%">Social</span>
+        <span class="chip tilt2" style="left:30%;top:76%">Scattered plan</span>
+      </div>
+      <p style="color:var(--soft);font-size:14px;margin-top:6px">Scattered tools. No clear plan. You're stuck in the middle.</p>
+    </div>
+    <div class="panel after"><div class="tag">✓ With Atrovia</div>
+      <div class="pathline">
+        <span class="b">Plan</span><span class="ar">→</span><span class="b">Guided setup</span><span class="ar">→</span><span class="b">Team executes</span><span class="ar">→</span><span class="b">You grow</span>
+      </div>
+      <p style="color:var(--soft);font-size:14px;margin-top:18px">A clear path. A guided system. You moving forward — with a team behind you.</p>
+    </div>
+  </div>
+
   <h2 style="font-size:clamp(22px,3vw,30px);margin-top:64px" class="reveal">Here's what's actually missing:</h2>
   <div class="missing stagger reveal">
     <div class="miss"><div class="n">1</div><h3>A plan</h3><p>Maybe you don't have one — or you have one but find it hard to follow. We build a real plan that fits your business and is actually easy to act on.</p></div>
@@ -452,59 +556,374 @@ body{background:
   <p class="lead reveal" style="text-align:center;margin-left:auto;margin-right:auto;color:var(--text-strong);font-family:'Montserrat';font-weight:700">That's exactly what Atrovia is.</p>
 </div></section>
 
+<!-- SECTION 2: HOW ATROVIA SOLVES THIS -->
 <section class="block solution" id="solution"><div class="wrap">
   <div class="reveal"><div class="eyebrow">How Atrovia Solves This</div>
   <h2>We give you the plan, the guidance, and the team — <span class="gg">one step at a time.</span></h2>
-  <p class="lead">Atrovia isn't another tool you have to figure out. It's the guided system that walks you through exactly what to do, in the right order, with a team of specialists who do the hard parts with you.</p></div>
-  <div class="center-cta reveal"><a class="btn btn-primary btn-lg" href="signup.html">Start for free</a></div>
+  <p class="sub2">No overwhelming setup. No figuring it out alone. Just a clear path forward, guided every step of the way.</p>
+  <p class="lead">Atrovia isn't another tool you have to figure out. It's the guided system that walks you through exactly what to do, in the right order, with a team of specialists who do the hard parts with you. We don't hand you software and walk away — we build the plan with you, execute it together, and track progress every single week.</p>
+  <p class="lead" style="color:var(--text-strong);font-family:'Montserrat';font-weight:700;font-size:clamp(18px,2.4vw,24px)">This is what a real team feels like — <span class="gg">without the $10,000/month price tag.</span></p></div>
+
+  <div class="unlock reveal">
+    <div class="umod on"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h3l9 5V4L7 9H4z"/><path d="M18 8a4 4 0 0 1 0 8"/></svg></div><div class="nm">Marketing</div><div class="st">✓ Start here</div></div>
+    <div class="uarrow">→</div>
+    <div class="umod on"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></div><div class="nm">CRM · KOVA</div><div class="st">✓ Add when ready</div></div>
+    <div class="uarrow">→</div>
+    <div class="umod soon"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div><div class="nm">Operations</div><div class="st">🔒 Coming soon</div></div>
+    <div class="uarrow">→</div>
+    <div class="umod soon"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="nm">Finance</div><div class="st">🔒 Coming soon</div></div>
+  </div>
+  <div class="guided-tag reveal">Guided setup · each module unlocks as you're ready — not all at once</div>
 </div></section>
 
+<!-- SECTION 2.5: BUSINESS CHECK -->
 <section class="block survey" id="survey"><div class="wrap">
   <div class="reveal" style="text-align:center"><div class="eyebrow">Where should you start?</div>
-  <h2>Take the 2-minute <span class="gg">business check.</span></h2></div>
-  <div class="survey-cta reveal"><a class="btn btn-primary btn-lg" href="signup.html">See where I should start</a></div>
+  <h2>Take the 2-minute <span class="gg">business check.</span></h2>
+  <p class="lead" style="margin:16px auto 0;text-align:center">Rate the ten areas below to see how your business scores today — and exactly what's missing. Takes two minutes, and we'll point you to the best first step.</p></div>
+  <div class="survey-howto reveal">
+    <div class="ht-step"><span class="htn">1</span> <span>Drag each slider to rate that area — <b>0 to 10</b></span></div>
+    <div class="demo-track"><span class="demo-fill"></span><span class="demo-thumb"></span></div>
+    <div class="ht-scale"><span>0 · not started</span><span>10 · fully dialed in</span></div>
+    <div class="ht-step"><span class="htn">2</span> <span>Rate at least 4 areas, then tap <b>See where I should start</b></span></div>
+  </div>
+  <div class="survey-grid reveal hint-active" id="surveyGrid">
+    <div class="scard m" data-type="m" data-val="0"><span class="tag-tool">Atrium</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.2 13.2 8.5 15.5 10.8 10.8"/></svg></div><div class="st">Brand &amp; story</div><div class="sd">Do customers instantly get what makes you different?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard m" data-type="m" data-val="0"><span class="tag-tool">Atrium</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 3.6 9A14 14 0 0 1 12 21a14 14 0 0 1-3.6-9A14 14 0 0 1 12 3z"/></svg></div><div class="st">Website</div><div class="sd">Does your site bring in and convert leads?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard m" data-type="m" data-val="0"><span class="tag-tool">Atrium</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><div class="st">Google &amp; data</div><div class="sd">Do customers find you easily on Google?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard m" data-type="m" data-val="0"><span class="tag-tool">Atrium</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11 19 6v12L3 13z"/><path d="M11.5 16.5a2.5 2.5 0 0 1-4.8-1.2"/></svg></div><div class="st">Ads</div><div class="sd">Are paid ads bringing steady new customers?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard m" data-type="m" data-val="0"><span class="tag-tool">Atrium</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.4 20a5.6 5.6 0 0 1 11.2 0"/><path d="M16 5.3a3.2 3.2 0 0 1 0 6"/><path d="M17.6 20a5.6 5.6 0 0 0-3-4.9"/></svg></div><div class="st">Social media</div><div class="sd">Posting regularly and growing an audience?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard m" data-type="m" data-val="0"><span class="tag-tool">Atrium</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg></div><div class="st">New leads</div><div class="sd">A reliable flow of new leads every month?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard c" data-type="c" data-val="0"><span class="tag-tool">Kova</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/></svg></div><div class="st">Contacts organized</div><div class="sd">All your customers in one place, not scattered?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard c" data-type="c" data-val="0"><span class="tag-tool">Kova</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><polyline points="21 4 21 9 16 9"/><polyline points="3 20 3 15 8 15"/><path d="M5 9a7 7 0 0 1 12-2l4 2"/><path d="M19 15a7 7 0 0 1-12 2l-4-2"/></svg></div><div class="st">Follow-up</div><div class="sd">Every lead followed up — nothing dropped?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard c" data-type="c" data-val="0"><span class="tag-tool">Kova</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><path d="M9 13a4.5 4.5 0 0 0 6.8.5l2.7-2.7a4.5 4.5 0 0 0-6.4-6.4l-1.5 1.5"/><path d="M15 11a4.5 4.5 0 0 0-6.8-.5L5.5 13.2a4.5 4.5 0 0 0 6.4 6.4l1.5-1.5"/></svg></div><div class="st">Win-back</div><div class="sd">Bringing past customers back automatically?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+    <div class="scard c" data-type="c" data-val="0"><span class="tag-tool">Kova</span>
+      <div class="sic"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><line x1="16" y1="2.5" x2="16" y2="6.5"/><line x1="8" y1="2.5" x2="8" y2="6.5"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="st">Repeat business</div><div class="sd">A system that keeps customers coming back?</div>
+      <div class="meter"><input type="range" class="rng" min="0" max="10" step="1" value="0" aria-label="Rate 0 to 10"><div class="mval">0<span>/10</span></div></div></div>
+  </div>
+  <div class="survey-cta reveal"><a class="btn btn-primary btn-lg" id="surveyBtn">See where I should start</a>
+    <div class="survey-hint" id="surveyHint">Rate a few areas above, then try again.</div></div>
+  <div class="survey-result" id="surveyResult"></div>
 </div></section>
 
+<!-- SECTION 3: THE GUIDED PATH -->
+<section class="block path" id="path"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">The Guided Path</div>
+  <h2>Here's exactly how we take you <span class="pp">from stuck to moving.</span></h2>
+  <p class="sub2">Step by step, week by week — guided all the way through.</p></div>
+  <div class="tl" id="tl">
+    <div class="tl-line" id="tlLine"></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 01 · Business Discovery</span><span class="when">Week 1</span></div>
+      <h3>We figure out what makes you different</h3>
+      <p>The one step almost nobody does — and it shapes everything else.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5 15.5 8.5"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 02 · Brand Foundation</span><span class="when">Week 1–2</span></div>
+      <h3>We build a brand that speaks to the right customers</h3>
+      <p>Logo, colors, voice, and messaging — built to attract who you actually want.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 03 · CRM Setup · Kova</span><span class="when">Days 10–14</span></div>
+      <h3>We set up your CRM the right way (finally)</h3>
+      <p>Contacts loaded, a pipeline tracking every customer from lead to close.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 04 · Website Audit</span><span class="when">Week 3</span></div>
+      <h3>We fix your website so it actually converts</h3>
+      <p>A site that turns visitors into leads and drops them into your pipeline.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 05 · Google &amp; Analytics</span><span class="when">Week 3–4</span></div>
+      <h3>We connect the data so you see what's working</h3>
+      <p>Analytics, Tag Manager, and Ads wired in — no more guessing.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h3l9 5V4L7 9H4z"/><path d="M18 8a4 4 0 0 1 0 8"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 06 · Ads &amp; Social Plan</span><span class="when">Week 4 · live Day 30</span></div>
+      <h3>We build your 90-day marketing plan and launch it</h3>
+      <p>Campaigns, social, customer targets, and ROI — live and in motion.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 07 · Weekly Progress</span><span class="when">Every Monday</span></div>
+      <h3>We track progress every Monday and adjust</h3>
+      <p>A live plan we review and tune each week — never a doc that sits in a drawer.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 08 · 90-Day Audit</span><span class="when">Day 70–90</span></div>
+      <h3>We review, optimize, and plan the next quarter</h3>
+      <p>See what worked, fix what didn't, then build the next 90 days.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 09 · Operations</span><span class="soon-b">Coming soon</span></div>
+      <h3>We add operations tools so your team performs</h3>
+      <p>Team tracking and reporting so your whole operation runs tighter.</p></div></div>
+
+    <div class="mod reveal"><div class="node"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="c">
+      <div class="top"><span class="num">Step 10 · Finance</span><span class="soon-b">Coming soon</span></div>
+      <h3>We pull all the numbers into one place</h3>
+      <p>Marketing, sales, ops, and profit — the full picture on one dashboard.</p></div></div>
+  </div>
+
+  <p class="closing reveal">This isn't a system you figure out alone. Our guided team moves you through every step — the kind of team that would normally cost <b>$10,000+/month.</b> Start with Atrium, add Kova when you're ready, and expand from there. <b>Our system grows with you.</b></p>
+  <div class="center-cta reveal"><a class="btn btn-primary btn-lg" href="#" data-cta="signup">Start for free and chat with our team</a></div>
+</div></section>
+
+<!-- SECTION 4: TOOLS / INDUSTRIES -->
+<section class="block tools" id="tools"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">Built For Your Industry</div>
+  <h2>We're building tools specifically for <span class="pp">your business.</span></h2>
+  <p class="sub2">Over 1,000 industries. A 3-year mission to build specialized tools that help you grow.</p>
+  <p class="lead">The guided system is just the beginning. Over the next 3 years, we're bringing specialized tools for your industry — and there's a suggestion box inside the platform so you can tell us what's missing. We'll build it and help you grow.</p></div>
+  <div class="ind-grid stagger reveal">
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><rect x="10" y="14" width="4" height="6"/></svg></div><div class="nm">Real Estate</div></div>
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M10 21v-4h4v4"/><line x1="9" y1="7" x2="9" y2="7"/><line x1="15" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="9" y2="11"/><line x1="15" y1="11" x2="15" y2="11"/></svg></div><div class="nm">Property Mgmt</div></div>
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><div class="nm">Marketing Agencies</div></div>
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v7a2 2 0 0 0 4 0V3"/><line x1="8" y1="10" x2="8" y2="21"/><path d="M16 3c-1.7 1-2.5 3.5-2.5 6S15 14 16 14v7"/></svg></div><div class="nm">Restaurants</div></div>
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 0 1 16 0"/><line x1="2" y1="18" x2="22" y2="18"/><line x1="2" y1="21" x2="22" y2="21"/><path d="M10 9V6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3"/></svg></div><div class="nm">Construction</div></div>
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><div class="nm">Medical Practices</div></div>
+    <div class="ind soon"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7z"/><path d="M19 13l.7 1.8 1.8 .7-1.8 .7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></div><div class="nm">More coming soon</div></div>
+    <div class="ind"><div class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.2-.3-.3-2.2z"/></svg></div><div class="nm">Service Business</div></div>
+  </div>
+  <div class="suggest reveal"><b>This is the partnership.</b> You get a team in every department you can chat with anytime — and we tackle the hard stuff with you, so you can do what you do best.</div>
+</div></section>
+
+<!-- SECTION 5: PRICING -->
 <section class="block pricing" id="pricing"><div class="wrap">
   <div class="reveal"><div class="eyebrow">Pricing</div>
-  <h2>Start with one, or both. <span class="gg">Grow from there.</span></h2></div>
+  <h2>Start with one, or both. <span class="gg">Grow from there.</span></h2>
+  <p class="lead">Two core tools, one simple price each. Pick what you need now and add more as you grow.</p></div>
   <div class="price-grid stagger reveal">
-    <div class="price live"><div class="pn">Atrium</div><div class="amt">$99<span>/mo</span></div><div class="cycle">Billed quarterly</div></div>
-    <div class="price live"><div class="pn">Kova</div><div class="amt">$99<span>/mo</span></div><div class="cycle">Billed quarterly</div></div>
+    <div class="price live"><div class="pn">Atrium</div><div class="amt">$99<span>/mo</span></div><div class="cycle">Billed quarterly</div><div class="desc">Brand, marketing, and your 90-day growth plan.</div></div>
+    <div class="price live"><div class="pn">Kova</div><div class="amt">$99<span>/mo</span></div><div class="cycle">Billed quarterly</div><div class="desc">CRM, follow-up, and repeat business on autopilot.</div></div>
+    <div class="price"><div class="pn">Add-on tools</div><div class="soon">More as you grow</div><div class="desc">Operations, finance, and industry tools — add anytime.</div></div>
   </div>
-  <div class="center-cta reveal"><a class="btn btn-primary btn-lg" href="signup.html">Start your 7-day free trial</a></div>
+  <p class="price-note reveal"><span class="mono">$99/mo</span> is our quarterly rate. Prefer month-to-month? It's <b>$140/mo.</b> Choose <b>Atrium</b>, <b>Kova</b>, or both — you'll pick your exact plan and any add-ons when you sign up.</p>
+  <p class="free-note reveal">And you can <b>start your 7-day free trial.</b> Explore the platform, chat with our team, and see if Atrovia is the right fit — you won't be charged until day 7.</p>
+  <div class="center-cta reveal"><a class="btn btn-primary btn-lg" href="#" data-cta="signup">Start your 7-day free trial</a></div>
 </div></section>
 
+<!-- SECTION 6: PROOF -->
 <section class="block proof" id="proof"><div class="wrap">
   <div class="reveal" style="text-align:center"><div class="eyebrow">Proof</div>
-  <h2>Real businesses. Real results.</h2></div>
-</div></section>
-
-<section class="block final" id="start"><div class="wrap">
-  <div class="reveal"><div class="eyebrow" style="color:var(--green-bright)">Let's Build Together</div>
-  <h2>Stop putting things off.<br><span class="gg">Let's build together.</span></h2></div>
-  <div class="cta-row reveal">
-    <a class="btn btn-primary btn-lg" href="signup.html">Start for free — register now</a>
-    <a class="btn btn-outline btn-lg" href="beta.html">Join the beta</a>
+  <h2>Real businesses. Real results. <span class="gg">Real transformation.</span></h2></div>
+  <div class="quotes stagger reveal">
+    <div class="quote"><div class="mark">&ldquo;</div>
+      <p>In 30 days, everything changed. We now know so many things about our business — we have so much clarity that it feels like we're running a whole different company.</p>
+      <div class="attr">Elisha Rapada<span>Woolle Protectants</span></div></div>
+    <div class="quote"><div class="mark">&ldquo;</div>
+      <p>We've been building wine tanks for 40 years. Never really had marketing or sales — leads just came in. That stopped working. We didn't know what to do.</p>
+      <p>Through Atrium, we could finally see what needed to be built. We put a plan in place and got started in 6 days. Launched LinkedIn. Started promoting.</p>
+      <p>Once you sign up, you just want to keep going. It's so smooth — like having an advisor on the clock at all times.</p>
+      <div class="attr">Ben Reinders<span>Quality Stainless</span></div></div>
   </div>
 </div></section>
+
+<!-- SECTION 7: WHO THIS IS FOR -->
+<section class="block who" id="who"><div class="wrap">
+  <div class="reveal" style="text-align:center"><div class="eyebrow">Who This Is For</div>
+  <h2>If you feel like you're getting left behind, <span class="pp">this is for you.</span></h2></div>
+  <div class="who-list stagger reveal">
+    <div class="who-item"><div class="ck">✓</div><p>If you're stuck and don't know what to do next…</p></div>
+    <div class="who-item"><div class="ck">✓</div><p>If the AI era feels overwhelming and technology isn't your thing…</p></div>
+    <div class="who-item"><div class="ck">✓</div><p>If you've tried systems before and they didn't work…</p></div>
+    <div class="who-item"><div class="ck">✓</div><p>If you're tired of spending all your time in software instead of running your business…</p></div>
+  </div>
+  <p class="resolve reveal">You'll love this. Atrovia was built to be simple, guided, and dedicated to your goals. You don't need to be a tech expert — you just need to be ready to move forward. <span class="gg">We'll handle the rest.</span></p>
+</div></section>
+
+<!-- SECTION 8: FINAL CTA -->
+<section class="block final" id="start"><div class="wrap">
+  <div class="reveal"><div class="eyebrow" style="color:var(--green-bright)">Let's Build Together</div>
+  <h2>Stop putting things off.<br><span class="gg">Let's build together.</span></h2>
+  <p class="sub">We can solve your problems in minutes. It takes a few minutes to register — then you're talking with our team and getting your company dialed in. Start free, explore, and see if Atrovia is the right fit. If it is, you'll be moving forward within <b style="color:var(--text-strong)">days — not months.</b></p></div>
+  <div class="cta-row reveal">
+    <a class="btn btn-primary btn-lg" href="#" data-cta="signup">Start for free — register now</a>
+    <a class="btn btn-outline btn-lg" href="#" data-cta="demo">Explore our demo video</a>
+  </div>
+  <p class="trustline reveal">Card required to start your 7-day free trial — <b>you won't be charged until day 7.</b> Cancel anytime.</p>
+</div></section>
+
+<!-- DEMO VIDEO MODAL -->
+<!-- ============================================================
+     Put your demo video URL in DEMO_VIDEO_URL in the <script> below.
+     Works with YouTube/Vimeo embed URLs or a direct .mp4.
+     ============================================================ -->
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="Atrovia demo video">
+  <div class="box">
+    <div class="bar"><span class="t">See how Atrovia works</span><button class="x" id="vclose" aria-label="Close">&times;</button></div>
+    <div class="vframe" id="vframe">
+      <div class="placeholder">Your demo video will play here.<br>Add your video URL in the script (DEMO_VIDEO_URL).</div>
+    </div>
+  </div>
+</div>
 
 <footer><div class="wrap">
   <div class="foot-top">
-    <div class="foot-brand"><a class="brand" href="#top"><img src="images/image6.png" alt="Atrovia" style="width:40px;height:40px"><span class="w">ATROVIA<span class="co">.CO</span></span></a></div>
-    <div class="foot-col"><h5>Atrovia</h5><a href="about.html">About</a><a href="beta.html">Beta</a></div>
-    <div class="foot-col"><h5>Product</h5><a href="#solution">Solution</a><a href="#pricing">Pricing</a></div>
-    <div class="foot-col"><h5>Connect</h5><a href="mailto:info@atrovia.co">info@atrovia.co</a></div>
+    <div class="foot-brand"><a class="brand" href="#top"><img src="images/image6.png" alt="Atrovia" style="width:40px;height:40px"><span class="w">ATROVIA<span class="co">.CO</span></span></a>
+      <p class="tag">Develop your brand. Scale your team. Climb together.</p></div>
+    <div class="foot-col"><h5>Atrovia</h5><a href="about.html">About</a><a href="about.html#contact">Contact</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    <div class="foot-col"><h5>Product</h5><a href="#solution">Solution</a><a href="#path">The Path</a><a href="#pricing">Pricing</a><a href="#proof">Proof</a></div>
+    <div class="foot-col"><h5>Connect</h5><a href="about.html">About</a><a href="about.html#contact">Contact</a><a href="mailto:info@atrovia.co">info@atrovia.co</a></div>
   </div>
-  <div class="foot-bottom"><span>© 2026 Atrovia.</span><span class="gg" style="font-family:'Montserrat';letter-spacing:.12em">CLIMB TOGETHER.</span></div>
+  <div class="foot-bottom"><span>© 2026 Atrovia. Built for business owners who are ready to move forward.</span><span class="gg" style="font-family:'Montserrat';letter-spacing:.12em">CLIMB TOGETHER.</span></div>
 </div></footer>
 
 <script>
-  const CTA = { signup:'signup.html' };
+  const CTA = { signup:'signup.html' };  // signup CTAs go to the plan/sign-up page
+  const DEMO_VIDEO_URL = '';             // <-- put your demo video URL here (YouTube/Vimeo embed or .mp4)
+
   const nav=document.getElementById('nav');
   const onScroll=()=>nav.classList.toggle('scrolled',scrollY>20);
   onScroll(); addEventListener('scroll',onScroll,{passive:true});
-  document.querySelectorAll('[data-cta]').forEach(a=>{ if(CTA[a.dataset.cta]) a.href=CTA[a.dataset.cta]; });
+
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const tl=document.getElementById('tl'),line=document.getElementById('tlLine'),mods=[...document.querySelectorAll('.mod')];
+  function tlUpdate(){if(!tl)return;const r=tl.getBoundingClientRect();const vh=innerHeight;
+    const p=Math.min(1,Math.max(0,(vh*0.6 - r.top)/(r.height)));line.style.setProperty('--p',p.toFixed(3));
+    const lr=line.getBoundingClientRect();const fillY=lr.top+p*lr.height;
+    mods.forEach(m=>{const node=m.querySelector('.node');const nr=node.getBoundingClientRect();const center=nr.top+nr.height/2;
+      if(nr.top<vh*0.85)m.classList.add('in');
+      if(center<=fillY+2)node.classList.add('lit');else node.classList.remove('lit');});}
+  addEventListener('scroll',tlUpdate,{passive:true});tlUpdate();
+
+  const sp=document.getElementById('sparks');
+  if(sp){for(let i=0;i<48;i++){const s=document.createElement('span');s.className='spark';
+    s.style.left=(Math.random()*100)+'%';const sz=(2+Math.random()*4);s.style.width=s.style.height=sz+'px';
+    s.style.animationDuration=(5+Math.random()*6)+'s';s.style.animationDelay=(-Math.random()*9)+'s';sp.appendChild(s);}}
+
+  // ---- CTA wiring (signup links + demo opens the video modal) ----
+  function wireCTA(){
+    document.querySelectorAll('[data-cta]').forEach(a=>{
+      const k=a.dataset.cta;
+      if(k==='demo'){ a.style.cursor='pointer'; a.addEventListener('click',e=>{e.preventDefault();openDemo();}); }
+      else if(CTA[k] && CTA[k]!=='#'){ a.href=CTA[k]; }
+    });
+  }
+  wireCTA();
+
+  // ---- Demo video modal ----
+  const vmodal=document.getElementById('vmodal'), vframe=document.getElementById('vframe');
+  function openDemo(){
+    if(DEMO_VIDEO_URL){
+      const isFile=/\.(mp4|webm|ogg)(\?|$)/i.test(DEMO_VIDEO_URL);
+      vframe.innerHTML = isFile
+        ? '<video controls autoplay style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="'+DEMO_VIDEO_URL+'"></video>'
+        : '<iframe src="'+DEMO_VIDEO_URL+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    }
+    vmodal.classList.add('open');
+  }
+  function closeDemo(){ vmodal.classList.remove('open'); const f=vframe.querySelector('iframe,video'); if(f){ if(f.tagName==='VIDEO'){f.pause();} else {const s=f.src;f.src=s;} } }
+  document.getElementById('vclose').addEventListener('click',closeDemo);
+  vmodal.addEventListener('click',e=>{ if(e.target===vmodal) closeDemo(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape') closeDemo(); });
+
+  // ---- Business check survey ----
+  const surveyGridEl=document.getElementById('surveyGrid');
+  document.querySelectorAll('.scard').forEach(card=>{
+    const rng=card.querySelector('.rng'), mval=card.querySelector('.mval');
+    const col=card.classList.contains('c')?'#34E0C8':'#8B5CF6';
+    function upd(){const v=+rng.value;card.dataset.val=v;const pct=v*10;
+      rng.style.background='linear-gradient(90deg,'+col+' '+pct+'%,var(--track) '+pct+'%)';
+      mval.innerHTML=v+'<span>/10</span>';}
+    rng.addEventListener('input',()=>{ if(surveyGridEl) surveyGridEl.classList.remove('hint-active'); upd(); });
+    upd();
+  });
+  const surveyBtn=document.getElementById('surveyBtn');
+  if(surveyBtn) surveyBtn.addEventListener('click',()=>{
+    const cards=[...document.querySelectorAll('.scard')]; let mS=0,mN=0,cS=0,cN=0,total=0;
+    cards.forEach(c=>{const v=+c.dataset.val||0; total+=v; if(v>0){ if(c.dataset.type==='m'){mS+=v;mN++;} else {cS+=v;cN++;} }});
+    if(mN+cN<4){document.getElementById('surveyHint').classList.add('show');return;}
+    document.getElementById('surveyHint').classList.remove('show');
+    const mAvg=mN?mS/mN:0;
+    let rec,title,why,tool;
+    if(mAvg>=8.5 && mN>=4){ rec='kova'; title='Start with Kova'; tool='Kova';
+      why='Your marketing is already dialed in. The fastest win now is organizing your customers and turning follow-up into repeat business — that\'s Kova.'; }
+    else { rec='atrium'; title='Start with Atrium'; tool='Atrium';
+      why='Most of your growth right now is in marketing. Start with Atrium to build your brand, your plan, and a steady flow of new customers — then add Kova to keep them.'; }
+    const r=document.getElementById('surveyResult');
+    r.innerHTML='<div class="result-card '+rec+'"><div class="rl">Your business score today</div><div class="score">'+total+'<span>/100</span></div><div class="scoremeter"><div class="fill" id="scoreFill"></div></div><div class="scorelabels"><span>Today: '+total+'</span><span class="goalend">30-day goal: 100</span></div><p class="goaltxt">In your first 30 days, our goal is to close that gap and get you to <b>100 — fully dialed in.</b></p><div class="rdiv"></div><div class="rl">Where to start</div><div class="rt">'+title+'</div><p>'+why+'</p><div class="cta-row"><a class="btn btn-primary btn-lg" href="#" data-cta="signup">Start '+tool+' free — 7-day trial</a><a class="btn btn-outline btn-lg" href="#" data-cta="demo">Explore our demo video</a></div></div>';
+    r.classList.add('show'); wireCTA(); requestAnimationFrame(()=>{const f=document.getElementById('scoreFill'); if(f) f.style.width=total+'%';}); r.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  
 </script>
+
+<!-- theme chooser (first visit) + floating toggle -->
+<div class="theme-pop" id="themePop" role="dialog" aria-modal="true" aria-label="Choose a look">
+  <div class="theme-pop-card">
+    <div class="tp-eyebrow">Welcome to Atrovia</div>
+    <h3>How would you like it to look?</h3>
+    <p>Pick a style to get started — you can switch anytime.</p>
+    <div class="tp-choices">
+      <button class="tp-choice" data-pick="light">
+        <span class="tp-swatch light"><span></span><span></span></span>
+        <span class="tp-name">Professional</span>
+        <span class="tp-sub">Ivory &amp; purple · light</span>
+      </button>
+      <button class="tp-choice" data-pick="dark">
+        <span class="tp-swatch dark"><span></span><span></span></span>
+        <span class="tp-name">Dynamic</span>
+        <span class="tp-sub">Deep navy · vivid</span>
+      </button>
+    </div>
+    <button class="tp-skip" data-pick="dark">Skip — just get started</button>
+  </div>
+</div>
+<button class="theme-toggle" id="themeToggle" aria-label="Switch light or dark mode" title="Switch light / dark">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg>
+</button>
+<script>
+(function(){
+  var root=document.documentElement;
+  function apply(t){ t=(t==='light')?'light':'dark'; root.setAttribute('data-theme',t);
+    try{localStorage.setItem('atrovia-theme',t)}catch(e){}
+    try{ if(window.parent&&window.parent!==window&&window.parent.atroviaTheme) window.parent.atroviaTheme(t); }catch(e){} }
+  var stored=null, chosen=false;
+  try{ stored=localStorage.getItem('atrovia-theme'); if(stored) chosen=true; }catch(e){}
+  if(typeof window.__theme!=='undefined' && window.__theme){ stored=window.__theme; }
+  if(window.__themeChosen){ chosen=true; }
+  apply(stored||'dark');
+  var pop=document.getElementById('themePop');
+  if(!chosen && pop){ pop.classList.add('show'); }
+  function choose(t){ apply(t); if(pop) pop.classList.remove('show');
+    try{ if(window.parent&&window.parent!==window&&window.parent.atroviaThemeChosen) window.parent.atroviaThemeChosen(); }catch(e){} }
+  if(pop){ pop.querySelectorAll('[data-pick]').forEach(function(el){ el.addEventListener('click',function(){ choose(el.getAttribute('data-pick')); }); }); }
+  var tg=document.getElementById('themeToggle');
+  if(tg){ tg.addEventListener('click',function(){ var cur=root.getAttribute('data-theme')==='light'?'light':'dark'; apply(cur==='light'?'dark':'light'); }); }
+})();
+</script>
+
+
+<script>
+(function(){
+  var mt=document.getElementById('menuToggle'), nv=document.getElementById('nav');
+  if(!mt||!nv) return;
+  mt.addEventListener('click', function(e){ e.stopPropagation(); nv.classList.toggle('open'); });
+  nv.querySelectorAll('.links a').forEach(function(a){ a.addEventListener('click', function(){ nv.classList.remove('open'); }); });
+  document.addEventListener('click', function(e){ if(nv.classList.contains('open') && !nv.contains(e.target)) nv.classList.remove('open'); });
+})();
+</script>
+
 </body>
 </html>

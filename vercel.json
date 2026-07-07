@@ -1,25 +1,15 @@
 {
-  "framework": null,
-  "buildCommand": "npm install",
-  "installCommand": "npm install",
-  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/beta",    "destination": "/beta.html" },
-    { "source": "/signup",  "destination": "/beta.html" },
-    { "source": "/about",   "destination": "/about.html" },
-    { "source": "/app",     "destination": "/atrovia-site.html" },
-    { "source": "/customer","destination": "/atrovia-site.html" },
-    { "source": "/preview", "destination": "/preview.html" },
-    { "source": "/success", "destination": "/success.html" }
+    { "source": "/beta", "destination": "/signup" }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options",         "value": "SAMEORIGIN" }
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
       ]
     }
   ]
