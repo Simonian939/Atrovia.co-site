@@ -1,6 +1,12 @@
-﻿# Secrets
+# Secrets
 .env
 .env.*
 
 # Archives
 *.zip
+
+# OS / editor
+.DS_Store
+
+# Dependencies
+node_modules
