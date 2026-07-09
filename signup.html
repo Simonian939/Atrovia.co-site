@@ -531,7 +531,8 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
 
 <script>
   const APP_URL = '';  // optional: direct redirect to the atrovia.co app after submit
-  const API_BASE = 'https://api.atrovia.co';   // Atrovia backend: register + Stripe checkout
+  // Backend según el dominio: prod (atrovia.co) → prod.atrovia.co · resto (Vercel/UAT) → api.atrovia.co
+  const API_BASE = location.hostname.endsWith('atrovia.co') ? 'https://prod.atrovia.co' : 'https://api.atrovia.co';
   const PRICE = { q:99, m:99 };                 // canonical: $99/mo per tool
   const state = { atrium:false, kova:false, cyc:'m' };  // monthly-only (backend bills monthly)
 
