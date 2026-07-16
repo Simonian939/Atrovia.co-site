@@ -1,8 +1,14 @@
   const APP_URL = '';  // optional: direct redirect to the atrovia.co app after submit
   // Backend según el dominio: prod (atrovia.co) → prod.atrovia.co · resto (Vercel/UAT) → api.atrovia.co
   const API_BASE = location.hostname.endsWith('atrovia.co') ? 'https://prod.atrovia.co' : 'https://api.atrovia.co';
-  const PRICE = { q:99, m:99 };                 // canonical: $99/mo per tool
-  const state = { atrium:false, kova:false, cyc:'m' };  // monthly-only (backend bills monthly)
+  // Backend model ($99/mo base): monthly & quarterly bill at $99/mo; yearly = 10× monthly
+  // ($990/yr = $82.50/mo, i.e. 2 months free). Charge = $99 × months-per-cycle.
+  const RATE_MO = { m:99, q:99, y:82.5 };       // per-month headline rate
+  const MULT    = { m:1, q:3, y:10 };           // months charged per cycle
+  const PERLBL  = { m:'/mo', q:'/quarter', y:'/year' };
+  const CYCLBL  = { m:'Billed monthly', q:'Billed quarterly', y:'Billed yearly · 2 months free' };
+  const INTERVAL = { m:'monthly', q:'quarterly', y:'yearly' };  // → backend billingInterval
+  const state = { atrium:false, kova:false, cyc:'q' };  // default: quarterly
 
   const nav=document.getElementById('nav');
   const onScroll=()=>nav.classList.toggle('scrolled',scrollY>20);
@@ -10,12 +16,14 @@
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  function each(){ return PRICE[state.cyc]; }        // monthly rate
+  const fmt = v => Number.isInteger(v) ? String(v) : v.toFixed(2);   // 82.5 → "82.50"
+  function each(){ return fmt(RATE_MO[state.cyc]); }  // per-month headline ("99" / "82.50")
   function count(){ return (state.atrium?1:0)+(state.kova?1:0); }
-  function totalCharge(){ return state.cyc==='q' ? count()*PRICE.q*3 : count()*PRICE.m; }
-  function perUnit(){ return state.cyc==='q' ? '/quarter' : '/mo'; }
-  function lineVal(){ return state.cyc==='q' ? '$'+(PRICE.q*3) : '$'+PRICE.m+'/mo'; }
-  function cycLabel(){ return state.cyc==='q' ? 'Billed quarterly' : 'Billed monthly'; }
+  function chargeEach(){ return 99 * MULT[state.cyc]; }          // charged per product per cycle
+  function totalCharge(){ return count()*chargeEach(); }         // total charged now
+  function perUnit(){ return PERLBL[state.cyc]; }
+  function lineVal(){ return '$'+chargeEach()+PERLBL[state.cyc]; }
+  function cycLabel(){ return CYCLBL[state.cyc]; }
 
   function toggle(which){ state[which]=!state[which]; render(); }
   document.querySelectorAll('.selbtn[data-toggle]').forEach(b=>b.addEventListener('click',()=>toggle(b.dataset.toggle)));
@@ -31,9 +39,6 @@
     b.classList.add('on'); state.cyc=b.dataset.cyc; render();
   }));
 
-  // Monthly-only billing (backend creates monthly subscriptions) — hide the cycle chooser.
-  const cycEl=document.getElementById('cycle'); if(cycEl) cycEl.style.display='none';
-
   function render(){
     // prices on cards (headline monthly rate)
     document.querySelectorAll('[data-price]').forEach(e=>e.textContent=each());
@@ -48,17 +53,20 @@
     const bar=document.getElementById('bar');
     bar.classList.toggle('show',items.length>0);
     document.getElementById('sel-list').innerHTML=items.map(k=>
-      '<span class="chipb '+k+'">'+(k==='atrium'?'Atrium':'Kova')+' · $'+each()+'/mo</span>').join('');
+      '<span class="chipb '+k+'">'+(k==='atrium'?'Marketing (Atrium)':'CRM (Kova)')+' · $'+each()+'/mo</span>').join('');
     document.getElementById('bar-amt').textContent=total;
     document.getElementById('bar-per').textContent=perUnit();
     // order summary
     document.getElementById('sum-rows').innerHTML=items.map(k=>
-      '<div class="sum-row"><span class="nm"><span class="dot '+(k==='atrium'?'a':'k')+'"></span>'+(k==='atrium'?'Atrium — Marketing & Growth':'Kova — CRM & Sales')+'</span><span class="v">'+lineVal()+'</span></div>').join('');
+      '<div class="sum-row"><span class="nm"><span class="dot '+(k==='atrium'?'a':'k')+'"></span>'+(k==='atrium'?'Marketing (Atrium)':'CRM &amp; Sales (Kova)')+'</span><span class="v">'+lineVal()+'</span></div>').join('');
     document.getElementById('sum-amt').textContent=total;
     document.getElementById('sum-per').textContent=perUnit();
-    document.getElementById('sum-cyc').textContent = state.cyc==='q'
-      ? '$'+PRICE.q+'/mo per tool, billed quarterly (3 months) · $'+PRICE.m+'/mo if monthly'
-      : '$'+PRICE.m+'/mo per tool, billed monthly';
+    const SUMCYC = {
+      m:'$99/mo per tool, billed monthly',
+      q:'$99/mo per tool, billed quarterly ($297 every 3 months)',
+      y:'$82.50/mo per tool, billed yearly ($990/year) — 2 months free'
+    };
+    document.getElementById('sum-cyc').textContent = SUMCYC[state.cyc];
   }
 
   document.getElementById('continue').addEventListener('click',()=>{
@@ -113,10 +121,10 @@
         btn.disabled=false; btn.textContent=orig; return;
       }
 
-      // 2) Start Stripe Checkout (7-day trial, monthly) and redirect to pay
+      // 2) Start Stripe Checkout (7-day trial) at the chosen interval and redirect to pay
       const coRes = await fetch(API_BASE + '/api/checkout-session', {
         method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ planTier, email: em, companyName: company, userData: {} })
+        body: JSON.stringify({ planTier, email: em, companyName: company, userData: {}, billingInterval: INTERVAL[state.cyc] })
       });
       const co = await coRes.json();
       if(coRes.ok && co.url){ window.location.href = co.url; return; }  // -> Stripe hosted checkout
