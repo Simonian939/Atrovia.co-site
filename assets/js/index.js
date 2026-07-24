@@ -67,10 +67,10 @@
     document.getElementById('surveyHint').classList.remove('show');
     const mAvg=mN?mS/mN:0;
     let rec,title,why,tool;
-    if(mAvg>=8.5 && mN>=4){ rec='kova'; title='Start with Kova'; tool='Kova';
-      why='Your marketing is already dialed in. The fastest win now is organizing your customers and turning follow-up into repeat business — that\'s Kova.'; }
-    else { rec='atrium'; title='Start with Atrium'; tool='Atrium';
-      why='Most of your growth right now is in marketing. Start with Atrium to build your brand, your plan, and a steady flow of new customers — then add Kova to keep them.'; }
+    if(mAvg>=8.5 && mN>=4){ rec='kova'; title='Start with CRM &amp; Sales'; tool='CRM &amp; Sales';
+      why='Your marketing is already dialed in. The fastest win now is organizing your customers and turning follow-up into repeat business — that\'s CRM &amp; Sales.'; }
+    else { rec='atrium'; title='Start with Marketing'; tool='Marketing';
+      why='Most of your growth right now is in marketing. Start with Marketing to build your brand, your plan, and a steady flow of new customers — then add CRM &amp; Sales to keep them.'; }
     const r=document.getElementById('surveyResult');
     r.innerHTML='<div class="result-card '+rec+'"><div class="rl">Your business score today</div><div class="score">'+total+'<span>/100</span></div><div class="scoremeter"><div class="fill" id="scoreFill"></div></div><div class="scorelabels"><span>Today: '+total+'</span><span class="goalend">30-day goal: 100</span></div><p class="goaltxt">In your first 30 days, our goal is to close that gap and get you to <b>100 — fully dialed in.</b></p><div class="rdiv"></div><div class="rl">Where to start</div><div class="rt">'+title+'</div><p>'+why+'</p><div class="cta-row"><a class="btn btn-primary btn-lg" href="#" data-cta="signup">Start '+tool+' free — 7-day trial</a><a class="btn btn-outline btn-lg" href="#" data-cta="demo">Explore our demo video</a></div></div>';
     r.classList.add('show'); wireCTA(); requestAnimationFrame(()=>{const f=document.getElementById('scoreFill'); if(f) f.style.width=total+'%';}); r.scrollIntoView({behavior:'smooth',block:'center'});

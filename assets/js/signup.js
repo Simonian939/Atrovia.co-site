@@ -53,12 +53,12 @@
     const bar=document.getElementById('bar');
     bar.classList.toggle('show',items.length>0);
     document.getElementById('sel-list').innerHTML=items.map(k=>
-      '<span class="chipb '+k+'">'+(k==='atrium'?'Marketing (Atrium)':'CRM (Kova)')+' · $'+each()+'/mo</span>').join('');
+      '<span class="chipb '+k+'">'+(k==='atrium'?'Marketing':'CRM')+' · $'+each()+'/mo</span>').join('');
     document.getElementById('bar-amt').textContent=total;
     document.getElementById('bar-per').textContent=perUnit();
     // order summary
     document.getElementById('sum-rows').innerHTML=items.map(k=>
-      '<div class="sum-row"><span class="nm"><span class="dot '+(k==='atrium'?'a':'k')+'"></span>'+(k==='atrium'?'Marketing (Atrium)':'CRM &amp; Sales (Kova)')+'</span><span class="v">'+lineVal()+'</span></div>').join('');
+      '<div class="sum-row"><span class="nm"><span class="dot '+(k==='atrium'?'a':'k')+'"></span>'+(k==='atrium'?'Marketing':'CRM &amp; Sales')+'</span><span class="v">'+lineVal()+'</span></div>').join('');
     document.getElementById('sum-amt').textContent=total;
     document.getElementById('sum-per').textContent=perUnit();
     const SUMCYC = {
@@ -89,7 +89,7 @@
     const company = val('company_name');
 
     // Plan selection -> backend planTier
-    if(!state.atrium && !state.kova){ toast('Please choose Atrium, Kova, or both above first.','error'); return; }
+    if(!state.atrium && !state.kova){ toast('Please choose Marketing, CRM & Sales, or both above first.','error'); return; }
     const planTier = (state.atrium && state.kova) ? 'combo' : (state.atrium ? 'atrium' : 'kova');
 
     if(!emailOk(em)){ bad('em','Please enter a valid email address.'); return; }

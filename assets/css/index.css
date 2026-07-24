@@ -1381,7 +1381,7 @@ footer {
   }
 }
 
-/* ===== COMBINED PROGRAMS BAND (Kova + Atrium = Atrovia) ===== */
+/* ===== COMBINED PROGRAMS BAND (CRM &amp; Sales + Marketing = Atrovia) ===== */
 .combo {
   padding: 70px 0
 }
@@ -1442,8 +1442,7 @@ footer {
   width: 62px;
   height: 62px;
   object-fit: contain;
-  flex-shrink: 0;
-  mix-blend-mode: screen
+  flex-shrink: 0
 }
 
 .logo-mark .wm {
@@ -2217,28 +2216,14 @@ html[data-theme="light"] .plan .logo {
   padding: 4px
 }
 
-/* combined-band logo pills stay dark showcase tiles in light mode, with light Atrium/Kova text */
+/* Las píldoras ya no llevan logos neón sobre negro sino iconos SVG con gradiente:
+   en claro pasan a ser tarjetas claras normales. Antes se forzaban a teja oscura
+   para que el PNG neón no se lavara — eso era parte del manchón oscuro del modo claro. */
 html[data-theme="light"] .logo-mark:not(.result),
 html[data-theme="light"] .pillbrand,
 html[data-theme="light"] .lm:not(.result) {
-  background: #0B193D;
-  border-color: rgba(255, 255, 255, .14)
-}
-
-html[data-theme="light"] .logo-mark.atrium .wm,
-html[data-theme="light"] .lm.atrium .wm,
-html[data-theme="light"] .pillbrand.atrium .nm {
-  color: #B49BFF
-}
-
-html[data-theme="light"] .logo-mark.kova .wm,
-html[data-theme="light"] .lm.kova .wm,
-html[data-theme="light"] .pillbrand.kova .nm {
-  color: #6DF5E2
-}
-
-html[data-theme="light"] .logo-mark .wm small {
-  color: #b0b6d6
+  background: var(--surface);
+  border-color: var(--line)
 }
 
 html[data-theme="light"] .btn-outline {
@@ -2589,4 +2574,55 @@ html[data-theme="light"] .quote {
 
 html[data-theme="light"] .band-tint {
   background: linear-gradient(180deg, rgba(124, 58, 237, .07), rgba(14, 158, 138, .035))
+}
+/* ================= MODO CLARO: sin neblina =================
+   Los orbes desenfocados, los tintes del fondo y los halos neón están pensados para
+   fondo oscuro; sobre claro se leen como una sombra sucia detrás de todo (y "se mueve"
+   al hacer scroll porque los orbes son fixed + animados). En claro se apagan.
+   El modo oscuro queda EXACTAMENTE igual. */
+html[data-theme="light"] .orb {
+  display: none
+}
+
+html[data-theme="light"] body {
+  background: var(--bg)
+}
+
+html[data-theme="light"] .stars,
+html[data-theme="light"] .sparks,
+html[data-theme="light"] .hero-sparks {
+  display: none
+}
+
+/* el botón primario es morado y su glow era verde agua: en claro, sombra sobria del mismo tono */
+html[data-theme="light"] .btn-primary {
+  box-shadow: 0 8px 20px rgba(84, 52, 140, .22)
+}
+
+html[data-theme="light"] .btn-primary:hover {
+  box-shadow: 0 12px 28px rgba(84, 52, 140, .30)
+}
+
+html[data-theme="light"] .btn-outline:hover {
+  box-shadow: none
+}
+
+html[data-theme="light"] .band-tint {
+  background: none
+}
+
+/* ---- LOGO DEL HERO ----
+   El PNG es una placa oscura opaca con la A en neón, y encima lleva un mask radial que
+   difumina sus bordes: sobre fondo oscuro funde, sobre claro se ven los bordes y los
+   contornos de la A se leen como agujeros que traspasan. En claro le ponemos una placa
+   oscura difuminada detrás, así el degradado del mask cae sobre oscuro y no sobre papel. */
+html[data-theme="light"] .hero-visual::before {
+  content: "";
+  position: absolute;
+  width: min(520px, 96%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, #0d1330 0%, #0d1330 54%, rgba(13, 19, 48, .55) 72%, rgba(13, 19, 48, 0) 84%);
+  z-index: 1;
+  pointer-events: none
 }

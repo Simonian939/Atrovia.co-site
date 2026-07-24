@@ -74,7 +74,7 @@ section{position:relative;z-index:2}
 .ceo-badge .ci svg{width:15px;height:15px;stroke:var(--green-bright);fill:none;stroke-width:2.4}
 .ceo-badge b{color:var(--text-strong)}
 .plan .phead{display:flex;align-items:center;gap:16px;margin-bottom:6px}
-.plan .logo{width:60px;height:60px;object-fit:contain;mix-blend-mode:screen;flex-shrink:0}
+.plan .logo{width:60px;height:60px;object-fit:contain;flex-shrink:0}
 .plan .pname{font-family:'Montserrat';font-weight:900;font-size:28px;line-height:1}
 .plan.atrium .pname{color:var(--purple-bright)}.plan.kova .pname{color:var(--green-bright)}
 .plan .ptag{color:var(--dim);font-size:13px;font-family:'Montserrat';font-weight:700;letter-spacing:.02em;margin-top:4px}
@@ -214,17 +214,9 @@ html[data-theme="light"]{
 }
 html{transition:background .3s}
 body{transition:background .3s,color .3s}
-html[data-theme="light"] .orb{opacity:.2}
 html[data-theme="light"] .nav.scrolled{box-shadow:0 2px 22px rgba(80,50,140,.09)}
 /* logos are neon-on-black jpgs: show as small dark badges in light mode (screen-blend would wash out) */
 html[data-theme="light"] .plan .logo{mix-blend-mode:normal;background:#0B0B16;border-radius:10px;padding:4px}
-/* combined-band logo pills stay dark showcase tiles in light mode, with light Atrium/Kova text */
-html[data-theme="light"] .logo-mark:not(.result),
-html[data-theme="light"] .pillbrand,
-html[data-theme="light"] .lm:not(.result){background:#0B193D;border-color:rgba(255,255,255,.14)}
-html[data-theme="light"] .logo-mark.atrium .wm,html[data-theme="light"] .lm.atrium .wm,html[data-theme="light"] .pillbrand.atrium .nm{color:#B49BFF}
-html[data-theme="light"] .logo-mark.kova .wm,html[data-theme="light"] .lm.kova .wm,html[data-theme="light"] .pillbrand.kova .nm{color:#6DF5E2}
-html[data-theme="light"] .logo-mark .wm small{color:#b0b6d6}
 html[data-theme="light"] .btn-outline{border-color:var(--line)}
 html[data-theme="light"] .stars,html[data-theme="light"] .sparks{opacity:.35}
 /* keep the dark-image final CTA readable in light mode */
@@ -323,3 +315,29 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
 
 /* invalid field highlight */
 .field input.invalid,.field select.invalid{border-color:var(--coral)}
+
+
+/* ================= MODO CLARO: sin neblina =================
+   Orbes desenfocados, tintes del fondo y halos neón son para fondo oscuro; sobre claro
+   se leen como una sombra sucia detrás de todo. En claro se apagan. Oscuro no cambia. */
+html[data-theme="light"] .orb{display:none}
+html[data-theme="light"] body{background:var(--bg)}
+html[data-theme="light"] .stars,
+html[data-theme="light"] .sparks,
+html[data-theme="light"] .hero-sparks{display:none}
+html[data-theme="light"] .btn-primary{box-shadow:0 8px 20px rgba(84,52,140,.22)}
+html[data-theme="light"] .btn-primary:hover{box-shadow:0 12px 28px rgba(84,52,140,.30)}
+html[data-theme="light"] .btn-outline:hover{box-shadow:none}
+html[data-theme="light"] .band-tint{background:none}
+/* píldoras de programa: ahora llevan iconos SVG con gradiente, así que en claro son
+   tarjetas claras normales (antes se forzaban a teja oscura por los PNG neón). */
+html[data-theme="light"] .logo-mark:not(.result),
+html[data-theme="light"] .pillbrand,
+html[data-theme="light"] .lm:not(.result){background:var(--surface);border-color:var(--line)}
+html[data-theme="light"] .logo-mark.atrium .wm,
+html[data-theme="light"] .lm.atrium .wm,
+html[data-theme="light"] .pillbrand.atrium .nm{color:var(--purple-bright)}
+html[data-theme="light"] .logo-mark.kova .wm,
+html[data-theme="light"] .lm.kova .wm,
+html[data-theme="light"] .pillbrand.kova .nm{color:var(--green-bright)}
+html[data-theme="light"] .logo-mark .wm small{color:var(--dim)}
