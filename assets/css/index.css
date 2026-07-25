@@ -335,8 +335,10 @@ h2 {
 .hero-logo {
   width: min(420px, 82%);
   z-index: 2;
-  -webkit-mask-image: radial-gradient(120% 120% at 50% 44%, #000 60%, transparent 86%);
-  mask-image: radial-gradient(120% 120% at 50% 44%, #000 60%, transparent 86%);
+  /* Sin mask: el logo nuevo es un PNG con fondo TRANSPARENTE, así que se apoya
+     solo sobre cualquier fondo. El mask radial existía porque el anterior era una
+     placa oscura opaca y había que difuminarle los bordes — sobre este recortaría
+     las puntas de la A. */
   animation: floaty 6s ease-in-out infinite
 }
 
@@ -2612,17 +2614,6 @@ html[data-theme="light"] .band-tint {
 }
 
 /* ---- LOGO DEL HERO ----
-   El PNG es una placa oscura opaca con la A en neón, y encima lleva un mask radial que
-   difumina sus bordes: sobre fondo oscuro funde, sobre claro se ven los bordes y los
-   contornos de la A se leen como agujeros que traspasan. En claro le ponemos una placa
-   oscura difuminada detrás, así el degradado del mask cae sobre oscuro y no sobre papel. */
-html[data-theme="light"] .hero-visual::before {
-  content: "";
-  position: absolute;
-  width: min(520px, 96%);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 46%, #0d1330 0%, #0d1330 54%, rgba(13, 19, 48, .55) 72%, rgba(13, 19, 48, 0) 84%);
-  z-index: 1;
-  pointer-events: none
-}
+   El logo nuevo es transparente, así que ya no necesita la placa oscura que había
+   que ponerle detrás en modo claro (el anterior era un PNG opaco con mask radial:
+   sobre papel se le veían los bordes y los contornos de la A como agujeros). */
