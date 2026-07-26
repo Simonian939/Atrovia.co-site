@@ -255,6 +255,15 @@ html[data-theme="light"] .final{--text:#F1F3FF;--soft:#D7DCF0;--dim:#AEB4CE;--te
 @media (max-width:600px){ .survey-grid{grid-template-columns:1fr 1fr;gap:10px} .scard{padding:13px} }
 /* signup form rows stack on phone */
 @media (max-width:600px){ .field.row2,.field.row3{grid-template-columns:1fr} }
+/* El toggle mensual/anual es inline-flex sin wrap: su ancho intrínseco es 419px, así
+   que en un teléfono de 390px empujaba 29px fuera y dejaba scroll horizontal en la
+   página de cobro. Con padding/tipografía más compactos entra en una fila a 390px, y
+   por debajo de eso baja a dos filas en vez de desbordar. Solo layout: no toca el
+   data-attribute ni el handler del toggle. */
+@media (max-width:600px){
+  .cycle{max-width:100%;flex-wrap:wrap;justify-content:center}
+  .cycle button{padding:10px 13px;font-size:13px;gap:6px}
+}
 /* mobile nav: collapse links into a dropdown, move the button inside it */
 @media (max-width:820px){
   .nav .row{position:relative}

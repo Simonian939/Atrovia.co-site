@@ -173,6 +173,15 @@ html[data-theme="light"] .final{--text:#F1F3FF;--soft:#D7DCF0;--dim:#AEB4CE;--te
 /* responsive type: larger on desktop, smaller on phone */
 @media (min-width:1280px){ body{font-size:16.5px} }
 @media (max-width:600px){ body{font-size:15px} .lead{font-size:16px} }
+/* Mismo caso que en index.css: los tracks `1fr 1fr` del footer no bajan de su
+   min-content, así que en pantallas muy angostas (320px, iPhone SE) el footer se
+   salía 35px y dejaba scroll horizontal. A una columna cabe. */
+@media (max-width:560px){ .foot-top{grid-template-columns:1fr} }
+/* Privacy/Terms escriben URLs completas como texto del enlace (p.ej.
+   https://myaccount.google.com/permissions). Sin punto de corte, una sola palabra de
+   40 caracteres desbordaba la página en teléfonos angostos. Acotado a .legal para no
+   afectar el nav ni el footer, donde los enlaces son cortos y no deben partirse. */
+.legal a, .legal code { overflow-wrap: anywhere }
 
 /* theme chooser popup */
 .theme-pop{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(6,6,14,.72);backdrop-filter:blur(8px)}

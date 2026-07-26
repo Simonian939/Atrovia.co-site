@@ -1,5 +1,5 @@
   const CTA = { signup:'signup.html' };  // signup CTAs go to the plan/sign-up page
-  const DEMO_VIDEO_URL = '';             // <-- put your demo video URL here (YouTube/Vimeo embed or .mp4)
+  const DEMO_VIDEO_URL = 'videos/atrovia-demo.mp4';  // demo: se reproduce en el modal y en la sección #demo
 
   const nav=document.getElementById('nav');
   const onScroll=()=>nav.classList.toggle('scrolled',scrollY>20);
@@ -38,13 +38,24 @@
     if(DEMO_VIDEO_URL){
       const isFile=/\.(mp4|webm|ogg)(\?|$)/i.test(DEMO_VIDEO_URL);
       vframe.innerHTML = isFile
-        ? '<video controls autoplay style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="'+DEMO_VIDEO_URL+'"></video>'
+        ? '<video controls autoplay playsinline poster="videos/atrovia-demo-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;background:#000"><source src="'+DEMO_VIDEO_URL+'"></video>'
         : '<iframe src="'+DEMO_VIDEO_URL+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
     }
     vmodal.classList.add('open');
   }
   function closeDemo(){ vmodal.classList.remove('open'); const f=vframe.querySelector('iframe,video'); if(f){ if(f.tagName==='VIDEO'){f.pause();} else {const s=f.src;f.src=s;} } }
   document.getElementById('vclose').addEventListener('click',closeDemo);
+
+  // ---- Demo inline (sección #demo): un clic pasa de póster a video con controles ----
+  // preload="none" en el HTML: el mp4 de 8.8 MB NO se descarga hasta que alguien
+  // hace clic. Solo pesa el póster (61 KB) en la carga inicial de la página.
+  const demoFrame=document.getElementById('demoFrame');
+  if(demoFrame){ demoFrame.addEventListener('click',()=>{
+    const v=document.getElementById('demoVideo');
+    if(!v) return;
+    demoFrame.classList.add('playing'); v.controls=true; v.play();
+  }); }
+
   vmodal.addEventListener('click',e=>{ if(e.target===vmodal) closeDemo(); });
   addEventListener('keydown',e=>{ if(e.key==='Escape') closeDemo(); });
 
