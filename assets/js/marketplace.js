@@ -37,7 +37,7 @@
       document.querySelectorAll('[data-addon]').forEach(function(btn){
         if(owned[btn.getAttribute('data-addon')]){
           var foot=btn.parentNode; btn.parentNode.removeChild(btn);
-          var s=document.createElement('span'); s.className='ad-owned'; s.textContent='Active'; foot.appendChild(s);
+          var s=document.createElement('span'); s.className='it-owned'; s.textContent='Active'; foot.appendChild(s);
         }
       });
     }).catch(function(){});
