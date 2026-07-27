@@ -1,0 +1,96 @@
+/* Atrovia Marketplace — builds on index.css tokens (theme-aware) */
+.nav .links a.active{color:var(--text);position:relative}
+.nav .links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--purple-bright),var(--green-bright))}
+
+.mk-hero{padding:150px 0 30px}
+.mk-hero h2{margin-top:6px}
+.mk-hero .g{background:linear-gradient(90deg,var(--purple-bright),var(--green-bright));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* wallet strip */
+.wallet{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:30px;padding:20px 24px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.wal-main{display:flex;flex-direction:column}
+.wal-big{font-family:'Montserrat';font-weight:900;font-size:38px;line-height:1;background:linear-gradient(90deg,var(--purple-bright),var(--green-bright));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-variant-numeric:tabular-nums}
+.wal-lbl{color:var(--dim);font-size:13px;margin-top:4px}
+.wal-split{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.wal-n{font-family:'Montserrat';font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
+.wal-l{color:var(--dim);font-size:12px}
+.tierpill{display:inline-block;font-family:'Montserrat';font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:6px 13px;border-radius:999px;border:1px solid var(--line);color:var(--purple-bright);background:rgba(139,92,246,.12)}
+#signOut{margin-left:auto}
+
+.signin-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:26px;color:var(--dim)}
+.si-note{font-size:14px}
+
+/* section scaffolding */
+.mk-sec{padding:56px 0}
+.mk-sec.alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:26px}
+.sec-head h3{font-family:'Montserrat';font-weight:800;font-size:clamp(22px,3vw,30px);letter-spacing:-.4px}
+.sec-head .sub2{margin-top:10px}
+
+/* plans */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{position:relative;border:1px solid var(--line);border-radius:18px;padding:26px 24px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.plan.featured{border-color:transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(135deg,var(--purple-bright),var(--green-bright)) border-box;border:1.5px solid transparent}
+.plan-badge{position:absolute;top:-11px;left:24px;font-family:'Montserrat';font-weight:800;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:linear-gradient(90deg,var(--purple-bright),var(--green-bright));padding:4px 11px;border-radius:999px}
+.plan-name{font-family:'Montserrat';font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.plan-price{font-family:'Montserrat';font-weight:900;font-size:42px;line-height:1}
+.plan-price span{font-size:16px;font-weight:700;color:var(--dim)}
+.plan-tag{color:var(--soft);font-size:14px;min-height:20px}
+.plan-list{list-style:none;margin:12px 0 18px;display:flex;flex-direction:column;gap:9px}
+.plan-list li{position:relative;padding-left:24px;font-size:14.5px;color:var(--soft)}
+.plan-list li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:7px;border-left:2px solid var(--green-bright);border-bottom:2px solid var(--green-bright);transform:rotate(-45deg)}
+.plan-list li.muted{color:var(--dim)}
+.plan-list li b{color:var(--text);font-weight:700}
+.plan .btn-block{margin-top:auto}
+
+/* packs */
+.pack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pack{position:relative;border:1px solid var(--line);border-radius:18px;padding:24px 22px;background:var(--bg);text-align:center;display:flex;flex-direction:column;gap:4px;transition:transform .18s,border-color .18s}
+.mk-sec.alt .pack{background:var(--bg)}
+.pack:hover{transform:translateY(-3px);border-color:var(--purple-bright)}
+.pack.best{border-color:transparent;background:linear-gradient(var(--bg),var(--bg)) padding-box,linear-gradient(135deg,var(--purple-bright),var(--green-bright)) border-box;border:1.5px solid transparent}
+.pk-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-family:'Montserrat';font-weight:800;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:linear-gradient(90deg,var(--purple-bright),var(--green-bright));padding:4px 11px;border-radius:999px;white-space:nowrap}
+.pk-tk{font-family:'Montserrat';font-weight:900;font-size:32px;line-height:1;font-variant-numeric:tabular-nums}
+.pk-u{color:var(--dim);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.pk-pr{font-family:'Montserrat';font-weight:800;font-size:22px;color:var(--green-bright)}
+.pk-per{color:var(--dim);font-size:12px;margin-bottom:14px}
+
+/* app store */
+.cat{font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:30px 0 14px}
+.cat-note{font-weight:500;letter-spacing:normal;text-transform:none;color:var(--dim);font-family:'Sora'}
+.addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.addon{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.ad-top{display:flex;align-items:center;gap:9px}
+.ad-name{font-family:'Montserrat';font-weight:800;font-size:16px}
+.ad-badge{font-family:'Montserrat';font-weight:800;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(139,92,246,.16);color:var(--purple-bright)}
+.ad-badge.free{background:rgba(52,224,200,.15);color:var(--green-bright)}
+.ad-tag{color:var(--soft);font-size:13.5px;min-height:38px;line-height:1.5}
+.ad-foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.ad-price{font-family:'Montserrat';font-weight:800;font-size:16px}
+.ad-price small{color:var(--dim);font-weight:600;font-size:12px}
+.ad-owned{font-family:'Montserrat';font-weight:800;font-size:12px;color:var(--green-bright)}
+
+/* button size helpers (index.css .btn is large) */
+.btn-sm{padding:11px 18px;font-size:14px;border-radius:11px}
+.btn-xs{padding:9px 16px;font-size:13px;border-radius:10px}
+.btn-block{display:flex;width:100%}
+.btn[disabled]{opacity:.55;cursor:default;transform:none;box-shadow:none}
+
+/* sign-in modal */
+.si-modal{position:fixed;inset:0;background:rgba(6,6,14,.72);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:120;padding:20px}
+.si-modal.show{display:flex}
+.si-card{position:relative;width:100%;max-width:420px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px 28px}
+.si-x{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--dim);font-size:26px;line-height:1;cursor:pointer}
+.si-form{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.si-form input{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--text);font-family:'Sora';font-size:15px}
+.si-form input:focus{outline:none;border-color:var(--purple-bright)}
+.si-err{background:rgba(255,122,138,.12);border:1px solid var(--coral);color:var(--coral);border-radius:10px;padding:10px 13px;font-size:13.5px}
+.si-alt{margin-top:16px;color:var(--dim);font-size:14px;text-align:center}
+.si-alt a{color:var(--purple-bright);font-weight:600}
+
+/* toast */
+.mk-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(140%);background:var(--surface2);border:1px solid var(--line);color:var(--text);padding:14px 20px;border-radius:14px;font-size:14.5px;box-shadow:0 18px 50px rgba(0,0,0,.5);transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:130;max-width:90vw}
+.mk-toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:900px){.plan-grid{grid-template-columns:1fr}.pack-grid{grid-template-columns:repeat(2,1fr)}.addon-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pack-grid,.addon-grid{grid-template-columns:1fr}.wallet{gap:16px}#signOut{margin-left:0}}
