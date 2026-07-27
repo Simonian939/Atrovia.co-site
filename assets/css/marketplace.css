@@ -1,4 +1,8 @@
 /* Atrovia Marketplace — builds on index.css tokens (theme-aware) */
+/* The wallet/sign-in rows toggle via the `hidden` attribute, but the author
+   `display:flex` below outranks the UA sheet's [hidden]{display:none}. Without
+   this, hidden is a no-op and both rows show at once. */
+[hidden]{display:none!important}
 .nav .links a.active{color:var(--text);position:relative}
 .nav .links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--purple-bright),var(--green-bright))}
 
