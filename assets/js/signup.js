@@ -1,14 +1,21 @@
   const APP_URL = '';  // optional: direct redirect to the atrovia.co app after submit
   // Backend según el dominio: prod (atrovia.co) → prod.atrovia.co · resto (Vercel/UAT) → api.atrovia.co
   const API_BASE = location.hostname.endsWith('atrovia.co') ? 'https://prod.atrovia.co' : 'https://api.atrovia.co';
-  // Backend model ($99/mo base): monthly & quarterly bill at $99/mo; yearly = 10× monthly
-  // ($990/yr = $82.50/mo, i.e. 2 months free). Charge = $99 × months-per-cycle.
-  const RATE_MO = { m:99, q:99, y:82.5 };       // per-month headline rate
-  const MULT    = { m:1, q:3, y:10 };           // months charged per cycle
-  const PERLBL  = { m:'/mo', q:'/quarter', y:'/year' };
-  const CYCLBL  = { m:'Billed monthly', q:'Billed quarterly', y:'Billed yearly · 2 months free' };
-  const INTERVAL = { m:'monthly', q:'quarterly', y:'yearly' };  // → backend billingInterval
-  const state = { atrium:false, kova:false, cyc:'q' };  // default: quarterly
+  // ── PRECIOS (2026-07-27) ──────────────────────────────────────────────────────
+  // La tarifa mensual depende del ciclo: mientras más largo el compromiso, más barato
+  // el mes. Esto DEBE coincidir con RATE_MO en el backend
+  // (atrovia-backend/src/modules/billing/billing.service.ts), que es quien realmente
+  // le cobra a Stripe. Si los dos se separan, la web anuncia un precio y Stripe cobra
+  // otro.  mensual $140 · trimestral $120 · anual $99 (por producto, por mes).
+  // Las claves son m/q/a (a = annual) para calzar con los data-cyc del HTML de Austin.
+  const RATE_MO = { m:140, q:120, a:99 };       // tarifa mensual según ciclo
+  const MULT    = { m:1, q:3, a:12 };           // meses cobrados por ciclo
+  const PERLBL  = { m:'/mo', q:'/quarter', a:'/year' };
+  const CYCLBL  = { m:'Billed monthly', q:'Billed quarterly', a:'Billed annually' };
+  // OJO: la clave 'a' debe mapear a 'yearly', que es lo que el backend entiende en
+  // billingInterval. Si esto se desalinea, el backend cae a monthly y cobra de más.
+  const INTERVAL = { m:'monthly', q:'quarterly', a:'yearly' };
+  const state = { atrium:false, kova:false, cyc:'a' };  // default: anual, como en el archivo de Austin
 
   const nav=document.getElementById('nav');
   const onScroll=()=>nav.classList.toggle('scrolled',scrollY>20);
@@ -16,13 +23,16 @@
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  const fmt = v => Number.isInteger(v) ? String(v) : v.toFixed(2);   // 82.5 → "82.50"
-  function each(){ return fmt(RATE_MO[state.cyc]); }  // per-month headline ("99" / "82.50")
+  const fmt = v => Number.isInteger(v) ? String(v) : v.toFixed(2);   // 99.5 → "99.50"
+  function each(){ return fmt(RATE_MO[state.cyc]); }  // tarifa mensual del ciclo ("140"/"120"/"99")
   function count(){ return (state.atrium?1:0)+(state.kova?1:0); }
-  function chargeEach(){ return 99 * MULT[state.cyc]; }          // charged per product per cycle
+  // Cobro por producto por ciclo = tarifa del ciclo × meses del ciclo. Antes estaba
+  // el 99 escrito a mano, que ya no aplica ahora que cada ciclo tiene su tarifa.
+  function chargeEach(){ return RATE_MO[state.cyc] * MULT[state.cyc]; }
   function totalCharge(){ return count()*chargeEach(); }         // total charged now
   function perUnit(){ return PERLBL[state.cyc]; }
-  function lineVal(){ return '$'+chargeEach()+PERLBL[state.cyc]; }
+  // Mensual muestra "$140/mo"; los demás el total del ciclo sin sufijo ("$360", "$1188").
+  function lineVal(){ return state.cyc==='m' ? '$'+RATE_MO.m+'/mo' : '$'+chargeEach(); }
   function cycLabel(){ return CYCLBL[state.cyc]; }
 
   function toggle(which){ state[which]=!state[which]; render(); }
@@ -53,20 +63,19 @@
     const bar=document.getElementById('bar');
     bar.classList.toggle('show',items.length>0);
     document.getElementById('sel-list').innerHTML=items.map(k=>
-      '<span class="chipb '+k+'">'+(k==='atrium'?'Marketing':'CRM')+' · $'+each()+'/mo</span>').join('');
+      '<span class="chipb '+k+'">'+(k==='atrium'?'Marketing':'CRM &amp; Sales')+' · $'+each()+'/mo</span>').join('');
     document.getElementById('bar-amt').textContent=total;
     document.getElementById('bar-per').textContent=perUnit();
     // order summary
     document.getElementById('sum-rows').innerHTML=items.map(k=>
-      '<div class="sum-row"><span class="nm"><span class="dot '+(k==='atrium'?'a':'k')+'"></span>'+(k==='atrium'?'Marketing':'CRM &amp; Sales')+'</span><span class="v">'+lineVal()+'</span></div>').join('');
+      '<div class="sum-row"><span class="nm"><span class="dot '+(k==='atrium'?'a':'k')+'"></span>'+(k==='atrium'?'Marketing — Brand &amp; Growth':'CRM &amp; Sales — Customers &amp; Repeat')+'</span><span class="v">'+lineVal()+'</span></div>').join('');
     document.getElementById('sum-amt').textContent=total;
     document.getElementById('sum-per').textContent=perUnit();
-    const SUMCYC = {
-      m:'$99/mo per tool, billed monthly',
-      q:'$99/mo per tool, billed quarterly ($297 every 3 months)',
-      y:'$82.50/mo per tool, billed yearly ($990/year) — 2 months free'
-    };
-    document.getElementById('sum-cyc').textContent = SUMCYC[state.cyc];
+    // Mismo formato que el archivo de Austin: tarifa + ciclo + (meses) + la escalera completa.
+    document.getElementById('sum-cyc').textContent =
+      '$'+RATE_MO[state.cyc]+'/mo per tool, '+cycLabel().toLowerCase()
+      + (state.cyc==='m' ? '' : ' ('+MULT[state.cyc]+' months)')
+      + ' · plans: $140 mo · $120 qtr · $99 yr';
   }
 
   document.getElementById('continue').addEventListener('click',()=>{

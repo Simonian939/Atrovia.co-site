@@ -35,6 +35,9 @@
   // ---- Demo video modal ----
   const vmodal=document.getElementById('vmodal'), vframe=document.getElementById('vframe');
   function openDemo(){
+    // Pausa el demo inline antes de abrir el modal: si no, sonaban los dos a la vez.
+    // stopDemo está más abajo pero es function declaration, así que ya está definida.
+    stopDemo();
     if(DEMO_VIDEO_URL){
       const isFile=/\.(mp4|webm|ogg)(\?|$)/i.test(DEMO_VIDEO_URL);
       vframe.innerHTML = isFile
@@ -46,18 +49,93 @@
   function closeDemo(){ vmodal.classList.remove('open'); const f=vframe.querySelector('iframe,video'); if(f){ if(f.tagName==='VIDEO'){f.pause();} else {const s=f.src;f.src=s;} } }
   document.getElementById('vclose').addEventListener('click',closeDemo);
 
-  // ---- Demo inline (sección #demo): un clic pasa de póster a video con controles ----
+  // ---- Demo inline (sección #demo) ----
   // preload="none" en el HTML: el mp4 de 8.8 MB NO se descarga hasta que alguien
   // hace clic. Solo pesa el póster (61 KB) en la carga inicial de la página.
+  //
+  // El listener va en el OVERLAY (.play), no en el contenedor. Estaba en el
+  // contenedor y por eso el video "no paraba": al activar controls=true, el clic en
+  // el botón de pausa nativo burbujeaba hasta el contenedor y volvía a llamar play(),
+  // así que se repausaba y arrancaba en el mismo clic. Con el listener en el overlay
+  // (que se vuelve pointer-events:none al arrancar) los controles nativos mandan.
   const demoFrame=document.getElementById('demoFrame');
-  if(demoFrame){ demoFrame.addEventListener('click',()=>{
-    const v=document.getElementById('demoVideo');
-    if(!v) return;
-    demoFrame.classList.add('playing'); v.controls=true; v.play();
-  }); }
+  const demoVideo=document.getElementById('demoVideo');
+  const demoOverlay=demoFrame && demoFrame.querySelector('.play');
+  function startDemo(){
+    if(!demoVideo) return;
+    demoFrame.classList.add('playing');
+    demoVideo.controls=true;
+    demoVideo.play().catch(()=>{ demoFrame.classList.remove('playing'); });
+  }
+  function stopDemo(){
+    if(demoVideo && !demoVideo.paused) demoVideo.pause();
+  }
+  if(demoOverlay) demoOverlay.addEventListener('click',startDemo);
+  // Si el usuario lo pausa y lo deja al inicio, vuelve a mostrarse el botón grande.
+  if(demoVideo) demoVideo.addEventListener('pause',()=>{
+    if(demoVideo.currentTime===0) demoFrame.classList.remove('playing');
+  });
 
   vmodal.addEventListener('click',e=>{ if(e.target===vmodal) closeDemo(); });
   addEventListener('keydown',e=>{ if(e.key==='Escape') closeDemo(); });
+
+  // ---- Reproducción de los videos según visibilidad ----
+  // Los <video> de las secciones llevan `autoplay loop muted playsinline`, pero el
+  // autoplay por atributo se rechaza en varias situaciones reales de móvil: Low Power
+  // Mode en iOS, Ahorro de datos en Android, o simplemente que el video esté fuera de
+  // pantalla al cargar. Cuando se rechaza, el <video> se queda en su poster y parece
+  // una imagen fija — exactamente lo que se reportó ("work on desktop but not mobile").
+  //
+  // Por eso no dependemos del atributo: pedimos play() cuando el video entra en
+  // pantalla y lo pausamos cuando sale. De paso ahorra batería y datos, y evita que
+  // el demo siga corriendo de fondo cuando ya nadie lo está viendo.
+  const loopVideos=document.querySelectorAll('.appwin video, .vhero video');
+  if('IntersectionObserver' in window){
+    const vio=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        const v=e.target;
+        if(e.isIntersecting){
+          // iOS exige que muted esté puesto en la PROPIEDAD, no solo en el atributo,
+          // cuando play() lo dispara el script.
+          v.muted=true;
+          const p=v.play();
+          if(p && p.catch) p.catch(()=>{ v.dataset.autoplayBlocked='1'; });
+        } else {
+          v.pause();
+        }
+      });
+    },{threshold:.2});
+    loopVideos.forEach(v=>{
+      v.muted=true; v.playsInline=true;
+      vio.observe(v);
+      // Último recurso directo: tocar el video lo arranca (eso sí es gesto del usuario).
+      v.addEventListener('click',()=>{ if(v.paused) v.play().catch(()=>{}); });
+    });
+
+    // Reintento tras el PRIMER gesto del usuario en cualquier parte de la página.
+    // En iOS con Low Power Mode (y en Android con Ahorro de datos) el navegador
+    // rechaza todo play() hasta que hay una interacción real; a partir de ese momento
+    // la concede para toda la página. Sin esto, quien solo hace scroll nunca ve los
+    // videos moverse y quedan como imágenes fijas — el síntoma reportado. Con esto,
+    // el primer toque/scroll-tap reactiva los que estén en pantalla.
+    const retryBlocked=()=>{
+      loopVideos.forEach(v=>{
+        if(!v.paused || !v.dataset.autoplayBlocked) return;
+        const r=v.getBoundingClientRect();
+        if(r.top<innerHeight && r.bottom>0) v.play().then(()=>{ delete v.dataset.autoplayBlocked; },()=>{});
+      });
+    };
+    ['touchstart','pointerdown','keydown'].forEach(ev=>
+      addEventListener(ev,retryBlocked,{once:true,passive:true}));
+
+    // El demo inline se pausa solo al salir de pantalla. Es el único con audio y con
+    // 8.8 MB: dejarlo corriendo de fondo era parte del "just keeps running".
+    if(demoVideo){
+      new IntersectionObserver((es)=>{
+        es.forEach(e=>{ if(!e.isIntersecting) stopDemo(); });
+      },{threshold:0}).observe(demoVideo);
+    }
+  }
 
   // ---- Business check survey ----
   const surveyGridEl=document.getElementById('surveyGrid');
