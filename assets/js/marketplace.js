@@ -16,6 +16,15 @@
       });
     });
   }
+  // Solo para mostrar quién tiene la sesión abierta: el JWT ya trae el email, así que
+  // no guardamos una segunda copia del usuario que se pueda desincronizar del token.
+  // Esto NO es validación — de eso se encarga el backend en cada request.
+  function claims(){
+    try {
+      var p = token().split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+      return JSON.parse(atob(p + '==='.slice((p.length + 3) % 4))) || {};
+    } catch(e){ return {}; }
+  }
   function num(n){ return Number(n||0).toLocaleString('en-US'); }
   function toast(msg){ var t=document.getElementById('toast'); if(!t) return; t.textContent=msg; t.classList.add('show'); setTimeout(function(){ t.classList.remove('show'); }, 3400); }
   function el(id){ return document.getElementById(id); }
@@ -28,6 +37,7 @@
     el('walAllot').textContent=num(b.allotment_balance);
     el('walPurch').textContent=num(b.purchased_balance);
     var tier=(b.tier||'basic'); el('walTier').textContent=tier.charAt(0).toUpperCase()+tier.slice(1)+' plan';
+    var who=el('walWho'); if(who){ var em=claims().email; who.textContent = em ? 'Signed in as '+em : ''; }
     wallet.hidden=false; if(signinRow) signinRow.hidden=true;
   }
   function markOwned(){
