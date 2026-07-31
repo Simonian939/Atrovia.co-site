@@ -3,7 +3,10 @@
   onScroll(); addEventListener('scroll',onScroll,{passive:true});
   
 
-  document.getElementById('csend').addEventListener('click',()=>{
+  // The contact form is now the hosted CRM embed; this mailto fallback only
+  // binds if the old fields are still on the page.
+  const csend=document.getElementById('csend');
+  if(csend) csend.addEventListener('click',()=>{
     const name=encodeURIComponent(document.getElementById('cname').value||'');
     const email=document.getElementById('cemail').value||'';
     const msg=document.getElementById('cmsg').value||'';

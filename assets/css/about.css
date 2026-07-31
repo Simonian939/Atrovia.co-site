@@ -118,6 +118,9 @@ section{position:relative;z-index:2}
 .contact-info .ci .t{font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .contact-info .ci .v{font-size:16px;color:var(--text-strong);margin-top:2px}
 .form{background:linear-gradient(180deg,rgba(var(--c-hi),.6),rgba(var(--c-lo),.4));border:1px solid var(--line);border-radius:20px;padding:30px}
+/* Hosted CRM form (iframe). No padding — the embed brings its own card. */
+.form-embed{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#eef0f4;min-height:640px}
+.form-embed iframe{display:block;width:100%;border:0}
 .field{margin-bottom:16px}
 .field label{display:block;font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
 .field input,.field textarea{width:100%;background:var(--input);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text-strong);font-family:'Sora';font-size:15px;transition:border-color .2s}

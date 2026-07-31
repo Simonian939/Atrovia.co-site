@@ -144,12 +144,11 @@
       <div class="ci"><div class="ic"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
         <div><div class="t">Email</div><div class="v"><a title="info@atrovia.co" href="mailto:info@atrovia.co">info@atrovia.co</a></div></div></div>
     </div>
-    <div class="form">
-      <div class="field"><label for="cname">Name</label><input id="cname" type="text" placeholder="Your name"></div>
-      <div class="field"><label for="cemail">Email</label><input id="cemail" type="email" placeholder="you@company.com"></div>
-      <div class="field"><label for="cmsg">Message</label><textarea id="cmsg" placeholder="Tell us a bit about your business and what you're looking for."></textarea></div>
-      <button class="btn btn-primary" id="csend">Send message</button>
-      <p class="form-note">Opens your email app addressed to info@atrovia.co.</p>
+    <div class="form-embed">
+      <!-- KOVA form embed. Submissions land in the CRM as a contact, and the
+           "Form → Contact → Deal" automation opens a deal + follow-up task. -->
+      <script src="https://api.atrovia.co/embed/887ddf2d-0919-4ffb-aa57-3c660e763520.js"></script>
+      <noscript><p class="form-note" style="padding:24px">This form needs JavaScript. You can email us directly at <a href="mailto:info@atrovia.co">info@atrovia.co</a>.</p></noscript>
     </div>
   </div>
 </div></section>
