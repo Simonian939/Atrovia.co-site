@@ -138,7 +138,12 @@
       const co = await coRes.json();
       if(coRes.ok && co.url){ window.location.href = co.url; return; }  // -> Stripe hosted checkout
 
-      // Payment not available yet (e.g. Stripe not configured): account is created, confirm by email.
+      // Checkout could not be started. The ACCOUNT EXISTS at this point — step 1 succeeded —
+      // so the honest thing is to say that and send them to it. This used to show "Check your
+      // email to get started", which promised a verification link that nothing in the system
+      // sends: /api/auth/register mails nobody. Someone signing up sat waiting for an email
+      // that was never coming, with no way forward and no idea their account already worked.
+      console.error('[signup] checkout-session failed', coRes.status, co && co.error);
       document.getElementById('done-email').textContent = em;
       document.querySelector('.su-grid').style.display='none';
       document.getElementById('done').classList.add('show');
