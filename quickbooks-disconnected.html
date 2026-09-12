@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QuickBooks Disconnected — Atrovia</title>
+<meta name="description" content="Your QuickBooks company has been disconnected from Atrovia. Here is exactly what that means, what happens to your data, and how to reconnect.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/quickbooks-disconnected">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
+  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
+  --accent:#B57A1E; --accent-soft:#FBF3E3;
+  --qb:#2CA01C;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+    --accent:#F0B252; --accent-soft:#2A2013;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+  --accent:#F0B252; --accent-soft:#2A2013;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 96px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:40px}
+.brand .g{width:28px;height:28px;border-radius:7px;background:var(--accent);
+  display:grid;place-items:center;flex-shrink:0}
+.brand .g svg{width:16px;height:16px;stroke:var(--bg);stroke-width:2.3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.brand a{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  text-decoration:none;letter-spacing:-.02em}
+.tick{width:46px;height:46px;border-radius:50%;background:var(--qb);display:grid;
+  place-items:center;margin-bottom:18px}
+.tick svg{width:24px;height:24px;stroke:#fff;stroke-width:3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,35px);
+  letter-spacing:-.025em;margin:0 0 12px;line-height:1.18}
+h2{font-family:var(--disp);font-weight:600;font-size:18px;letter-spacing:-.02em;margin:38px 0 10px}
+p{margin:0 0 15px}
+ul{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:14px;
+  padding:26px 28px;margin:28px 0}
+.card.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.card h2{margin-top:0}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.done{list-style:none;padding:0;margin:0}
+.done li{position:relative;padding-left:28px;margin-bottom:10px;color:var(--ink-2)}
+.done li::before{content:"";position:absolute;left:2px;top:9px;width:9px;height:5px;
+  border:solid var(--qb);border-width:0 0 2.5px 2.5px;transform:rotate(-45deg)}
+.done strong{color:var(--ink)}
+.btnrow{margin:28px 0 8px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--disp);
+  font-weight:600;font-size:15.5px;padding:13px 24px;border-radius:9px;text-decoration:none;
+  border:1px solid var(--line);color:var(--ink);background:var(--surf);transition:filter .12s}
+.btn.primary{background:var(--qb);border-color:var(--qb);color:#fff}
+.btn:hover{filter:brightness(1.06)}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="brand">
+  <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
+  <a href="/">Atrovia</a>
+</div>
+
+<div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></div>
+
+<h1>QuickBooks has been disconnected</h1>
+<p class="lede">Your QuickBooks company is no longer connected to Atrovia.
+<strong>Nothing in your books was changed, and nothing was deleted.</strong></p>
+
+<div class="card">
+  <h2>What just happened</h2>
+  <ul class="done">
+    <li><strong>Access tokens revoked.</strong> Atrovia can no longer reach your QuickBooks
+      company.</li>
+    <li><strong>All scheduled syncing stopped.</strong> No further data will be retrieved.</li>
+    <li><strong>Your QuickBooks data is untouched.</strong> We only ever read it — we never posted,
+      edited or removed anything.</li>
+  </ul>
+</div>
+
+<h2>What happens to the numbers in Atrovia</h2>
+<p>The reports and history we already built <strong>stay in your account</strong> — your margins,
+costs and past periods are still there. They simply stop updating, and any figure that was measured
+from your books is now <strong>as of the date you disconnected</strong> rather than current.</p>
+<p>Some things will change while you're disconnected:</p>
+<ul>
+  <li>Cash position and profit figures will go stale and be labelled as such.</li>
+  <li>Costs and margins fall back to <strong>your own estimates</strong> where we have them.</li>
+  <li>Fin's hiring readiness signal is paused — it needs measured numbers to mean anything.</li>
+</ul>
+<p>We'd rather show you a figure marked <em>as of 12 September</em> than a confident-looking number
+that quietly stopped being true.</p>
+
+<div class="card hi">
+  <h2>Want your data deleted as well?</h2>
+  <p>Disconnecting stops the flow. It doesn't erase what we already have — some businesses
+  disconnect temporarily and want their history waiting when they come back.</p>
+  <p>If you'd like the financial data we retrieved deleted, email
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a> and we'll remove it and confirm when it's
+  done. Details in our <a href="/privacy#keep">Privacy Policy</a>.</p>
+</div>
+
+<h2>Changed your mind?</h2>
+<p>Reconnecting takes about a minute, and the history we already built stays intact.</p>
+
+<div class="btnrow">
+  <a class="btn primary" href="/connect-quickbooks">Reconnect QuickBooks</a>
+  <a class="btn" href="/app">Back to Atrovia</a>
+</div>
+
+<h2>If you didn't mean to disconnect</h2>
+<p>A disconnection can also happen when a QuickBooks admin removes the app, or when an
+authorisation expires. If this is a surprise, check with whoever administers your QuickBooks
+company — and if it still doesn't add up, email
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> and we'll look at what happened.</p>
+
+<footer class="end">
+  <p>Intuit and QuickBooks are trademarks of Intuit Inc. Atrovia is not affiliated with, endorsed by,
+  or sponsored by Intuit Inc.</p>
+  <p><a href="/">Atrovia</a> · <a href="/eula">Terms</a> · <a href="/privacy">Privacy</a> ·
+  <a href="/ai-disclosure">AI Disclosure</a> · <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+  <p>© 2026 Atrovia Corporation. San Jose, California.</p>
+</footer>
+
+</div>
+</body>
+</html>

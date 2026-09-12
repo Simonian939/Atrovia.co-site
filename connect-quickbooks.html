@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect QuickBooks — Atrovia</title>
+<meta name="description" content="Connect your QuickBooks Online company to Atrovia so your margins, costs and cash are measured from your real books.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/connect-quickbooks">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
+  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
+  --accent:#B57A1E; --accent-soft:#FBF3E3;
+  --qb:#2CA01C;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+    --accent:#F0B252; --accent-soft:#2A2013;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+  --accent:#F0B252; --accent-soft:#2A2013;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 96px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:40px}
+.brand .g{width:28px;height:28px;border-radius:7px;background:var(--accent);
+  display:grid;place-items:center;flex-shrink:0}
+.brand .g svg{width:16px;height:16px;stroke:var(--bg);stroke-width:2.3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.brand a{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  text-decoration:none;letter-spacing:-.02em}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,35px);
+  letter-spacing:-.025em;margin:0 0 12px;line-height:1.18}
+h2{font-family:var(--disp);font-weight:600;font-size:18px;letter-spacing:-.02em;margin:38px 0 10px}
+p{margin:0 0 15px}
+ul{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:14px;
+  padding:26px 28px;margin:28px 0}
+.card.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.card h2{margin-top:0}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.qbbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--qb);color:#fff;font-family:var(--disp);font-weight:600;font-size:16px;
+  padding:14px 26px;border-radius:9px;text-decoration:none;border:0;cursor:pointer;
+  transition:filter .12s}
+.qbbtn:hover{filter:brightness(1.07)}
+.qbbtn svg{width:18px;height:18px;fill:#fff}
+.btnrow{margin:26px 0 8px}
+.sub{font-size:14.5px;color:var(--ink-3);margin-top:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.two .c{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.two h3{font-family:var(--disp);font-weight:600;font-size:15px;margin:0 0 8px;letter-spacing:-.01em}
+.two ul{margin:0;padding-left:18px;font-size:15px;color:var(--ink-2)}
+.two li{margin-bottom:5px}
+.yes h3{color:var(--qb)}
+.no h3{color:var(--ink-3)}
+@media(max-width:600px){.two{grid-template-columns:1fr}}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding-left:40px;margin-bottom:16px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;
+  border-radius:50%;background:var(--accent);color:#fff;font-family:var(--disp);font-weight:600;
+  font-size:13.5px;display:grid;place-items:center}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="brand">
+  <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
+  <a href="/">Atrovia</a>
+</div>
+
+<h1>Connect your QuickBooks</h1>
+<p class="lede">This is the step that turns your estimates into <strong>measured numbers</strong>.
+Before you connect, your margin, your labour cost and your cash position are whatever you told us.
+After you connect, they come from your books.</p>
+
+<div class="btnrow">
+  <!-- TODO(unverified): app.atrovia.co is the live app domain, but this repo has no
+       visibility into the app's actual API routes. Confirm this endpoint exists there
+       (or update to the real path) before Intuit review — a reviewer clicks this button. -->
+  <a class="qbbtn" href="https://app.atrovia.co/api/quickbooks/connect" id="qb-connect">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+    Connect to QuickBooks
+  </a>
+  <p class="sub">You'll sign in at Intuit. We never see your QuickBooks password.</p>
+</div>
+
+<h2>What happens when you click</h2>
+<ol class="steps">
+  <li><strong>Intuit asks you to sign in</strong> and pick which company file to share. You stay on
+    Intuit's site for this — your password never touches Atrovia.</li>
+  <li><strong>You approve the connection.</strong> Intuit shows you exactly what Atrovia is asking
+    for before you agree.</li>
+  <li><strong>We read your books once</strong> to build your first set of numbers, then keep them
+    current on a schedule.</li>
+  <li><strong>Fin walks you through what changed</strong> — usually the moment an owner finds out
+    their real margin isn't the one they've been quoting against.</li>
+</ol>
+
+<div class="two">
+  <div class="c yes">
+    <h3>What we read</h3>
+    <ul>
+      <li>Profit and loss</li>
+      <li>Balance sheet</li>
+      <li>Chart of accounts</li>
+      <li>Invoices and bills</li>
+      <li>Payroll expense totals</li>
+      <li>Customers and items</li>
+    </ul>
+  </div>
+  <div class="c no">
+    <h3>What we never do</h3>
+    <ul>
+      <li>Post transactions to your books</li>
+      <li>Change or delete anything</li>
+      <li>Sell your data</li>
+      <li>Use it for advertising</li>
+      <li>Mix it with another business</li>
+      <li>See your Intuit password</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card hi">
+  <h2>Read-only, and reversible</h2>
+  <p>Atrovia reads your books. <strong>It does not write to them.</strong> Nothing you see in
+  QuickBooks changes because you connected, and nothing in your accounting is at risk.</p>
+  <p>You can <strong>disconnect at any time</strong> — from Settings in Atrovia, or from Apps inside
+  QuickBooks. The moment you do, we stop retrieving data and the access tokens are revoked.</p>
+</div>
+
+<h2>Reconnecting</h2>
+<p>If your connection lapsed — a password change, an expired authorisation, or a disconnect you want
+to undo — use the same button. Reconnecting picks up where you left off, and
+<strong>the history we already built stays intact</strong>.</p>
+<p>If you're connecting a <em>different</em> QuickBooks company than before, tell us first at
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> — one Atrovia business maps to one QuickBooks
+company, and swapping without a word turns your trend lines into nonsense.</p>
+
+<h2>Before you connect</h2>
+<ul>
+  <li>You'll need to be an <strong>admin on the QuickBooks company</strong>. If your bookkeeper
+    holds that, they can complete this step for you.</li>
+  <li>Have the <strong>right company selected</strong> if you manage more than one in Intuit. This
+    is the single most common mistake, and it reports the wrong business for months before anyone
+    notices.</li>
+</ul>
+
+<p>How we handle what we read: <a href="/privacy#quickbooks">Privacy Policy</a> ·
+<a href="/eula#intuit">Terms, section 7</a></p>
+
+<footer class="end">
+  <p>Intuit and QuickBooks are trademarks of Intuit Inc. Atrovia is not affiliated with, endorsed by,
+  or sponsored by Intuit Inc.</p>
+  <p><a href="/">Atrovia</a> · <a href="/eula">Terms</a> · <a href="/privacy">Privacy</a> ·
+  <a href="/ai-disclosure">AI Disclosure</a> · <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+  <p>© 2026 Atrovia Corporation. San Jose, California.</p>
+</footer>
+
+</div>
+</body>
+</html>
