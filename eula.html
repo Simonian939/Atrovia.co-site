@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>End User License Agreement — Atrovia</title>
+<meta name="description" content="The terms that govern your use of the Atrovia platform — your licence, your data, subscriptions and billing, acceptable use, and how the agreement ends.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/eula">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
+  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
+  --accent:#B57A1E; --accent-soft:#FBF3E3;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+    --accent:#F0B252; --accent-soft:#2A2013;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+  --accent:#F0B252; --accent-soft:#2A2013;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:38px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.brand .g{width:28px;height:28px;border-radius:7px;background:var(--accent);
+  display:grid;place-items:center;flex-shrink:0}
+.brand .g svg{width:16px;height:16px;stroke:var(--bg);stroke-width:2.3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.brand a{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  text-decoration:none;letter-spacing:-.02em}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,5vw,38px);
+  letter-spacing:-.025em;margin:0 0 10px;line-height:1.15}
+.dates{font-size:14.5px;color:var(--ink-3)}
+h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.02em;
+  margin:44px 0 12px;scroll-margin-top:20px}
+h3{font-family:var(--disp);font-weight:600;font-size:17px;margin:26px 0 8px}
+p{margin:0 0 15px}
+ul,ol{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin:26px 0}
+.box.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.toc{background:var(--surf);border:1px solid var(--line);border-radius:12px;
+  padding:20px 24px;margin:32px 0 8px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px}
+.toc li{margin-bottom:5px;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2);font-size:15.5px}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15.5px}
+th{text-align:left;font-family:var(--disp);font-weight:600;font-size:13px;
+  padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+.caps{font-size:15.5px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.01em}
+footer.end{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
+  font-size:14.5px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+.ph{background:var(--accent-soft);color:var(--accent);padding:1px 6px;border-radius:4px;
+  font-weight:600;font-size:.92em;border:1px dashed var(--accent)}
+@media print{.toc{display:none}body{font-size:11pt}.wrap{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand">
+    <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
+    <a href="https://atrovia.co/">Atrovia</a>
+  </div>
+  <h1>End User License Agreement</h1>
+  <p class="dates">Effective <strong>12 September 2026</strong> · Last updated 12 September 2026</p>
+</header>
+
+<p class="lede">This is the agreement between you and Atrovia for the use of our platform. It covers
+what you are allowed to do with the software, what we are responsible for, what you are responsible
+for, how billing works, and what happens to your data when you leave. <strong>Your business data
+stays yours, and every business decision stays yours.</strong></p>
+
+<div class="box hi">
+  <p><strong>Before anything else — the AI part.</strong> Atrovia's agents produce recommendations,
+  not decisions. They are experimental, they make mistakes, and you should review their work before
+  you act on it. <a href="#ai">Section 8</a> sets this out in full, and there is a plain-English
+  version at <a href="https://atrovia.co/ai-disclosure">atrovia.co/ai-disclosure</a>.</p>
+</div>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#accept">Accepting this agreement</a></li>
+    <li><a href="#defs">Definitions</a></li>
+    <li><a href="#licence">Your licence to use Atrovia</a></li>
+    <li><a href="#accounts">Accounts, seats and users</a></li>
+    <li><a href="#yourdata">Your data stays yours</a></li>
+    <li><a href="#third">Connected services</a></li>
+    <li><a href="#intuit">QuickBooks and Intuit</a></li>
+    <li><a href="#ai">AI agents and their output</a></li>
+    <li><a href="#use">Acceptable use</a></li>
+    <li><a href="#fees">Subscriptions, fees and taxes</a></li>
+    <li><a href="#trials">Trials, betas and early access</a></li>
+    <li><a href="#ip">Our intellectual property</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+    <li><a href="#privacy">Privacy and security</a></li>
+    <li><a href="#availability">Availability and support</a></li>
+    <li><a href="#warranty">Disclaimer of warranties</a></li>
+    <li><a href="#liability">Limitation of liability</a></li>
+    <li><a href="#indemnity">Indemnity</a></li>
+    <li><a href="#term">Term, suspension and termination</a></li>
+    <li><a href="#export">Getting your data out</a></li>
+    <li><a href="#changes">Changes to the service and these terms</a></li>
+    <li><a href="#law">Governing law and disputes</a></li>
+    <li><a href="#general">General</a></li>
+    <li><a href="#contact">Contact us</a></li>
+  </ol>
+</nav>
+
+<h2 id="accept">1. Accepting this agreement</h2>
+<p>This End User License Agreement (the <strong>“Agreement”</strong>) is a legal contract between
+Atrovia Corporation (<strong>“Atrovia”</strong>, “we”, “us”) and the person or
+business using the platform (<strong>“you”</strong>, “Customer”).</p>
+<p>You accept this Agreement by creating an account, clicking to accept, signing an order form that
+references it, or using the platform. If you are accepting on behalf of a company, you confirm you
+have authority to bind that company, and “you” means that company.</p>
+<p>If you do not agree, do not use Atrovia.</p>
+<p>Our <a href="https://atrovia.co/privacy">Privacy Policy</a> is part of this Agreement.</p>
+
+<h2 id="defs">2. Definitions</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Term</th><th>What it means</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Platform</strong></td><td>The Atrovia software, websites, applications, AI
+      agents, APIs and documentation we make available to you.</td></tr>
+    <tr><td><strong>Customer Data</strong></td><td>Everything you put into Atrovia or connect to it
+      — your contacts, deals, jobs, financial records, documents, plans, procedures and the data we
+      retrieve from services you authorise.</td></tr>
+    <tr><td><strong>Output</strong></td><td>Text, numbers, plans, reports, scores, forecasts and
+      recommendations generated by the Platform, including by our AI agents.</td></tr>
+    <tr><td><strong>Users</strong></td><td>The people you authorise to use the Platform under your
+      account — your staff, contractors, and any advisors you invite.</td></tr>
+    <tr><td><strong>Order</strong></td><td>Your subscription selection, whether made in the product
+      or on a signed order form.</td></tr>
+    <tr><td><strong>Connected Service</strong></td><td>A third-party service you link to Atrovia,
+      such as QuickBooks Online, Google, or Meta.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="licence">3. Your licence to use Atrovia</h2>
+<p>Subject to this Agreement and your payment of fees, we grant you a non-exclusive,
+non-transferable, non-sublicensable, revocable right to access and use the Platform during your
+subscription, for your own internal business purposes.</p>
+<p>This is a licence to <em>use</em> a hosted service. It is not a sale, and no ownership in the
+Platform passes to you.</p>
+<p>You may not, and may not permit anyone else to:</p>
+<ul>
+  <li>copy, modify, translate or create derivative works of the Platform;</li>
+  <li>reverse engineer, decompile or disassemble any part of it, except where that restriction is
+    prohibited by law;</li>
+  <li>rent, lease, resell, sublicense, time-share or operate the Platform as a service bureau for
+    anyone who is not your User;</li>
+  <li>scrape, spider or use automated means to extract data beyond the APIs we provide;</li>
+  <li>remove or obscure any proprietary notice, or use our name, logo or branding without written
+    permission;</li>
+  <li>use the Platform to build a competing product, or benchmark it for publication without our
+    written consent;</li>
+  <li>circumvent usage limits, rate limits, seat counts or access controls.</li>
+</ul>
+
+<h2 id="accounts">4. Accounts, seats and users</h2>
+<p>You are responsible for your account, for the accuracy of the information in it, and for
+everything done under it. Keep credentials confidential, do not share logins between people, and
+tell us at <a href="mailto:Support@atrovia.co">Support@atrovia.co</a> promptly if you believe your
+account has been compromised.</p>
+<p>Each User must be a named individual. You are responsible for your Users' compliance with this
+Agreement, and for making sure you have the right to give us any personal information you enter
+about them or about your own customers.</p>
+<p>You must be at least 18 years old and able to form a binding contract.</p>
+
+<h2 id="yourdata">5. Your data stays yours</h2>
+<div class="box hi">
+  <h3>The short version</h3>
+  <p><strong>You own your Customer Data.</strong> We claim no ownership in it. You grant us only the
+  licence we need to run the service for you — to host, process, transmit, display and back it up,
+  and to provide support when you ask for it.</p>
+  <p><strong>We do not sell your data, and we do not use your business data to train AI models for
+  other customers.</strong></p>
+</div>
+<p>You are responsible for the Customer Data you put into Atrovia: that you have the right to
+provide it, that it is accurate, and that your use of it complies with the laws that apply to you —
+including privacy, employment, marketing and consumer protection law.</p>
+<p>We may create anonymised, aggregated statistics that cannot identify you, your Users or your
+customers, and use them to operate, secure and improve the Platform.</p>
+
+<h2 id="third">6. Connected services</h2>
+<p>The Platform can connect to third-party services at your instruction. When you authorise a
+connection, you are authorising us to access that service on your behalf within the scope you grant,
+and you confirm you have the right to do so.</p>
+<p>Connected Services are operated by other companies under their own terms and privacy policies. We
+do not control them, we are not responsible for their availability, accuracy or acts, and a change
+they make can affect how Atrovia works. You may disconnect any Connected Service at any time.</p>
+
+<h2 id="intuit">7. QuickBooks and Intuit</h2>
+<p>If you connect QuickBooks Online, the following apply in addition to the rest of this
+Agreement:</p>
+<ul>
+  <li>Your use of QuickBooks Online is governed by your own agreement with Intuit. This Agreement
+    does not change it, and we are not a party to it.</li>
+  <li>We access your QuickBooks data only within the scope you authorise, and only to provide the
+    features you are using — such as reading your profit and loss, balance sheet, chart of accounts,
+    invoices, bills, payroll expense and customer records to produce your financial reports and
+    costings.</li>
+  <li><strong>We do not post transactions to your books</strong> unless you explicitly ask us to for
+    a feature that says so.</li>
+  <li>Our use of information received from Intuit APIs adheres to the
+    <a href="https://developer.intuit.com/app/developer/homepage">Intuit Developer Terms of
+    Service</a>, and we comply with its limited use requirements.</li>
+  <li>You can disconnect QuickBooks at any time in your settings, or from within Intuit. On
+    disconnection we stop retrieving data and revoke the stored tokens.</li>
+  <li>Intuit and QuickBooks are trademarks of Intuit Inc. Atrovia is not affiliated with,
+    endorsed by, or sponsored by Intuit Inc.</li>
+</ul>
+
+<h2 id="ai">8. AI agents and their output — read this section</h2>
+<p>Atrovia includes AI agents that read your data and produce plans, analyses, budgets, prices,
+scores, forecasts, drafts and recommendations. This section explains what that Output is, what it is
+not, and who is responsible for what is done with it.</p>
+
+<div class="box hi">
+  <h3>The three things that matter most</h3>
+  <p><strong>1 · Everything the agents produce is a recommendation.</strong> Not an instruction, not
+  a decision, and not a guarantee. Nothing an agent says commits you to anything, and nothing an
+  agent says relieves you of deciding for yourself.</p>
+  <p><strong>2 · The agents make mistakes.</strong> AI systems misread context, miscalculate, use a
+  figure that is out of date, and state a wrong answer with complete confidence. This is a known
+  characteristic of the technology, not an occasional defect. <strong>Assume any given Output may be
+  wrong until you have checked it.</strong></p>
+  <p><strong>3 · You make the decision, and you own it.</strong> Every campaign you launch, every
+  price you set, every dollar you spend, every person you hire, promote, review or let go is your
+  decision. <strong>Review Output before you act on it.</strong> You are responsible for the outcome
+  of decisions you make, whether or not Atrovia recommended them.</p>
+</div>
+
+<h3>8.1 Experimental and evolving features</h3>
+<p>The AI agents, and features that depend on them, are <strong>experimental and under active
+development</strong>. Their behaviour, accuracy, wording and availability will change. Some features
+are offered as previews or betas and may be withdrawn. We make no representation that any agent's
+Output is accurate, complete, current, suitable for your circumstances, or that it will produce any
+particular business result.</p>
+
+<h3>8.2 Not professional advice</h3>
+<p>Atrovia is not an accountant, bookkeeper, auditor, lawyer, tax adviser, financial adviser,
+investment adviser, insurance adviser or human-resources professional, and no agent is any of those
+things. <strong>Nothing the Platform produces is accounting, tax, legal, investment, insurance,
+regulatory or employment advice</strong>, and no professional relationship is created by your use of
+it. Where a decision has legal, tax, financial or employment consequences, consult a qualified
+professional who knows your situation.</p>
+
+<h3>8.3 Review before you approve</h3>
+<p>Where the Platform can act on your behalf — sending a message, publishing content, launching or
+changing a campaign, committing budget, issuing a quote or price, scheduling work, or writing to a
+Connected Service — <strong>it does so only after a person with authority approves it.</strong> By
+approving, you confirm you have reviewed the item and take responsibility for it.</p>
+<p>You are responsible for maintaining that review step. Where the Platform offers automation,
+scheduling, or the ability to reduce the number of approvals required, <strong>using those settings
+is your choice and your risk</strong>, and you remain responsible for everything sent, spent,
+published or committed under them.</p>
+<p>We strongly recommend you review, at minimum, before:</p>
+<ul>
+  <li>launching, changing or increasing spend on any advertising campaign;</li>
+  <li>publishing anything to the public, including content, reviews responses and social posts;</li>
+  <li>sending any message to a customer or prospect;</li>
+  <li>setting or changing a price, quote, discount or margin;</li>
+  <li>making any hiring, pay, promotion, discipline or termination decision;</li>
+  <li>relying on any financial figure, forecast, cash position or tax-related number;</li>
+  <li>committing to a delivery date or a scope of work.</li>
+</ul>
+
+<h3>8.4 Your numbers, your books</h3>
+<p>Atrovia derives figures from data you enter and from Connected Services. Output is
+<strong>not a substitute for your books, and not a financial statement.</strong> Your records of
+record are those in your accounting system, and figures in Atrovia may be estimates, may be based on
+industry defaults where you have not supplied your own, may lag your accounting system, and may be
+affected by how your accounts are structured. Where the Platform labels a figure as an estimate,
+treat it as one. <strong>Do not file a tax return, sign a loan application, or represent a figure to
+a third party on the basis of an Atrovia report without confirming it against your books.</strong></p>
+
+<h3>8.5 People-related features</h3>
+<p>Reviews, scores, seat recommendations, hiring gates, capacity signals and performance data are
+tools to support your judgement. <strong>You are the employer and you are the decision-maker.</strong>
+You are responsible for making employment decisions lawfully, including under equal-opportunity,
+wage-and-hour, privacy and employee-notice laws that apply to you, and for telling your people what
+is being recorded about them. Do not use Output as the sole basis for an employment decision.</p>
+
+<h3>8.6 Marketing and communications</h3>
+<p>You are responsible for everything sent or published from your account, including compliance with
+advertising, email, text-messaging, do-not-call, consumer-protection and platform-specific rules, and
+for the accuracy of every claim made about your business. Agent-drafted copy is a draft.</p>
+
+<h3>8.7 Ownership and third-party models</h3>
+<p>As between you and us, you may use Output for your business purposes. Output may be produced using
+third-party AI models, in which case their provider's terms apply to that processing. Similar or
+identical Output may be generated for other customers, and we make no claim that Output is unique,
+original, or protectable, or that you can prevent others from using similar material. You are
+responsible for checking that anything you publish does not infringe someone else's rights.</p>
+
+<div class="box">
+  <p><strong>In short:</strong> Atrovia is a very well-informed assistant that never gets tired and
+  is sometimes wrong. Use it the way you would use a capable new employee's first draft — read it,
+  question it, and make the call yourself.</p>
+</div>
+
+<h2 id="use">9. Acceptable use</h2>
+<p>You will not use the Platform to:</p>
+<ul>
+  <li>break the law, or infringe anyone's rights;</li>
+  <li>upload malware, or attempt to gain unauthorised access to any system, account or data;</li>
+  <li>send unsolicited or unlawful marketing, or contact people who have opted out;</li>
+  <li>store data you are not permitted to store, including payment card numbers outside a supported
+    payment integration, or health or government identification data we have not agreed to
+    receive;</li>
+  <li>interfere with or place unreasonable load on the Platform;</li>
+  <li>impersonate anyone, or misrepresent your affiliation;</li>
+  <li>harass, defame or discriminate against any person.</li>
+</ul>
+<p>We may investigate suspected violations and take reasonable action, including removing content
+and suspending access.</p>
+
+<h2 id="fees">10. Subscriptions, fees and taxes</h2>
+<p>Fees, the billing period and what is included are set out in your Order. Unless your Order says
+otherwise:</p>
+<ul>
+  <li><strong>Subscriptions renew automatically</strong> for the same period until cancelled. You can
+    cancel renewal at any time in your account settings or by emailing
+    <a href="mailto:Support@atrovia.co">Support@atrovia.co</a>; cancellation takes effect at the end
+    of the current period.</li>
+  <li><strong>Fees are payable in advance and are non-refundable</strong>, except where this
+    Agreement says otherwise or the law requires a refund. Cancelling mid-period does not entitle you
+    to a partial refund, and you keep access until the period ends.</li>
+  <li><strong>Adding seats or modules mid-period</strong> is charged pro rata; removals take effect
+    at the next renewal.</li>
+  <li><strong>Setup and implementation fees</strong> are one-off, payable as stated in the Order, and
+    are non-refundable once work has begun.</li>
+  <li><strong>We may change prices</strong> for a renewal period by giving you at least 30 days'
+    notice before the renewal date. If you do not accept the change, you may cancel before renewal.</li>
+  <li><strong>Late payment.</strong> If an invoice is overdue by 15 days we may charge interest at
+    1.5% per month or the maximum permitted by law, whichever is lower, and after 30 days we may
+    suspend the account.</li>
+  <li><strong>Taxes.</strong> Fees exclude sales, use, VAT, GST and similar taxes, which you are
+    responsible for, other than taxes on our income.</li>
+</ul>
+<p>You authorise us and our payment processor to charge your payment method for all amounts due.
+Keep your billing details current.</p>
+
+<h2 id="trials">11. Trials, betas and early access</h2>
+<p>We may offer free trials, pilots, beta features or early access. These are provided
+<strong>as-is</strong>, may be changed or withdrawn at any time, may not be supported, and are
+excluded from any service commitments. Data entered during a trial may be deleted if you do not
+convert to a paid subscription. Do not rely on a beta feature for a decision you cannot reverse.</p>
+
+<h2 id="ip">12. Our intellectual property</h2>
+<p>The Platform — including its software, agent designs, prompts, models, methodologies, frameworks,
+scoring systems, templates, documentation, look and feel, and the Atrovia name and logo — is owned by
+us and our licensors and is protected by intellectual property law. All rights not expressly granted
+in section 3 are reserved.</p>
+<p>Templates, procedures and other materials we supply may be used within your business for your own
+operations. They may not be redistributed, resold or published outside your business.</p>
+
+<h2 id="feedback">13. Feedback</h2>
+<p>If you send us ideas, suggestions or feature requests, you grant us a perpetual, irrevocable,
+worldwide, royalty-free licence to use them without restriction or obligation to you. We welcome
+feedback and would rather you send it freely than worry about this clause.</p>
+
+<h2 id="privacy">14. Privacy and security</h2>
+<p>How we handle personal information is set out in our
+<a href="https://atrovia.co/privacy">Privacy Policy</a>. We maintain administrative, technical and
+physical safeguards designed to protect Customer Data, including encryption in transit and at rest,
+per-business data isolation, access controls, and storage of third-party access tokens in a
+dedicated secret store.</p>
+<p>Where we process personal data on your behalf as a processor, we do so on your documented
+instructions. If you require a data processing addendum, contact
+<a href="mailto:Support@atrovia.co">Support@atrovia.co</a>.</p>
+<p><strong>No security is perfect.</strong> We do not guarantee that the Platform will be free from
+unauthorised access, and you are responsible for your own credential hygiene and the access you grant
+your Users.</p>
+
+<h2 id="availability">15. Availability and support</h2>
+<p>We aim to keep the Platform available and to give you reasonable notice of planned maintenance.
+Unless your Order includes a written service level agreement, the Platform is provided without an
+uptime commitment and without a guaranteed response time.</p>
+<p>Support is provided by email at <a href="mailto:Support@atrovia.co">Support@atrovia.co</a> during
+our normal business hours.</p>
+
+<h2 id="warranty">16. Disclaimer of warranties</h2>
+<p class="caps">Except as expressly stated in this agreement, the platform and all output are
+provided “as is” and “as available”, without warranty of any kind. To the maximum extent permitted
+by law, we disclaim all implied warranties, including merchantability, fitness for a particular
+purpose, title, non-infringement, and any warranty arising from course of dealing or usage of
+trade.</p>
+<p class="caps">We do not warrant that the platform will be uninterrupted, error-free or secure, that
+defects will be corrected, or that any output, forecast, score, margin, price or recommendation will
+be accurate, complete, or produce any particular business result.</p>
+<p>Some jurisdictions do not allow the exclusion of certain warranties, so parts of this section may
+not apply to you.</p>
+
+<h2 id="liability">17. Limitation of liability</h2>
+<p class="caps">To the maximum extent permitted by law, neither party will be liable for indirect,
+incidental, special, consequential, exemplary or punitive damages, or for lost profits, lost revenue,
+lost business, lost goodwill, or loss or corruption of data, even if advised of the possibility.</p>
+<p class="caps">Without limiting the above, we are not liable for any loss arising from a decision
+you or your users make in reliance on output, including advertising spend, pricing, discounting,
+purchasing, staffing, hiring, compensation, termination, scheduling, tax or financial reporting
+decisions. Those decisions are yours.</p>
+<p class="caps">Each party's total aggregate liability arising out of or related to this agreement
+will not exceed the total fees you paid or owed to us for the platform in the twelve months
+immediately before the event giving rise to the claim.</p>
+<p>These limits do not apply to: your payment obligations; either party's indemnity obligations;
+your breach of section 3 (licence restrictions), section 9 (acceptable use) or our intellectual
+property rights; or liability that cannot be limited by law, including fraud, wilful misconduct, and
+death or personal injury caused by negligence.</p>
+<p>The parties agree these limitations are a reasonable allocation of risk and are a basis of the
+bargain between them.</p>
+
+<h2 id="indemnity">18. Indemnity</h2>
+<p><strong>You will defend and indemnify us</strong> against third-party claims, and the reasonable
+costs and damages awarded or agreed in settlement, arising from: your Customer Data; your use of the
+Platform in breach of this Agreement or of law; your employment or personnel decisions; your
+marketing communications; <strong>your approval of, or reliance on, Output</strong>; or your failure
+to obtain the rights or consents needed for data you put into the Platform.</p>
+<p><strong>We will defend and indemnify you</strong> against third-party claims that the Platform, as
+provided by us and used in accordance with this Agreement, infringes a US patent, copyright or
+trademark, and pay costs and damages finally awarded or agreed in settlement. This does not apply to
+claims arising from Customer Data, Output as applied by you, combination with anything we did not
+supply, or your use in breach of this Agreement. If the Platform becomes the subject of such a claim,
+we may modify it, obtain a licence, or terminate the affected subscription and refund prepaid unused
+fees.</p>
+<p>The party seeking indemnity must give prompt notice, allow the other party to control the defence,
+and provide reasonable cooperation.</p>
+
+<h2 id="term">19. Term, suspension and termination</h2>
+<p>This Agreement starts when you first accept it and continues until all subscriptions have expired
+or been terminated.</p>
+<p><strong>You may terminate</strong> at any time by cancelling your subscription and closing your
+account.</p>
+<p><strong>We may suspend</strong> your access, with notice where practical, if your payment is more
+than 30 days overdue, if your use threatens the security, integrity or availability of the Platform
+or another customer, or if we are required to by law. We will restore access once the cause is
+resolved.</p>
+<p><strong>Either party may terminate for cause</strong> on 30 days' written notice of a material
+breach that is not cured within that period. We may terminate immediately for a breach of section 3
+or section 9.</p>
+<p>On termination, your right to use the Platform ends. Sections on your data, intellectual property,
+feedback, disclaimers, liability, indemnity, governing law and general terms survive.</p>
+
+<h2 id="export">20. Getting your data out</h2>
+<div class="box hi">
+  <p><strong>You can export your Customer Data at any time during your subscription</strong>, in the
+  formats the Platform provides. After termination we will keep your data available for export for
+  <strong>30 days</strong>, and you can ask us to export it for you during that window.</p>
+  <p>After that 30-day window, we delete Customer Data in accordance with our
+  <a href="https://atrovia.co/privacy#keep">Privacy Policy</a>, other than what we must retain by law
+  and residual copies in encrypted backups, which are overwritten on their ordinary cycle.</p>
+</div>
+<p>Your data in a Connected Service — your QuickBooks file, for instance — stays with that service
+and is not affected by ending your Atrovia subscription.</p>
+
+<h2 id="changes">21. Changes to the service and these terms</h2>
+<p>We are actively developing the Platform and features will be added, changed and occasionally
+removed. We will not make a change that materially reduces the core functionality you are paying for
+during a paid period without giving you notice and, if the reduction is material and you object, the
+option to cancel and receive a pro-rata refund of prepaid unused fees.</p>
+<p>We may update this Agreement. The date at the top shows the current version. For material changes
+we will give at least 30 days' notice by email or in the product. Continuing to use the Platform
+after the change takes effect means you accept the updated terms; if you do not accept, stop using
+the Platform and cancel before the effective date.</p>
+
+<h2 id="law">22. Governing law and disputes</h2>
+<p>This Agreement is governed by the laws of the State of California, United
+States, without regard to conflict of law rules. The United Nations Convention on Contracts for the
+International Sale of Goods does not apply.</p>
+<p>The parties will try in good faith to resolve any dispute informally first — email
+<a href="mailto:Support@atrovia.co">Support@atrovia.co</a> with a description of the problem and what you
+want. If that does not resolve it within 30 days, the state and federal courts located in
+Santa Clara County, California have exclusive jurisdiction, and both parties consent to
+venue there.</p>
+<p class="caps">Each party waives any right to a jury trial and to participate in a class or
+representative action.</p>
+
+<h2 id="general">23. General</h2>
+<ul>
+  <li><strong>Entire agreement.</strong> This Agreement, the Privacy Policy and your Order are the
+    whole agreement between us on this subject and supersede prior discussions. Terms in a purchase
+    order or vendor portal do not apply unless we sign them.</li>
+  <li><strong>Order of precedence.</strong> A signed Order controls over this Agreement to the extent
+    of a conflict.</li>
+  <li><strong>Assignment.</strong> You may not assign this Agreement without our written consent,
+    except to a successor of your business. We may assign it to an affiliate or in connection with a
+    merger, acquisition or sale of assets.</li>
+  <li><strong>Subcontractors.</strong> We may use sub-processors and service providers to deliver the
+    Platform, and remain responsible for their performance.</li>
+  <li><strong>Force majeure.</strong> Neither party is liable for a delay or failure caused by events
+    beyond its reasonable control.</li>
+  <li><strong>Severability.</strong> If a provision is unenforceable, the rest stays in effect and the
+    provision is modified to the minimum extent needed to make it enforceable.</li>
+  <li><strong>No waiver.</strong> Not enforcing a right is not a waiver of it.</li>
+  <li><strong>Independent contractors.</strong> Nothing here creates a partnership, joint venture,
+    agency or employment relationship.</li>
+  <li><strong>Notices.</strong> We may give notice by email to your account address or in the
+    product. Send notices to us at <a href="mailto:Support@atrovia.co">Support@atrovia.co</a> and to the
+    address below.</li>
+  <li><strong>Publicity.</strong> We will not use your name or logo as a customer reference without
+    your prior consent.</li>
+  <li><strong>US Government users.</strong> The Platform is “commercial computer software” and is
+    provided with only the rights granted to all other users under this Agreement.</li>
+  <li><strong>Export.</strong> You confirm you are not located in, and will not use the Platform in,
+    a country subject to US embargo, and that you are not on a US government restricted-party list.</li>
+</ul>
+
+<h2 id="contact">24. Contact us</h2>
+<p>
+  <strong>Atrovia Corporation</strong><br>
+  937 N Amphlett Blvd, San Mateo, CA 94401<br>
+  <a href="mailto:Support@atrovia.co">Support@atrovia.co</a><br>
+  <span style="color:var(--ink-3)">Legal, billing, support and security enquiries all reach us at
+  this address.</span>
+</p>
+
+<footer class="end">
+  <p><a href="https://atrovia.co/">Atrovia</a> · <a href="https://atrovia.co/eula">End User License
+  Agreement</a> · <a href="https://atrovia.co/privacy">Privacy Policy</a> ·
+  <a href="https://atrovia.co/ai-disclosure">AI Disclosure</a></p>
+  <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
+</footer>
+
+</div>
+</body>
+</html>

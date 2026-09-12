@@ -3,6 +3,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/beta", "destination": "/signup" },
+    { "source": "/eula", "destination": "/eula.html" },
+    { "source": "/ai-disclosure", "destination": "/ai-disclosure.html" },
     { "source": "/connect-quickbooks", "destination": "/connect-quickbooks.html" },
     { "source": "/quickbooks-disconnected", "destination": "/quickbooks-disconnected.html" }
   ],

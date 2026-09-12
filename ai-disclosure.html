@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Atrovia's AI Agents Work — Atrovia</title>
+<meta name="description" content="What Atrovia's AI agents do, what they can get wrong, what you should always review before acting, and who makes the final call. In plain English.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/ai-disclosure">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
+  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
+  --accent:#B57A1E; --accent-soft:#FBF3E3;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+    --accent:#F0B252; --accent-soft:#2A2013;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
+  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
+  --accent:#F0B252; --accent-soft:#2A2013;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:38px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.brand .g{width:28px;height:28px;border-radius:7px;background:var(--accent);
+  display:grid;place-items:center;flex-shrink:0}
+.brand .g svg{width:16px;height:16px;stroke:var(--bg);stroke-width:2.3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.brand a{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  text-decoration:none;letter-spacing:-.02em}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,5vw,38px);
+  letter-spacing:-.025em;margin:0 0 10px;line-height:1.15}
+.dates{font-size:14.5px;color:var(--ink-3)}
+h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.02em;
+  margin:44px 0 12px;scroll-margin-top:20px}
+h3{font-family:var(--disp);font-weight:600;font-size:17px;margin:26px 0 8px}
+p{margin:0 0 15px}
+ul,ol{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin:26px 0}
+.box.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+.three .c{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:20px}
+.three .n{font-family:var(--disp);font-weight:600;font-size:13px;color:var(--accent);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.three h3{margin:0 0 6px;font-size:16.5px}
+.three p{margin:0;font-size:15.5px;color:var(--ink-2)}
+@media(max-width:640px){.three{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15.5px}
+th{text-align:left;font-family:var(--disp);font-weight:600;font-size:13px;
+  padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+.check{list-style:none;padding-left:0}
+.check li{padding-left:28px;position:relative}
+.check li::before{content:"";position:absolute;left:4px;top:10px;width:11px;height:11px;
+  border-radius:3px;border:2px solid var(--accent)}
+footer.end{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
+  font-size:14.5px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+@media print{body{font-size:11pt}.wrap{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="brand">
+    <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
+    <a href="https://atrovia.co/">Atrovia</a>
+  </div>
+  <h1>How our AI agents work</h1>
+  <p class="dates">Last updated 12 September 2026 · Plain-English companion to
+  <a href="https://atrovia.co/eula#ai">section 8</a> of the End User License Agreement</p>
+</header>
+
+<p class="lede">Atrovia gives you a team of AI agents — for marketing, sales, operations and
+finance. They read your numbers, draft your plans, and tell you what they think you should do next.
+<strong>They are very useful and they are sometimes wrong.</strong> This page explains both, so you
+know exactly what you are working with.</p>
+
+<div class="three">
+  <div class="c">
+    <div class="n">One</div>
+    <h3>It's a recommendation</h3>
+    <p>Never an instruction and never a decision. Nothing an agent says commits you to anything.</p>
+  </div>
+  <div class="c">
+    <div class="n">Two</div>
+    <h3>They make mistakes</h3>
+    <p>Confidently. A wrong number can look exactly like a right one. Check before you act.</p>
+  </div>
+  <div class="c">
+    <div class="n">Three</div>
+    <h3>You make the call</h3>
+    <p>Every campaign, price, dollar and hire is your decision, and the result is yours.</p>
+  </div>
+</div>
+
+<h2 id="what">What the agents actually do</h2>
+<p>Each agent reads the data in your account — what you told us during setup, what your team enters,
+and what we pull from the services you connect, like QuickBooks or Google. From that it produces
+things like:</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Area</th><th>What the agents produce</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Marketing</strong></td><td>Campaign plans, budgets, ad and email copy, content
+      calendars, website and review recommendations</td></tr>
+    <tr><td><strong>Sales</strong></td><td>Pipeline analysis, follow-up suggestions, quote drafts,
+      close-rate and forecast figures</td></tr>
+    <tr><td><strong>Operations</strong></td><td>Job stages and targets, capacity and bottleneck
+      analysis, procedures, training assignments, scheduling suggestions</td></tr>
+    <tr><td><strong>Finance</strong></td><td>Margin and cost build-ups, pricing suggestions, revenue
+      per person, cash and profit reporting, a readiness signal for hiring</td></tr>
+    <tr><td><strong>The plan</strong></td><td>Your business plan, quarterly priorities, scoreboard,
+      and the weekly report that pulls it together</td></tr>
+  </tbody>
+</table>
+</div>
+<p>All of it is <strong>a draft for you to review</strong>. Think of an agent as a well-prepared new
+employee who has read everything about your business, works all night, never gets tired — and
+occasionally gets something badly wrong without realising it.</p>
+
+<h2 id="wrong">Where they get things wrong</h2>
+<p>We would rather tell you this up front than have you discover it:</p>
+<ul>
+  <li><strong>Confidently wrong numbers.</strong> AI can state an incorrect figure in a perfectly
+  reasonable sentence. There is no wobble in its voice when it's wrong.</li>
+  <li><strong>Estimates that look like facts.</strong> Before you connect your books, most of your
+  numbers are your own estimates or industry averages. We label them — but a figure that says
+  <em>estimate</em> is still an estimate three screens later.</li>
+  <li><strong>Out-of-date context.</strong> Data syncs on a schedule. Something that changed this
+  morning may not be reflected yet.</li>
+  <li><strong>How your books are set up.</strong> If expenses are categorised unusually in
+  QuickBooks, a margin figure derived from them will be off — and the agent won't know that.</li>
+  <li><strong>Missing context only you have.</strong> The agent doesn't know a customer is about to
+  cancel, that your best installer is leaving, or that last month was unusual.</li>
+  <li><strong>Copy that needs a human.</strong> Drafted marketing claims are drafts. You are
+  responsible for every claim you publish about your own business.</li>
+</ul>
+
+<h2 id="review">What to always review before acting</h2>
+<p>Read these before you approve. It takes a minute and it is the whole job:</p>
+<ul class="check">
+  <li><strong>Ad spend</strong> — before launching a campaign or raising a budget</li>
+  <li><strong>Anything public</strong> — content, social posts, review replies, website copy</li>
+  <li><strong>Anything sent to a customer</strong> — emails, texts, quotes</li>
+  <li><strong>Prices, discounts and margins</strong> — check the cost inputs, not just the answer</li>
+  <li><strong>Financial figures</strong> — before a tax filing, a loan application, or telling
+    anyone outside your business a number</li>
+  <li><strong>People decisions</strong> — hiring, pay, promotion, discipline, termination</li>
+  <li><strong>Dates and scope you promise</strong> — before you commit to a customer</li>
+</ul>
+
+<div class="box hi">
+  <h3>Nothing goes out without a person approving it</h3>
+  <p>Atrovia does not send a message, publish a post, launch a campaign, spend a dollar or write to
+  your books on its own. <strong>A person with authority approves it first.</strong> That is by
+  design, and it is the most important safeguard in the product.</p>
+  <p>Where we offer automation or scheduling that reduces how often you are asked, turning it on is
+  your choice — and what goes out under it is still yours.</p>
+</div>
+
+<h2 id="not">What Atrovia is not</h2>
+<p>Atrovia is not an accountant, a bookkeeper, a lawyer, a tax adviser, a financial adviser or an HR
+professional. <strong>Nothing it produces is accounting, tax, legal, investment or employment
+advice</strong>, and using it doesn't create a professional relationship. When a decision has legal,
+tax or employment consequences, talk to someone qualified who knows your situation.</p>
+<p>And your accounting records of record are the ones in your accounting system — not the reports
+Atrovia builds from them.</p>
+
+<h2 id="people">Features that involve your people</h2>
+<p>Atrovia scores performance, recommends when to hire, and shows capacity across your team. These
+are tools to support your judgement.</p>
+<p><strong>You are the employer.</strong> You make employment decisions, you are responsible for
+making them lawfully, and you should tell your team what is being recorded about them.
+<strong>Never make an employment decision on an agent's recommendation alone.</strong></p>
+
+<h2 id="data">Your data and these agents</h2>
+<ul>
+  <li><strong>Your business data is not used to train AI models</strong> — not ours, not our
+  providers'.</li>
+  <li><strong>Data is never mixed between businesses.</strong> An agent answering a question for you
+  sees only your data.</li>
+  <li>Some responses are produced using third-party AI models under contracts that prohibit training
+  on your data.</li>
+</ul>
+<p>The full detail is in our <a href="https://atrovia.co/privacy">Privacy Policy</a>.</p>
+
+<h2 id="changing">These features are changing</h2>
+<p>The agents are <strong>experimental and under active development</strong>. Their behaviour,
+wording, accuracy and availability will change as we improve them, and some features are offered as
+previews. We can't promise any particular result from following a recommendation — no software can,
+and you should be sceptical of anyone who says otherwise.</p>
+
+<div class="box">
+  <p><strong>Found something wrong?</strong> Tell us — it's the fastest way the agents get better.
+  <a href="mailto:Support@atrovia.co">Support@atrovia.co</a></p>
+</div>
+
+<footer class="end">
+  <p>This page explains our approach in plain language. The binding terms are in the
+  <a href="https://atrovia.co/eula">End User License Agreement</a>, section 8.</p>
+  <p><a href="https://atrovia.co/">Atrovia</a> · <a href="https://atrovia.co/eula">End User License
+  Agreement</a> · <a href="https://atrovia.co/privacy">Privacy Policy</a> ·
+  <a href="https://atrovia.co/ai-disclosure">AI Disclosure</a></p>
+  <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
+</footer>
+
+</div>
+</body>
+</html>
