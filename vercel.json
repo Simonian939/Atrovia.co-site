@@ -24,7 +24,7 @@
     },
     {
       "source": "/terms",
-      "destination": "/eula.html"
+      "destination": "/eula"
     },
     {
       "source": "/privacy",
