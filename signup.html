@@ -406,7 +406,7 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
            that email verifies the account and routes the user to the atrovia.co app
            (set APP_URL below only if you want a direct post-submit redirect).
          ============================================================ -->
-    <form class="su-form" id="signup-form" autocomplete="on" onsubmit="return false">
+    <form class="su-form" id="signup-form" autocomplete="on">
       <!-- COMPANY INFO -->
       <fieldset class="su-fieldset">
         <legend class="su-legend"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>Company information</legend>
@@ -536,6 +536,12 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
   if(sameBill) sameBill.addEventListener('change',()=>{
     document.getElementById('bill-fields').classList.toggle('hide',sameBill.checked);
   });
+
+  // Antes era onsubmit="return false" en la etiqueta <form>. Un atributo de evento en el
+  // HTML es ejecución inline, y la CSP lo bloquea igual que a un <script> sin hash. Frena
+  // el envío nativo al pulsar Enter dentro de un campo — el clic en «create» ya estaba
+  // cubierto abajo, pero sin esto el Enter recarga la página y se lleva lo escrito.
+  document.getElementById('signup-form')?.addEventListener('submit',(e)=>e.preventDefault());
 
   document.getElementById('create').addEventListener('click',(e)=>{
     e.preventDefault();

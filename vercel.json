@@ -77,7 +77,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://api.atrovia.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.atrovia.co https://prod.atrovia.co; frame-src 'self' https://api.atrovia.co https://prod.atrovia.co https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; media-src 'self' https:; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://api.atrovia.co 'sha256-HQ5GCeJtq+BHrAerODZURgsVc5MQDOCUfg1Zp2ndspk=' 'sha256-QrPEdjS8QQvqqxLaz6FJVM+9lQkw3f2l1RKcdpPpaG4=' 'sha256-fk6A+uzk0Qp6y/6tpBUBkTYa6mfPs+o+l3TrBA4nK/8=' 'sha256-lDwQEB17RTOoDkCYbL551Z1u6v+KajVJECogONJjGTo=' 'sha256-poV7iTE4/s4XEMrhHgJdMpUke8id3nWHS4y1PMWWXrU=' 'sha256-rYihx4YxPKzNzr3r8dMxANoBGEY3Ic73KBRe0WdKrx8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.atrovia.co https://prod.atrovia.co; frame-src 'self' https://api.atrovia.co https://prod.atrovia.co https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; media-src 'self' https:; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
         }
       ]
     }
