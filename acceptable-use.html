@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acceptable Use & Messaging Policy — Atrovia</title>
+<meta name="description" content="What you may and may not do with Atrovia — including the consent, opt-out and timing rules that govern every text message and call you send.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/acceptable-use">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400&display=swap">
+<style>
+:root{
+  /* LIGHT — the marketing site */
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57; --ppl:#3A5FD0;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    /* DARK — identical to the Atrovia app shell */
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:52px 24px 96px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:9px;margin-bottom:26px;text-decoration:none}
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:4px}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,36px);
+  letter-spacing:-.025em;margin:0 0 10px;line-height:1.16}
+.dates{font-size:14.5px;color:var(--ink-3)}
+h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.02em;
+  margin:44px 0 12px;scroll-margin-top:20px}
+h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:26px 0 8px}
+p{margin:0 0 15px}
+ul,ol{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;margin:26px 0}
+.box.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.box.warn{border-left:3px solid var(--warn)}
+.box.crit{border-left:3px solid var(--crit)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.toc{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 24px;margin:30px 0 8px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+.toc li{margin-bottom:5px;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2);font-size:15.5px}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15.5px}
+th{text-align:left;font-family:var(--disp);font-weight:600;font-size:12.5px;
+  padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3)}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+code{font-family:var(--mono);font-size:.88em;background:var(--line-2);padding:1px 5px;
+  border-radius:4px;color:var(--ink)}
+.caps{font-size:15.5px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.01em}
+.pill{display:inline-block;font-family:var(--disp);font-weight:600;font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;
+  border:1px solid currentColor}
+.pill.mkt{color:var(--mkt)} .pill.crm{color:var(--crm)}
+.pill.ops{color:var(--ops)} .pill.fin{color:var(--fin)}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+@media print{.toc{display:none}body{font-size:11pt}.wrap{padding:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="/">
+    <span class="mark">ATR<span class="o">O</span>VIA</span>
+    <span class="sub">Policies</span>
+  </a>
+  <h1>Acceptable Use &amp; Messaging Policy</h1>
+  <p class="dates">Effective <strong>13 September 2026</strong> · Version 2026-09-13</p>
+</header>
+
+<p class="lede">Atrovia can send text messages, place calls, send email and publish on your behalf.
+Every one of those is <strong>you contacting someone</strong> — with your business's name on it and
+your business carrying the legal responsibility. This policy explains what you may and may not do,
+and it is part of your agreement with us.</p>
+
+<div class="box crit">
+  <h3>The one that costs real money</h3>
+  <p>Text messages and calls are governed by the <strong>Telephone Consumer Protection Act
+  (TCPA)</strong>. Statutory damages run <strong>$500 to $1,500 per message</strong>, and class
+  actions are common. A single careless campaign to an unconsented list of 2,000 people is not a
+  warning letter — it is an existential number for a small business.</p>
+  <p>Atrovia gives you the tools. <strong>The consent, the list and the liability are yours.</strong>
+  Read section 3 before you send anything.</p>
+</div>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#who">Who this applies to</a></li>
+    <li><a href="#general">General acceptable use</a></li>
+    <li><a href="#sms">Text messaging and calls</a></li>
+    <li><a href="#registration">Carrier registration (10DLC)</a></li>
+    <li><a href="#recording">Call recording in California</a></li>
+    <li><a href="#email">Email</a></li>
+    <li><a href="#content">Prohibited content</a></li>
+    <li><a href="#data">Contact data you upload</a></li>
+    <li><a href="#ai">Using the AI agents</a></li>
+    <li><a href="#enforcement">What happens if you break this</a></li>
+    <li><a href="#report">Reporting abuse</a></li>
+  </ol>
+</nav>
+
+<h2 id="who">1. Who this applies to</h2>
+<p>This Acceptable Use Policy applies to everyone who uses Atrovia — the account owner, every user
+you add, and anyone acting on your behalf. <strong>You are responsible for your users.</strong></p>
+<p>It forms part of the <a href="/terms">End User License Agreement</a>. Where this policy and the
+Agreement overlap, both apply.</p>
+
+<h2 id="general">2. General acceptable use</h2>
+<p>You will not use Atrovia to:</p>
+<ul>
+  <li>break any law, or infringe anyone's rights;</li>
+  <li>upload malware, or try to gain unauthorised access to any system, account or data;</li>
+  <li>interfere with the platform or place unreasonable load on it;</li>
+  <li>impersonate any person or business, or misrepresent your affiliation with one;</li>
+  <li>harass, threaten, defame or unlawfully discriminate against anyone;</li>
+  <li>store data you are not permitted to store — including payment card numbers outside a
+    supported payment integration, and health or government identification data we have not agreed
+    to receive;</li>
+  <li>resell, sublicense or operate the platform as a service for businesses that are not your own.</li>
+</ul>
+
+<h2 id="sms">3. Text messaging and calls</h2>
+<p>Atrovia's credits pay for text messages and call minutes. When one goes out,
+<strong>you are the sender</strong> — not Atrovia. These rules are not optional.</p>
+
+<h3>Consent</h3>
+<ul>
+  <li><strong>Marketing or promotional texts require prior express <em>written</em> consent.</strong>
+    The person must have agreed, in a record you can produce, to receive marketing texts from
+    <em>your named business</em> at <em>that number</em>. A phone number on an invoice is not
+    consent. A number you bought is not consent. A number from a form that didn't mention texts is
+    not consent.</li>
+  <li><strong>Transactional texts</strong> — an appointment reminder, a job status, a quote the
+    customer asked for — need prior express consent, which is generally satisfied when the customer
+    gave you the number for that purpose.</li>
+  <li><strong>Keep the proof.</strong> Who consented, when, through what form, and to what wording.
+    In a TCPA dispute the burden is on <em>you</em> to show consent, and "we've always done it this
+    way" is not a defence.</li>
+</ul>
+
+<h3>Opt-out</h3>
+<ul>
+  <li><strong>STOP must always work</strong>, along with the usual variants — STOPALL, UNSUBSCRIBE,
+    CANCEL, END, QUIT. Honour it immediately and permanently.</li>
+  <li>Include opt-out instructions in your first message to anyone, and periodically after.</li>
+  <li><strong>Never text someone who has opted out</strong>, from any number, for any reason.
+    Re-adding an opted-out contact by importing a fresh list is still a violation.</li>
+</ul>
+
+<h3>Timing and identification</h3>
+<ul>
+  <li><strong>No messages before 8am or after 9pm in the recipient's local time.</strong> Several
+    states are stricter. Atrovia schedules to the recipient's timezone where it knows it — where it
+    doesn't, that is on you.</li>
+  <li><strong>Identify your business by name</strong> in the message.</li>
+  <li>Don't spoof, mask or rotate numbers to evade filtering. Carriers treat that as fraud and it
+    will get your numbers blocked.</li>
+</ul>
+
+<h3>Calls</h3>
+<ul>
+  <li>Scrub against the <strong>National Do Not Call Registry</strong> and any applicable state
+    registry before making marketing calls, unless you have an established business relationship or
+    written consent.</li>
+  <li>Honour internal do-not-call requests immediately and permanently.</li>
+  <li>Follow the same 8am–9pm window.</li>
+</ul>
+
+<h2 id="registration">4. Carrier registration (10DLC)</h2>
+<p>US carriers require every business sending texts from a standard 10-digit number to register its
+brand and its campaigns — known as <strong>A2P 10DLC</strong>. This is a carrier requirement, not
+ours, and we cannot waive it.</p>
+<ul>
+  <li>You must give <strong>accurate registration information</strong> — legal business name, tax
+    ID, address, and a truthful description of what you'll send. Inaccurate registration gets a brand
+    rejected or suspended, and carriers do check.</li>
+  <li>Unregistered or misregistered traffic is <strong>filtered or blocked by carriers</strong>.
+    Credits spent on a message a carrier refuses are still spent — the message left our system.</li>
+  <li>Carriers may impose throughput limits and their own content rules on top of this policy.</li>
+</ul>
+
+<h2 id="recording">5. Call recording in California</h2>
+<div class="box warn">
+  <p><strong>California is a two-party consent state.</strong> Recording a call without the consent
+  of <em>everyone</em> on it is a crime under Penal Code § 632, and carries civil liability on top.
+  Twelve other states have similar rules, and a call can cross state lines without anyone
+  noticing.</p>
+  <p>If you record or transcribe calls through Atrovia, <strong>you must disclose it at the start of
+  the call and obtain consent.</strong> Do not switch recording on because the feature exists.</p>
+</div>
+
+<h2 id="email">6. Email</h2>
+<p>Email you send through Atrovia must comply with <strong>CAN-SPAM</strong> and, where it applies,
+CASL and GDPR:</p>
+<ul>
+  <li>A working <strong>unsubscribe</strong> link in every marketing email, honoured within 10
+    business days — same day in practice, since we process it immediately.</li>
+  <li>A <strong>valid physical postal address</strong> for your business.</li>
+  <li><strong>Honest headers and subject lines.</strong> No deceptive "Re:" or "Fwd:" on a first
+    contact.</li>
+  <li>No purchased, scraped or harvested email lists. This also wrecks your deliverability, so the
+    rule and your self-interest agree.</li>
+</ul>
+
+<h2 id="content">7. Prohibited content</h2>
+<p>Carriers block certain categories outright, and so do we. Do not send, through any channel:</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Category</th><th>Detail</th></tr></thead>
+  <tbody>
+    <tr><td><strong>SHAFT</strong></td><td>Sex, hate, alcohol, firearms, tobacco or vaping — the
+      standard carrier-blocked set. Age-gated alcohol content may be permitted with carrier
+      approval; assume not until it is.</td></tr>
+    <tr><td><strong>Cannabis and CBD</strong></td><td>Blocked by US carriers regardless of state
+      legality.</td></tr>
+    <tr><td><strong>High-risk financial</strong></td><td>Payday and short-term loans, debt
+      consolidation, debt relief, credit repair, student loan forgiveness.</td></tr>
+    <tr><td><strong>Gambling</strong></td><td>Including sweepstakes and contest promotions.</td></tr>
+    <tr><td><strong>Prescription drugs</strong></td><td>And any controlled substance.</td></tr>
+    <tr><td><strong>Deceptive or fraudulent</strong></td><td>Phishing, fake prizes, false urgency,
+      invented scarcity, get-rich-quick offers.</td></tr>
+    <tr><td><strong>Third-party lead generation</strong></td><td>Sending on behalf of a business
+      that is not yours, or to a list you're monetising for someone else.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="data">8. Contact data you upload</h2>
+<p>You must have the right to hold and use every contact record you put into Atrovia.</p>
+<ul>
+  <li><strong>Purchased lists and skip-traced records are not consent.</strong> Buying a phone
+    number gives you a phone number, nothing more. Marketing texts to a purchased list are the
+    single most common way a small business gets a TCPA claim.</li>
+  <li>Honour deletion and access requests from the people in your database — under the
+    <a href="/privacy">Privacy Policy</a> you are the controller of that data and we act on your
+    instructions.</li>
+  <li>Don't upload data you obtained in breach of another platform's terms.</li>
+</ul>
+<div class="box crit">
+  <h3>Skip-traced and purchased records — the FCRA line</h3>
+  <p>Data available through add-ons such as property records and skip tracing is
+  <strong>not a consumer report</strong> and is not provided by a consumer reporting agency. You may
+  <strong>not</strong> use it — or any Atrovia output derived from it — to decide whether to grant
+  someone <strong>credit, employment, insurance, housing or tenancy</strong>, or for any other
+  purpose covered by the <strong>Fair Credit Reporting Act</strong>.</p>
+  <p>Using marketing data for a screening decision is an FCRA violation whatever the data cost.</p>
+</div>
+
+<h2 id="ai">9. Using the AI agents</h2>
+<p>The agents are a tool for running your business. Don't use them to:</p>
+<ul>
+  <li>generate content you'll present as written by a named real person without their agreement;</li>
+  <li>produce claims about your business you know to be untrue;</li>
+  <li>make an employment decision without human review — see
+    <a href="/terms#ai">section 8.5 of the Agreement</a>;</li>
+  <li>attempt to extract another customer's data, or to circumvent the platform's safeguards.</li>
+</ul>
+<p>How the agents work, what they get wrong, and what you should always review:
+<a href="/ai-disclosure">atrovia.co/ai-disclosure</a>.</p>
+
+<h2 id="enforcement">10. What happens if you break this</h2>
+<p>Depending on what happened and how serious it is, we may:</p>
+<ul>
+  <li>warn you and ask you to fix it;</li>
+  <li>pause outbound messaging on your account;</li>
+  <li>suspend the account;</li>
+  <li>terminate the agreement for cause;</li>
+  <li>report the matter where the law requires it.</li>
+</ul>
+<p>For a violation that threatens the platform, other customers, or our carrier relationships, we may
+act <strong>immediately and without notice</strong>. Carriers can also block your traffic
+independently of anything we do.</p>
+<p><strong>Credits spent are not refunded</strong> for messages sent in violation of this policy, and
+credits on a terminated account are forfeited. Under
+<a href="/terms#indemnity">section 18 of the Agreement</a> you indemnify us against claims arising
+from your messaging.</p>
+
+<h2 id="report">11. Reporting abuse</h2>
+<p>If you received a message from an Atrovia customer that you believe breaks this policy, or you
+can't get someone to stop texting you, email
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> with the message, the sending number and the
+date. We investigate every report and we will tell you what we did.</p>
+
+<div class="box hi">
+  <p><strong>If you take one thing from this page:</strong> get written consent before you text
+  anyone for marketing, keep the record of it, and make STOP work. That single habit prevents almost
+  every problem this policy exists to describe.</p>
+</div>
+
+<footer class="end">
+  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> ·
+  <a href="/privacy">Privacy</a> · <a href="/ai-disclosure">AI Disclosure</a> ·
+  <a href="/acceptable-use">Acceptable Use</a> · <a href="/credits">Credits &amp; Billing</a> ·
+  <a href="/refunds">Refunds</a> · <a href="/marketplace-terms">Add-ons</a> ·
+  <a href="/subprocessors">Sub-processors</a></p>
+  <p>© 2026 Atrovia Corporation · 937 N. Amphlett Blvd., San Mateo, CA 94401 ·
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+</footer>
+
+</div>
+</body>
+</html>

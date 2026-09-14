@@ -1,34 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How Atrovia's AI Agents Work — Atrovia</title>
 <meta name="description" content="What Atrovia's AI agents do, what they can get wrong, what you should always review before acting, and who makes the final call. In plain English.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://atrovia.co/ai-disclosure">
+<link rel="canonical" href="/ai-disclosure">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
-  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
-  --accent:#B57A1E; --accent-soft:#FBF3E3;
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440; --qb:#2CA01C;
   --disp:"Poppins",system-ui,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
-    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
-    --accent:#F0B252; --accent-soft:#2A2013;
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
-  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
-  --accent:#F0B252; --accent-soft:#2A2013;
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -82,6 +92,15 @@ footer.end{margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
   font-size:14.5px;color:var(--ink-3)}
 footer.end a{color:var(--ink-2)}
 @media print{body{font-size:11pt}.wrap{padding:0}}
+
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:6px}
+.brand{text-decoration:none}
+.box.warn{border-left:3px solid var(--warn);background:var(--surf)}
+.box.crit{border-left:3px solid var(--crit);background:var(--surf)}
 </style>
 </head>
 <body>
@@ -89,11 +108,10 @@ footer.end a{color:var(--ink-2)}
 
 <header class="top">
   <div class="brand">
-    <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
-    <a href="https://atrovia.co/">Atrovia</a>
+    <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Policies</span>
   </div>
   <h1>How our AI agents work</h1>
-  <p class="dates">Last updated 12 September 2026 · Plain-English companion to
+  <p class="dates">Last updated 13 September 2026 · Plain-English companion to
   <a href="https://atrovia.co/eula#ai">section 8</a> of the End User License Agreement</p>
 </header>
 
@@ -209,7 +227,7 @@ making them lawfully, and you should tell your team what is being recorded about
   <li>Some responses are produced using third-party AI models under contracts that prohibit training
   on your data.</li>
 </ul>
-<p>The full detail is in our <a href="https://atrovia.co/privacy">Privacy Policy</a>.</p>
+<p>The full detail is in our <a href="/privacy">Privacy Policy</a>.</p>
 
 <h2 id="changing">These features are changing</h2>
 <p>The agents are <strong>experimental and under active development</strong>. Their behaviour,
@@ -219,15 +237,13 @@ and you should be sceptical of anyone who says otherwise.</p>
 
 <div class="box">
   <p><strong>Found something wrong?</strong> Tell us — it's the fastest way the agents get better.
-  <a href="mailto:Support@atrovia.co">Support@atrovia.co</a></p>
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
 </div>
 
 <footer class="end">
   <p>This page explains our approach in plain language. The binding terms are in the
-  <a href="https://atrovia.co/eula">End User License Agreement</a>, section 8.</p>
-  <p><a href="https://atrovia.co/">Atrovia</a> · <a href="https://atrovia.co/eula">End User License
-  Agreement</a> · <a href="https://atrovia.co/privacy">Privacy Policy</a> ·
-  <a href="https://atrovia.co/ai-disclosure">AI Disclosure</a></p>
+  <a href="/terms">End User License Agreement</a>, section 8.</p>
+  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/ai-disclosure">AI Disclosure</a> · <a href="/acceptable-use">Acceptable Use</a> · <a href="/credits">Credits &amp; Billing</a> · <a href="/refunds">Refunds</a> · <a href="/marketplace-terms">Add-ons</a> · <a href="/subprocessors">Sub-processors</a></p>
   <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
 </footer>
 

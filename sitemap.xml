@@ -2,32 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://atrovia.co/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-14</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://atrovia.co/signup</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://atrovia.co/about</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://atrovia.co/terms</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://atrovia.co/privacy</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/ai-disclosure</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/acceptable-use</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/credits</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/refunds</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/marketplace-terms</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/subprocessors</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://atrovia.co/connect-quickbooks</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://atrovia.co/terms</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://atrovia.co/quickbooks-disconnected</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

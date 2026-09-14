@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Credits & Billing Terms — Atrovia</title>
+<meta name="description" content="How Atrovia credits and seats are bought, spent and refunded — including expiry, automatic top-ups and what happens when you cancel.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/credits">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400&display=swap">
+<style>
+:root{
+  /* LIGHT — the marketing site */
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57; --ppl:#3A5FD0;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    /* DARK — identical to the Atrovia app shell */
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:52px 24px 96px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:9px;margin-bottom:26px;text-decoration:none}
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:4px}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,36px);
+  letter-spacing:-.025em;margin:0 0 10px;line-height:1.16}
+.dates{font-size:14.5px;color:var(--ink-3)}
+h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.02em;
+  margin:44px 0 12px;scroll-margin-top:20px}
+h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:26px 0 8px}
+p{margin:0 0 15px}
+ul,ol{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;margin:26px 0}
+.box.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.box.warn{border-left:3px solid var(--warn)}
+.box.crit{border-left:3px solid var(--crit)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.toc{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 24px;margin:30px 0 8px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+.toc li{margin-bottom:5px;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2);font-size:15.5px}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15.5px}
+th{text-align:left;font-family:var(--disp);font-weight:600;font-size:12.5px;
+  padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3)}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+code{font-family:var(--mono);font-size:.88em;background:var(--line-2);padding:1px 5px;
+  border-radius:4px;color:var(--ink)}
+.caps{font-size:15.5px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.01em}
+.pill{display:inline-block;font-family:var(--disp);font-weight:600;font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;
+  border:1px solid currentColor}
+.pill.mkt{color:var(--mkt)} .pill.crm{color:var(--crm)}
+.pill.ops{color:var(--ops)} .pill.fin{color:var(--fin)}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+@media print{.toc{display:none}body{font-size:11pt}.wrap{padding:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="/">
+    <span class="mark">ATR<span class="o">O</span>VIA</span>
+    <span class="sub">Policies</span>
+  </a>
+  <h1>Credits &amp; Billing Terms</h1>
+  <p class="dates">Effective <strong>13 September 2026</strong> · Version 2026-09-13</p>
+</header>
+
+<p class="lede">Atrovia bills in two ways: <strong>seats</strong>, charged monthly per person, and
+<strong>credits</strong>, bought in advance and spent when you send a text or make a call. This page
+explains exactly how both work, what happens to unused credits, and when money comes back.</p>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#credit">What a credit is</a></li>
+    <li><a href="#buying">Buying credits</a></li>
+    <li><a href="#spending">How credits are spent</a></li>
+    <li><a href="#expiry">Expiry and what happens on cancellation</a></li>
+    <li><a href="#seats">Seats</a></li>
+    <li><a href="#addons">Add-ons</a></li>
+    <li><a href="#payment">Payment, failures and suspension</a></li>
+    <li><a href="#changes">Price changes</a></li>
+    <li><a href="#tax">Taxes</a></li>
+    <li><a href="#disputes">Billing errors and disputes</a></li>
+  </ol>
+</nav>
+
+<h2 id="credit">1. What a credit is</h2>
+<p><strong>1 credit = 1 text message or 1 call-minute.</strong> Credits are shared across your whole
+company — they belong to the business, not to a person or a seat. Adding a user does not add
+credits.</p>
+
+<div class="box hi">
+  <h3>Credits are a prepaid usage balance, not money</h3>
+  <p>A credit is a prepaid right to use a feature. It is <strong>not currency, not a stored-value
+  account, not a gift card, and has no cash value.</strong> Credits cannot be redeemed for cash,
+  transferred to another account, sold, or used outside Atrovia.</p>
+</div>
+
+<h3>Two kinds of credits</h3>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Kind</th><th>Where it comes from</th><th>Expires?</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Included</strong></td><td>Your monthly allowance, granted at the start of each
+      billing period</td><td><strong>Yes</strong> — unused included credits expire at the end of
+      the period they were granted in. They do not roll over.</td></tr>
+    <tr><td><strong>Purchased</strong></td><td>A credit pack you bought</td><td><strong>No</strong> —
+      purchased credits never expire while your account is open.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Your balance shows both together. <strong>Included credits are always spent first</strong>, so
+you never lose an expiring credit while a purchased one sits unused. That ordering is deliberate and
+it is always in your favour.</p>
+
+<h2 id="buying">2. Buying credits</h2>
+<p>Credit packs are shown in the App Store with their price and size. Larger packs cost less per
+credit; the price shown at checkout is what you pay.</p>
+<p>Three ways to buy:</p>
+<ul>
+  <li><strong>One-time</strong> — a single top-up, charged once, credits never expire.</li>
+  <li><strong>Every month</strong> — the same pack on the same day each month until you turn it off.
+    Cancel any time; cancelling stops future purchases and does not refund past ones.</li>
+  <li><strong>When I run low</strong> — an automatic top-up when your balance falls below the
+    threshold you set.</li>
+</ul>
+<div class="box warn">
+  <h3>Automatic top-up — read this before switching it on</h3>
+  <p>When you enable <em>Every month</em> or <em>When I run low</em>, you are authorising us to
+  charge your payment method <strong>without asking you again each time.</strong></p>
+  <p>You set the pack size and, for low-balance top-up, the trigger threshold. We cap automatic
+  top-ups at <strong>three per calendar month</strong> and email you on every one, so a runaway
+  sequence or a misconfigured campaign cannot quietly drain your card. If you hit the cap, we tell
+  you and stop.</p>
+  <p>Turn either off at any time in the App Store. It takes effect immediately.</p>
+</div>
+
+<h2 id="spending">3. How credits are spent</h2>
+<ul>
+  <li><strong>One credit per text segment.</strong> A message longer than 160 characters (70 if it
+    contains emoji or other non-GSM characters) is split by the carrier into multiple segments and
+    costs one credit per segment. The composer shows the segment count before you send.</li>
+  <li><strong>One credit per call-minute</strong>, rounded up to the next whole minute.</li>
+  <li>Credits are deducted <strong>when the message leaves our system</strong>, not when it is
+    delivered.</li>
+</ul>
+<div class="box">
+  <p><strong>A message a carrier blocks or filters still costs a credit.</strong> We hand it to the
+  carrier and the carrier decides. This is why accurate 10DLC registration matters — see the
+  <a href="/acceptable-use#registration">Acceptable Use Policy</a> — and it is also why we show
+  delivery status rather than assuming a send is a receipt.</p>
+  <p>We do not charge for a message our own system fails to hand over. If our infrastructure drops
+  it, we return the credit.</p>
+</div>
+<p>Free allowances, where offered, are shown in the App Store and are used before anything else.</p>
+
+<h2 id="expiry">4. Expiry and what happens on cancellation</h2>
+<ul>
+  <li><strong>Purchased credits never expire</strong> while your account is open and in good
+    standing.</li>
+  <li><strong>Included credits expire monthly</strong> and do not roll over.</li>
+  <li><strong>If you cancel your subscription</strong>, unused purchased credits remain available
+    until the end of your paid period, then are forfeited. They are not refunded and not
+    transferable.</li>
+  <li><strong>If we terminate your account for a breach</strong> of the Agreement or the
+    <a href="/acceptable-use">Acceptable Use Policy</a>, all credits are forfeited.</li>
+</ul>
+<p>If you're stepping away temporarily and want your balance preserved, email
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> before you cancel and we'll tell you your
+options. We would rather hold a balance for a returning customer than pocket it.</p>
+
+<h2 id="seats">5. Seats</h2>
+<p>Every person who uses Atrovia needs a seat, billed monthly per user. Seat tiers and their prices
+are shown in the App Store.</p>
+<ul>
+  <li><strong>Adding a seat mid-month is prorated</strong> — you pay only for the days remaining in
+    the current period, then the full monthly rate from the next renewal. The exact prorated amount
+    is shown before you confirm.</li>
+  <li><strong>Removing a seat takes effect at the next renewal.</strong> The seat stays usable until
+    then, and there is no partial refund for the remainder of the period.</li>
+  <li><strong>Seats do not carry credits.</strong> Credits are company-wide.</li>
+  <li>A seat is for a <strong>named individual</strong>. Sharing one login between people is a
+    breach of the Agreement — and it also wrecks the review and activity data the product depends
+    on.</li>
+</ul>
+
+<h2 id="addons">6. Add-ons</h2>
+<p>Some capabilities are included with your plan; others are add-ons with their own monthly price,
+shown in the App Store. Add-ons renew monthly with your subscription and can be turned off at any
+time, effective at the next renewal.</p>
+<p>Some add-ons connect to <strong>third-party services that bill you separately, on your own
+account with them.</strong> What you pay those providers is between you and them, and it is not part
+of your Atrovia invoice. See the <a href="/marketplace-terms">Add-on &amp; Marketplace Terms</a>
+before enabling one.</p>
+<p>Features marked <strong>Soon</strong> are not yet available, are not being sold, and no date is
+promised.</p>
+
+<h2 id="payment">7. Payment, failures and suspension</h2>
+<ul>
+  <li>Subscription fees are charged <strong>in advance</strong> for each period. Credit purchases are
+    charged at the time of purchase.</li>
+  <li>You authorise us and our payment processor to charge your payment method for all amounts due,
+    including automatic top-ups you have enabled.</li>
+  <li><strong>Keep your billing details current.</strong> A card that expires quietly is the most
+    common reason a business loses access it was still paying for.</li>
+  <li>If a payment fails we retry and email you. If an invoice is <strong>15 days overdue</strong>
+    we may charge interest at 1.5% per month or the maximum permitted by law, whichever is lower. At
+    <strong>30 days</strong> we may suspend the account.</li>
+  <li><strong>Suspension does not delete anything.</strong> Your data and your purchased credits are
+    preserved and come back when the balance is paid.</li>
+</ul>
+
+<h2 id="changes">8. Price changes</h2>
+<p>We may change subscription and add-on prices for a future renewal period with at least
+<strong>30 days' notice</strong> by email before the renewal date. If you don't accept a change,
+cancel before that renewal and you won't be charged the new rate.</p>
+<p>Credit pack prices can change at any time, because a credit pack is a one-off purchase rather
+than a renewing commitment. <strong>The price you see at checkout is the price you pay</strong>, and
+a change never affects credits you already bought.</p>
+
+<h2 id="tax">9. Taxes</h2>
+<p>Prices exclude sales, use, VAT, GST and similar taxes. You're responsible for those; we're
+responsible for taxes on our own income. Where we're required to collect tax, it's added at
+checkout and shown separately.</p>
+<p>Tax treatment of software subscriptions is changing in several US states, California included.
+If a change means we must start collecting tax on your subscription, <strong>we'll tell you before
+it appears on an invoice</strong> rather than letting you discover it.</p>
+
+<h2 id="disputes">10. Billing errors and disputes</h2>
+<p>If something looks wrong on an invoice, email
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> within <strong>60 days</strong> of the charge
+and we'll investigate. If we billed you in error we correct it and refund the difference — that's
+not a concession, it's just the right answer.</p>
+<div class="box">
+  <p><strong>Please come to us before your bank.</strong> A chargeback freezes the account
+  automatically while it's processed, which usually hurts you more than the disputed amount. Almost
+  every billing dispute we've seen is a misunderstanding that takes one email to resolve.</p>
+</div>
+<p>What is and isn't refundable: <a href="/refunds">Refund &amp; Cancellation Policy</a>.</p>
+
+<footer class="end">
+  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> ·
+  <a href="/privacy">Privacy</a> · <a href="/ai-disclosure">AI Disclosure</a> ·
+  <a href="/acceptable-use">Acceptable Use</a> · <a href="/credits">Credits &amp; Billing</a> ·
+  <a href="/refunds">Refunds</a> · <a href="/marketplace-terms">Add-ons</a> ·
+  <a href="/subprocessors">Sub-processors</a></p>
+  <p>© 2026 Atrovia Corporation · 937 N. Amphlett Blvd., San Mateo, CA 94401 ·
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+</footer>
+
+</div>
+</body>
+</html>

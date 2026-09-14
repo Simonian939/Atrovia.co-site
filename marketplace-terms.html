@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Add-on & Marketplace Terms — Atrovia</title>
+<meta name="description" content="The difference between Atrovia add-ons and third-party packs that bill you separately — who is responsible for data quality, leads and refunds.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/marketplace-terms">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400&display=swap">
+<style>
+:root{
+  /* LIGHT — the marketing site */
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57; --ppl:#3A5FD0;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    /* DARK — identical to the Atrovia app shell */
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:52px 24px 96px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:9px;margin-bottom:26px;text-decoration:none}
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:4px}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,36px);
+  letter-spacing:-.025em;margin:0 0 10px;line-height:1.16}
+.dates{font-size:14.5px;color:var(--ink-3)}
+h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.02em;
+  margin:44px 0 12px;scroll-margin-top:20px}
+h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:26px 0 8px}
+p{margin:0 0 15px}
+ul,ol{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;margin:26px 0}
+.box.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.box.warn{border-left:3px solid var(--warn)}
+.box.crit{border-left:3px solid var(--crit)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.toc{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 24px;margin:30px 0 8px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+.toc li{margin-bottom:5px;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2);font-size:15.5px}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15.5px}
+th{text-align:left;font-family:var(--disp);font-weight:600;font-size:12.5px;
+  padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3)}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+code{font-family:var(--mono);font-size:.88em;background:var(--line-2);padding:1px 5px;
+  border-radius:4px;color:var(--ink)}
+.caps{font-size:15.5px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.01em}
+.pill{display:inline-block;font-family:var(--disp);font-weight:600;font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;
+  border:1px solid currentColor}
+.pill.mkt{color:var(--mkt)} .pill.crm{color:var(--crm)}
+.pill.ops{color:var(--ops)} .pill.fin{color:var(--fin)}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+@media print{.toc{display:none}body{font-size:11pt}.wrap{padding:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="/">
+    <span class="mark">ATR<span class="o">O</span>VIA</span>
+    <span class="sub">Policies</span>
+  </a>
+  <h1>Add-on &amp; Marketplace Terms</h1>
+  <p class="dates">Effective <strong>13 September 2026</strong> · Version 2026-09-13</p>
+</header>
+
+<p class="lede">The App Store offers two different things, and the difference matters.
+<strong>Some add-ons are built by Atrovia.</strong> Others <strong>connect you to a third-party
+service that bills you separately</strong> and sets its own rules. This page explains which is
+which, and who is responsible when something goes wrong.</p>
+
+<div class="box hi">
+  <h3>The short version</h3>
+  <p><strong>Atrovia add-ons</strong> — Operations, Finance, Studio and anything else marked as
+  ours. Covered by your <a href="/terms">Agreement</a>, billed by us, supported by us.</p>
+  <p><strong>Third-party add-ons</strong> — packs that include an outside provider, such as the Real
+  Estate Pack with BatchData and iSpeedToLead. <strong>You hold the account with that provider, they
+  bill you directly, their terms govern their service, and refunds for their data or leads come from
+  them under their policies.</strong></p>
+</div>
+
+<nav class="toc" aria-label="Contents">
+  <ol>
+    <li><a href="#kinds">The two kinds of add-on</a></li>
+    <li><a href="#atrovia">Atrovia add-ons</a></li>
+    <li><a href="#third">Third-party add-ons</a></li>
+    <li><a href="#billing">How third-party billing works</a></li>
+    <li><a href="#quality">Data quality, leads and refunds</a></li>
+    <li><a href="#fcra">What purchased data may not be used for</a></li>
+    <li><a href="#privacy">Data sharing when you enable an add-on</a></li>
+    <li><a href="#turning-off">Turning an add-on off</a></li>
+    <li><a href="#availability">Availability, previews and "Soon"</a></li>
+  </ol>
+</nav>
+
+<h2 id="kinds">1. The two kinds of add-on</h2>
+<p>Every add-on in the App Store shows what it includes. Where an outside provider is involved, it
+is <strong>named on the card before you buy</strong>, along with the fact that it bills separately.
+We would rather lose a sale than have you discover a second invoice afterwards.</p>
+
+<h2 id="atrovia">2. Atrovia add-ons</h2>
+<p>Built and run by us. Your <a href="/terms">End User License Agreement</a>,
+<a href="/privacy">Privacy Policy</a> and <a href="/ai-disclosure">AI Disclosure</a> apply exactly
+as they do to the rest of the platform. Billed on your Atrovia invoice, cancellable at any time,
+effective at the next renewal, per the <a href="/credits#addons">Credits &amp; Billing Terms</a>.</p>
+
+<h2 id="third">3. Third-party add-ons</h2>
+<p>A third-party add-on wires an outside service into Atrovia so you can work in one place. What it
+does <strong>not</strong> do is make us the provider of that service.</p>
+<ul>
+  <li><strong>You contract directly with the provider.</strong> Their terms of service and privacy
+    policy govern their part, and you should read them before enabling the add-on.</li>
+  <li><strong>You hold the account and the credentials.</strong> Atrovia connects to it on your
+    instruction and within the scope you grant.</li>
+  <li><strong>We don't control their service.</strong> Availability, accuracy, pricing, support and
+    any change they make are theirs. If they change an API or retire a product, the add-on may stop
+    working — we'll tell you as soon as we know.</li>
+  <li><strong>We are not liable for their acts or omissions</strong>, or for any loss arising from
+    their data, their leads or their service.</li>
+</ul>
+<p>The Atrovia fee shown for a third-party add-on, where there is one, is for the integration — the
+connection, the interface and the work of bringing that provider's data into your pipeline. It is
+not payment for the provider's data or leads.</p>
+
+<h2 id="billing">4. How third-party billing works</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Charge</th><th>Billed by</th><th>Appears on</th></tr></thead>
+  <tbody>
+    <tr><td>The add-on's monthly Atrovia fee</td><td>Atrovia</td><td>Your Atrovia invoice</td></tr>
+    <tr><td>Skip traces, list pulls, record lookups</td><td>The data provider</td>
+      <td>Your account with them</td></tr>
+    <tr><td>Each lead you buy</td><td>The lead provider</td><td>Your account with them</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>What you pay a third-party provider depends on how much you use.</strong> These are
+usage-based services — skip traces, list pulls and per-lead purchases add up quickly, and the amount
+is set by them, not by us. Set a spending limit with the provider directly if they offer one.</p>
+<p>We don't see, control or take a share of what you spend with them unless the App Store card says
+otherwise for that specific add-on.</p>
+
+<h2 id="quality">5. Data quality, leads and refunds</h2>
+<div class="box warn">
+  <p><strong>Refunds for inaccurate data or bad leads are handled by the provider, under their own
+  policies.</strong> Not by Atrovia. If a skip trace returns a wrong number or a purchased lead turns
+  out to be junk, that claim goes to the company that sold it to you, and their refund policy
+  decides the outcome.</p>
+  <p>We'll help you work out who to contact and what to send them. We can't overrule their
+  decision.</p>
+</div>
+<p>No provider guarantees that a record is current or correct. People move, disconnect numbers and
+change names. <strong>Treat purchased data as a starting point to verify, not a fact.</strong> That
+is true of the best providers in the industry, and any vendor claiming otherwise is selling you
+something they can't deliver.</p>
+
+<h2 id="fcra">6. What purchased data may not be used for</h2>
+<div class="box crit">
+  <h3>The FCRA line</h3>
+  <p>Property records, owner records and skip-traced contact data are <strong>marketing data</strong>.
+  They are not consumer reports, and the providers are not consumer reporting agencies.</p>
+  <p>You may <strong>not</strong> use this data — or anything Atrovia produces from it — to decide
+  whether to grant someone <strong>credit, employment, insurance, housing or tenancy</strong>, or for
+  any other purpose covered by the <strong>Fair Credit Reporting Act</strong>.</p>
+  <p>This is not a formality. Using marketing data for a screening decision is an FCRA violation
+  regardless of what the data cost or how accurate it turned out to be.</p>
+</div>
+<p>Contact data obtained through an add-on is also <strong>not consent to be texted or called</strong>.
+Everything in the <a href="/acceptable-use#sms">Acceptable Use Policy</a> still applies — consent,
+do-not-call scrubbing, opt-out, and the 8am–9pm window. A number you bought is a number, not a
+permission.</p>
+
+<h2 id="privacy">7. Data sharing when you enable an add-on</h2>
+<p>Enabling a third-party add-on authorises us to exchange data with that provider as the feature
+requires — for example, sending a property address to get back an owner record, or receiving a lead
+into your pipeline.</p>
+<ul>
+  <li>We send <strong>only what the feature needs</strong>, never your whole account.</li>
+  <li>The provider's privacy policy governs what they do with it once it reaches them.</li>
+  <li>You confirm you have the right to send them whatever you send.</li>
+  <li>Data that comes back into Atrovia is covered by our <a href="/privacy">Privacy Policy</a> like
+    any other data in your account.</li>
+</ul>
+
+<h2 id="turning-off">8. Turning an add-on off</h2>
+<ul>
+  <li>Turn off any add-on in the App Store. The Atrovia fee stops at your next renewal; there's no
+    partial refund for the current period.</li>
+  <li><strong>Turning off the add-on does not close your account with the provider</strong>, and does
+    not stop their charges. Cancel with them directly — this catches people out, so we'll remind you
+    on screen when you disable it.</li>
+  <li>Data already in your Atrovia account stays there. Leads you bought are yours.</li>
+</ul>
+
+<h2 id="availability">9. Availability, previews and "Soon"</h2>
+<ul>
+  <li>An add-on marked <strong>Soon</strong> is not available, is not being sold, and carries no
+    promised date.</li>
+  <li>Add-ons offered as a <strong>preview or beta</strong> are provided as-is, may change or be
+    withdrawn, and are excluded from any service commitment — see
+    <a href="/terms#trials">section 11 of the Agreement</a>.</li>
+  <li>We may add, change, reprice or retire an add-on. If we retire one you're paying for, we'll
+    give you notice and a pro-rata refund of the unused Atrovia portion.</li>
+</ul>
+
+<p>Everything else in your <a href="/terms">End User License Agreement</a> applies to add-ons,
+including the disclaimers and the limitation of liability in sections 16 and 17.</p>
+
+<footer class="end">
+  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> ·
+  <a href="/privacy">Privacy</a> · <a href="/ai-disclosure">AI Disclosure</a> ·
+  <a href="/acceptable-use">Acceptable Use</a> · <a href="/credits">Credits &amp; Billing</a> ·
+  <a href="/refunds">Refunds</a> · <a href="/marketplace-terms">Add-ons</a> ·
+  <a href="/subprocessors">Sub-processors</a></p>
+  <p>© 2026 Atrovia Corporation · 937 N. Amphlett Blvd., San Mateo, CA 94401 ·
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+</footer>
+
+</div>
+</body>
+</html>

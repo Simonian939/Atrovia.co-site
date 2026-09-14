@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /preview
 
 Sitemap: https://atrovia.co/sitemap.xml

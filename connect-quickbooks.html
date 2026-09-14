@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,24 +12,33 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
-  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
-  --accent:#B57A1E; --accent-soft:#FBF3E3;
-  --qb:#2CA01C;
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440; --qb:#2CA01C;
   --disp:"Poppins",system-ui,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
-    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
-    --accent:#F0B252; --accent-soft:#2A2013;
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
-  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
-  --accent:#F0B252; --accent-soft:#2A2013;
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -83,14 +92,22 @@ footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
   font-size:14px;color:var(--ink-3)}
 footer.end a{color:var(--ink-2)}
 footer.end p{margin:0 0 8px}
+
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:6px}
+.brand{text-decoration:none}
+.box.warn{border-left:3px solid var(--warn);background:var(--surf)}
+.box.crit{border-left:3px solid var(--crit);background:var(--surf)}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <div class="brand">
-  <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
-  <a href="/">Atrovia</a>
+  <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Policies</span>
 </div>
 
 <h1>Connect your QuickBooks</h1>
@@ -99,10 +116,9 @@ Before you connect, your margin, your labour cost and your cash position are wha
 After you connect, they come from your books.</p>
 
 <div class="btnrow">
-  <!-- TODO(unverified): app.atrovia.co is the live app domain, but this repo has no
-       visibility into the app's actual API routes. Confirm this endpoint exists there
-       (or update to the real path) before Intuit review — a reviewer clicks this button. -->
-  <a class="qbbtn" href="https://app.atrovia.co/api/quickbooks/connect" id="qb-connect">
+  <!-- ADAPT: point at the app's OAuth start endpoint. It should send a signed-out
+       visitor to sign-in first and continue to Intuit afterwards. -->
+  <a class="qbbtn" href="/api/quickbooks/connect" id="qb-connect">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
     Connect to QuickBooks
   </a>
@@ -159,7 +175,7 @@ After you connect, they come from your books.</p>
 to undo — use the same button. Reconnecting picks up where you left off, and
 <strong>the history we already built stays intact</strong>.</p>
 <p>If you're connecting a <em>different</em> QuickBooks company than before, tell us first at
-<a href="mailto:Support@atrovia.co">Support@atrovia.co</a> — one Atrovia business maps to one QuickBooks
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> — one Atrovia business maps to one QuickBooks
 company, and swapping without a word turns your trend lines into nonsense.</p>
 
 <h2>Before you connect</h2>
@@ -177,9 +193,8 @@ company, and swapping without a word turns your trend lines into nonsense.</p>
 <footer class="end">
   <p>Intuit and QuickBooks are trademarks of Intuit Inc. Atrovia is not affiliated with, endorsed by,
   or sponsored by Intuit Inc.</p>
-  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> ·
-  <a href="/eula">EULA</a> · <a href="/ai-disclosure">AI Disclosure</a> ·
-  <a href="mailto:Support@atrovia.co">Support@atrovia.co</a></p>
+  <p><a href="/">Atrovia</a> · <a href="/eula">Terms</a> · <a href="/privacy">Privacy</a> ·
+  <a href="/ai-disclosure">AI Disclosure</a> · <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
   <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
 </footer>
 

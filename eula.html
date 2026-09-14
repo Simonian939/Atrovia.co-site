@@ -1,34 +1,44 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>End User License Agreement — Atrovia</title>
 <meta name="description" content="The terms that govern your use of the Atrovia platform — your licence, your data, subscriptions and billing, acceptable use, and how the agreement ends.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://atrovia.co/eula">
+<link rel="canonical" href="/terms">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#FBFBF9; --surf:#FFFFFF; --line:#E4E5E0; --line-2:#EFEFEC;
-  --ink:#14181C; --ink-2:#4A5560; --ink-3:#77828D;
-  --accent:#B57A1E; --accent-soft:#FBF3E3;
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440; --qb:#2CA01C;
   --disp:"Poppins",system-ui,sans-serif;
   --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
-    --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
-    --accent:#F0B252; --accent-soft:#2A2013;
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#070C17; --surf:#101A2E; --line:#1F2C48; --line-2:#182338;
-  --ink:#E7EDF9; --ink-2:#98A6C2; --ink-3:#6B7A99;
-  --accent:#F0B252; --accent-soft:#2A2013;
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -80,6 +90,15 @@ footer.end a{color:var(--ink-2)}
 .ph{background:var(--accent-soft);color:var(--accent);padding:1px 6px;border-radius:4px;
   font-weight:600;font-size:.92em;border:1px dashed var(--accent)}
 @media print{.toc{display:none}body{font-size:11pt}.wrap{padding:0}}
+
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:6px}
+.brand{text-decoration:none}
+.box.warn{border-left:3px solid var(--warn);background:var(--surf)}
+.box.crit{border-left:3px solid var(--crit);background:var(--surf)}
 </style>
 </head>
 <body>
@@ -87,11 +106,10 @@ footer.end a{color:var(--ink-2)}
 
 <header class="top">
   <div class="brand">
-    <span class="g"><svg viewBox="0 0 24 24"><path d="M6 21V4M18 21V4M6 17h12M6 12h12M6 7h12"/></svg></span>
-    <a href="https://atrovia.co/">Atrovia</a>
+    <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Policies</span>
   </div>
   <h1>End User License Agreement</h1>
-  <p class="dates">Effective <strong>12 September 2026</strong> · Last updated 12 September 2026</p>
+  <p class="dates">Effective <strong>13 September 2026</strong> · Version 2026-09-13</p>
 </header>
 
 <p class="lede">This is the agreement between you and Atrovia for the use of our platform. It covers
@@ -103,7 +121,7 @@ stays yours, and every business decision stays yours.</strong></p>
   <p><strong>Before anything else — the AI part.</strong> Atrovia's agents produce recommendations,
   not decisions. They are experimental, they make mistakes, and you should review their work before
   you act on it. <a href="#ai">Section 8</a> sets this out in full, and there is a plain-English
-  version at <a href="https://atrovia.co/ai-disclosure">atrovia.co/ai-disclosure</a>.</p>
+  version at <a href="/ai-disclosure">atrovia.co/ai-disclosure</a>.</p>
 </div>
 
 <nav class="toc" aria-label="Contents">
@@ -143,7 +161,7 @@ business using the platform (<strong>“you”</strong>, “Customer”).</p>
 references it, or using the platform. If you are accepting on behalf of a company, you confirm you
 have authority to bind that company, and “you” means that company.</p>
 <p>If you do not agree, do not use Atrovia.</p>
-<p>Our <a href="https://atrovia.co/privacy">Privacy Policy</a> is part of this Agreement.</p>
+<p>Our <a href="/privacy">Privacy Policy</a> is part of this Agreement.</p>
 
 <h2 id="defs">2. Definitions</h2>
 <div class="tablewrap">
@@ -191,7 +209,7 @@ Platform passes to you.</p>
 <h2 id="accounts">4. Accounts, seats and users</h2>
 <p>You are responsible for your account, for the accuracy of the information in it, and for
 everything done under it. Keep credentials confidential, do not share logins between people, and
-tell us at <a href="mailto:Support@atrovia.co">Support@atrovia.co</a> promptly if you believe your
+tell us at <a href="mailto:admin@atrovia.co">admin@atrovia.co</a> promptly if you believe your
 account has been compromised.</p>
 <p>Each User must be a named individual. You are responsible for your Users' compliance with this
 Agreement, and for making sure you have the right to give us any personal information you enter
@@ -353,7 +371,7 @@ otherwise:</p>
 <ul>
   <li><strong>Subscriptions renew automatically</strong> for the same period until cancelled. You can
     cancel renewal at any time in your account settings or by emailing
-    <a href="mailto:Support@atrovia.co">Support@atrovia.co</a>; cancellation takes effect at the end
+    <a href="mailto:admin@atrovia.co">admin@atrovia.co</a>; cancellation takes effect at the end
     of the current period.</li>
   <li><strong>Fees are payable in advance and are non-refundable</strong>, except where this
     Agreement says otherwise or the law requires a refund. Cancelling mid-period does not entitle you
@@ -394,13 +412,13 @@ feedback and would rather you send it freely than worry about this clause.</p>
 
 <h2 id="privacy">14. Privacy and security</h2>
 <p>How we handle personal information is set out in our
-<a href="https://atrovia.co/privacy">Privacy Policy</a>. We maintain administrative, technical and
+<a href="/privacy">Privacy Policy</a>. We maintain administrative, technical and
 physical safeguards designed to protect Customer Data, including encryption in transit and at rest,
 per-business data isolation, access controls, and storage of third-party access tokens in a
 dedicated secret store.</p>
 <p>Where we process personal data on your behalf as a processor, we do so on your documented
 instructions. If you require a data processing addendum, contact
-<a href="mailto:Support@atrovia.co">Support@atrovia.co</a>.</p>
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a>.</p>
 <p><strong>No security is perfect.</strong> We do not guarantee that the Platform will be free from
 unauthorised access, and you are responsible for your own credential hygiene and the access you grant
 your Users.</p>
@@ -409,7 +427,7 @@ your Users.</p>
 <p>We aim to keep the Platform available and to give you reasonable notice of planned maintenance.
 Unless your Order includes a written service level agreement, the Platform is provided without an
 uptime commitment and without a guaranteed response time.</p>
-<p>Support is provided by email at <a href="mailto:Support@atrovia.co">Support@atrovia.co</a> during
+<p>Support is provided by email at <a href="mailto:admin@atrovia.co">admin@atrovia.co</a> during
 our normal business hours.</p>
 
 <h2 id="warranty">16. Disclaimer of warranties</h2>
@@ -500,9 +518,9 @@ the Platform and cancel before the effective date.</p>
 States, without regard to conflict of law rules. The United Nations Convention on Contracts for the
 International Sale of Goods does not apply.</p>
 <p>The parties will try in good faith to resolve any dispute informally first — email
-<a href="mailto:Support@atrovia.co">Support@atrovia.co</a> with a description of the problem and what you
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> with a description of the problem and what you
 want. If that does not resolve it within 30 days, the state and federal courts located in
-Santa Clara County, California have exclusive jurisdiction, and both parties consent to
+San Mateo County, California have exclusive jurisdiction, and both parties consent to
 venue there.</p>
 <p class="caps">Each party waives any right to a jury trial and to participate in a class or
 representative action.</p>
@@ -527,7 +545,7 @@ representative action.</p>
   <li><strong>Independent contractors.</strong> Nothing here creates a partnership, joint venture,
     agency or employment relationship.</li>
   <li><strong>Notices.</strong> We may give notice by email to your account address or in the
-    product. Send notices to us at <a href="mailto:Support@atrovia.co">Support@atrovia.co</a> and to the
+    product. Send notices to us at <a href="mailto:admin@atrovia.co">admin@atrovia.co</a> and to the
     address below.</li>
   <li><strong>Publicity.</strong> We will not use your name or logo as a customer reference without
     your prior consent.</li>
@@ -540,16 +558,14 @@ representative action.</p>
 <h2 id="contact">24. Contact us</h2>
 <p>
   <strong>Atrovia Corporation</strong><br>
-  937 N Amphlett Blvd, San Mateo, CA 94401<br>
-  <a href="mailto:Support@atrovia.co">Support@atrovia.co</a><br>
+  937 N. Amphlett Blvd., San Mateo, CA 94401<br>
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a><br>
   <span style="color:var(--ink-3)">Legal, billing, support and security enquiries all reach us at
   this address.</span>
 </p>
 
 <footer class="end">
-  <p><a href="https://atrovia.co/">Atrovia</a> · <a href="https://atrovia.co/eula">End User License
-  Agreement</a> · <a href="https://atrovia.co/privacy">Privacy Policy</a> ·
-  <a href="https://atrovia.co/ai-disclosure">AI Disclosure</a></p>
+  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/ai-disclosure">AI Disclosure</a> · <a href="/acceptable-use">Acceptable Use</a> · <a href="/credits">Credits &amp; Billing</a> · <a href="/refunds">Refunds</a> · <a href="/marketplace-terms">Add-ons</a> · <a href="/subprocessors">Sub-processors</a></p>
   <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
 </footer>
 

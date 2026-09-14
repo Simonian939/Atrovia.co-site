@@ -4,132 +4,396 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Get started — Choose Marketing, CRM &amp; Sales, or both | Atrovia</title>
-<meta name="description" content="Pick your plan and create your Atrovia account. Start with Marketing for growth, CRM &amp; Sales for your customers, or both." />
-<link rel="canonical" href="https://atrovia.co/signup" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="theme-color" content="#06060E" />
-<link rel="icon" href="/images/atrium_icon_solo.png" />
-<link rel="apple-touch-icon" href="/images/atrium_icon_solo.png" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Atrovia" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://atrovia.co/signup" />
-<meta property="og:title" content="Get started — Choose Marketing, CRM &amp; Sales, or both | Atrovia" />
-<meta property="og:description" content="Pick your plan and create your Atrovia account. Marketing for your growth, CRM &amp; Sales for your customers — from $99/mo each, 7-day free trial." />
-<meta property="og:image" content="https://atrovia.co/images/AtroviaLogo.png" />
-<meta property="og:image:width" content="1024" />
-<meta property="og:image:height" content="1024" />
-<meta property="og:image:alt" content="Create your Atrovia account — Marketing, CRM &amp; Sales, or both" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Get started — Choose Marketing, CRM &amp; Sales, or both | Atrovia" />
-<meta name="twitter:description" content="Marketing for your growth, CRM &amp; Sales for your customers — from $99/mo each, 7-day free trial." />
-<meta name="twitter:image" content="https://atrovia.co/images/AtroviaLogo.png" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Product","name":"Marketing","brand":{"@type":"Brand","name":"Atrovia"},"description":"Marketing and growth program for small business owners — brand, website, social, paid ads, email & SMS, with a team of AI specialists.","offers":{"@type":"Offer","priceCurrency":"USD","price":"140","availability":"https://schema.org/InStock","url":"https://atrovia.co/signup","priceSpecification":{"@type":"UnitPriceSpecification","price":"140","priceCurrency":"USD","referenceQuantity":{"@type":"QuantitativeValue","value":"1","unitCode":"MON"}}}},{"@type":"Product","name":"CRM & Sales","brand":{"@type":"Brand","name":"Atrovia"},"description":"Complete CRM & sales platform — contacts, opportunities, quotes, invoices, workflows and reports, with an AI agent in every section.","offers":{"@type":"Offer","priceCurrency":"USD","price":"140","availability":"https://schema.org/InStock","url":"https://atrovia.co/signup","priceSpecification":{"@type":"UnitPriceSpecification","price":"140","priceCurrency":"USD","referenceQuantity":{"@type":"QuantitativeValue","value":"1","unitCode":"MON"}}}}]}
-</script>
+<meta name="description" content="Pick your plan and create your Atrovia account. Start with Marketing, CRM and Sales, or both." />
+<link rel="icon" href="images/atrovia-icon-dark-tile-512w.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat:wght@600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <!-- ============================================================
      REPLACE before launch: APP_URL in <script> (where accounts are created / dashboard lives).
      ============================================================ -->
-<link rel="stylesheet" href="/assets/css/signup.css" />
+<style>
+:root{
+  --bg:#06060E; --surface:#0F1228; --surface2:#161A36; --line:#272D52;
+  --text:#F1F3FF; --soft:#D7DCF0; --dim:#969FC2;
+  --purple:#8B5CF6; --purple-2:#7C3AED; --purple-bright:#B49BFF; --purple-ink:#6D28D9;
+  --green:#34E0C8; --green-bright:#6DF5E2; --coral:#FF7A8A; --amber:#F5C16C;
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Sora',system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:96px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.gg{color:var(--green-bright);font-weight:600}
+.pp{color:var(--purple-bright);font-weight:600}
+.eyebrow{font-family:'Montserrat';font-weight:800;letter-spacing:.24em;font-size:13px;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+h1{font-family:'Montserrat';font-weight:900;font-size:clamp(32px,4.6vw,52px);line-height:1.05;letter-spacing:-1px}
+h2{font-family:'Montserrat';font-weight:800;font-size:clamp(22px,3vw,32px);letter-spacing:-.3px;color:var(--text)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--soft);max-width:62ch;margin-top:20px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Montserrat';font-weight:800;font-size:16px;padding:16px 30px;border-radius:14px;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s,opacity .2s;border:0;text-align:center}
+.btn-primary{background:var(--green);color:var(--purple-ink);box-shadow:0 10px 30px rgba(52,224,200,.35)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--btn-bg-h);box-shadow:0 16px 44px rgba(52,224,200,.55)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-lg{font-size:18px;padding:18px 40px}
+
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.45;z-index:0;pointer-events:none}
+.orb.a{width:480px;height:480px;background:rgba(124,58,237,.5);top:-120px;left:-120px;animation:drift1 22s ease-in-out infinite}
+.orb.b{width:440px;height:440px;background:rgba(52,224,200,.3);bottom:8%;right:-140px;animation:drift2 26s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,40px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,-60px)}}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(var(--nav-rgb),.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav .row{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:42px;height:42px}
+.brand .w{font-family:'Montserrat';font-weight:800;letter-spacing:.16em;font-size:21px}
+.brand .w .co{color:var(--green-bright)}
+.nav .links{display:flex;align-items:center;gap:26px}
+.nav .btn{padding:12px 22px;font-size:14px}
+.nav .links a{font-size:14.5px;color:var(--dim);transition:color .2s}
+.nav .links a.btn-primary{color:var(--purple-ink)}
+.nav .links a.btn-primary:hover{color:var(--purple-ink)}
+.nav .links a:hover{color:var(--text-strong)}
+
+section{position:relative;z-index:2}
+.hero{padding:132px 0 30px;text-align:center}
+.hero .lead{margin:20px auto 0}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* billing toggle */
+.cycle{display:inline-flex;flex-wrap:wrap;justify-content:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:5px;margin:30px auto 0;gap:4px;max-width:100%}
+.cycle button{background:none;border:0;color:var(--dim);font-family:'Montserrat';font-weight:800;font-size:14px;padding:11px 20px;border-radius:10px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:8px}
+.cycle button.on{background:var(--purple);color:var(--text-strong)fff}
+.cycle .save{font-size:10px;background:rgba(52,224,200,.16);color:var(--green-bright);padding:2px 7px;border-radius:999px;letter-spacing:.04em}
+.cycle button.on .save{background:rgba(255,255,255,.2);color:var(--text-strong)fff}
+
+/* recommendation banner */
+.sys-offer{max-width:620px;margin:30px auto 0;background:linear-gradient(180deg,rgba(139,92,246,.14),rgba(52,224,200,.08));border:1px solid var(--purple);border-radius:24px;padding:36px 32px;text-align:center;box-shadow:0 0 60px rgba(139,92,246,.25)}
+.offer-badge{display:inline-block;font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-bright);background:rgba(52,224,200,.14);border:1px solid rgba(52,224,200,.4);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.offer-price{display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap}
+.offer-price .big{font-family:'Montserrat';font-weight:900;font-size:60px;line-height:1;color:#fff}
+.offer-price .per{font-size:19px;color:var(--dim);font-weight:600}
+.offer-price .term{width:100%;font-family:'Montserrat';font-weight:700;font-size:13.5px;color:var(--green-bright);margin-top:6px}
+.sys-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sys-col .sys-h{font-family:'Montserrat';font-weight:800;font-size:14px}
+.sys-col .sys-h.m{color:var(--purple-bright)}.sys-col .sys-h.g{color:var(--green-bright)}.sys-col .sys-h.a{color:var(--amber)}.sys-col .sys-h.c{color:var(--coral)}
+.sys-col .sys-mgr{color:var(--dim);font-size:11.5px;margin-top:3px}
+.offer-list{list-style:none;margin:0;padding:0;text-align:left;max-width:440px;margin:0 auto}
+.offer-list li{display:flex;gap:10px;align-items:flex-start;margin-bottom:11px;font-size:14.5px;color:var(--text)}
+.offer-list li .ck{color:var(--green-bright);font-weight:900;flex-shrink:0}
+.offer-list li b{color:#fff;font-weight:600}
+@media (max-width:600px){.sys-grid{grid-template-columns:1fr 1fr}}
+.rec{max-width:900px;margin:34px auto 0;background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(52,224,200,.06));border:1px solid var(--line);border-radius:18px;padding:22px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.rec .ic{flex-shrink:0;width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:rgba(52,224,200,.14);border:1px solid rgba(52,224,200,.4)}
+.rec .ic svg{width:24px;height:24px;stroke:var(--green-bright);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rec .tx{flex:1;min-width:220px;color:var(--soft);font-size:15px}
+.rec .tx b{color:var(--text-strong);font-weight:600}
+.rec .btn{padding:13px 22px;font-size:14px}
+
+/* plan cards */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.plan{background:linear-gradient(180deg,rgba(var(--c-hi),.6),rgba(var(--c-lo),.4));border:1px solid var(--line);border-radius:22px;padding:32px;transition:border-color .25s,transform .2s,box-shadow .25s;position:relative}
+.plan.atrium.sel{border-color:var(--purple);box-shadow:0 0 40px rgba(139,92,246,.28)}
+.plan.kova.sel{border-color:var(--green);box-shadow:0 0 40px rgba(52,224,200,.24)}
+.ceo-badge{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,rgba(139,92,246,.16),rgba(52,224,200,.14));border:1px solid var(--line);border-radius:12px;padding:11px 15px;margin-bottom:22px;font-family:'Montserrat';font-weight:700;font-size:13px;color:var(--soft)}
+.ceo-badge .ci{flex-shrink:0;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:rgba(52,224,200,.16);border:1px solid rgba(52,224,200,.4)}
+.ceo-badge .ci svg{width:15px;height:15px;stroke:var(--green-bright);fill:none;stroke-width:2.4}
+.ceo-badge b{color:var(--text-strong)}
+.plan .phead{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+.plan .logo{width:60px;height:60px;object-fit:contain;mix-blend-mode:screen;flex-shrink:0}
+.plan .plogo{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;flex-shrink:0}
+.plan .plogo.m{background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.45)}
+.plan .plogo.k{background:rgba(52,224,200,.12);border:1px solid rgba(52,224,200,.45)}
+.plan .plogo svg{width:30px;height:30px}
+.plan .plogo.m svg{stroke:var(--purple-bright)}.plan .plogo.k svg{stroke:var(--green-bright)}
+.plan .pname{font-family:'Montserrat';font-weight:900;font-size:28px;line-height:1}
+.plan.atrium .pname{color:var(--purple-bright)}.plan.kova .pname{color:var(--green-bright)}
+.plan .ptag{color:var(--dim);font-size:13px;font-family:'Montserrat';font-weight:700;letter-spacing:.02em;margin-top:4px}
+.plan .price{display:flex;align-items:baseline;gap:8px;margin:20px 0 4px}
+.plan .price .amt{font-family:'Montserrat';font-weight:900;font-size:42px;line-height:1}
+.plan .price .per{color:var(--dim);font-size:15px;font-weight:600}
+.plan .cyclenote{font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-bright)}
+.plan .pdesc{color:var(--soft);font-size:15px;margin-top:14px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.feat-h{font-family:'Montserrat';font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:20px 0 14px}
+.feat{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px}
+.feat .fi{flex-shrink:0;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;margin-top:1px}
+.plan.atrium .feat .fi{background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.35)}
+.plan.kova .feat .fi{background:rgba(52,224,200,.12);border:1px solid rgba(52,224,200,.32)}
+.feat .fi svg{width:17px;height:17px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.plan.atrium .feat .fi svg{stroke:var(--purple-bright)}.plan.kova .feat .fi svg{stroke:var(--green-bright)}
+.feat .ft{font-family:'Montserrat';font-weight:700;font-size:14.5px}
+.feat .fd{color:var(--dim);font-size:13px;line-height:1.4}
+.incl{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--soft);font-size:13.5px;line-height:1.6}
+.incl b{color:var(--text-strong);font-weight:600}
+.plan .selbtn{width:100%;margin-top:24px;background:transparent;border:2px solid var(--line);color:var(--text-strong);font-family:'Montserrat';font-weight:800;font-size:15px;padding:15px;border-radius:14px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:9px}
+.plan.atrium .selbtn:hover{border-color:var(--purple)}.plan.kova .selbtn:hover{border-color:var(--green)}
+.plan.sel .selbtn{background:var(--btn-bg);border-color:var(--btn-bg);color:var(--btn-fg)}
+.plan .selbtn .check{display:none}.plan.sel .selbtn .check{display:inline}.plan.sel .selbtn .add{display:none}
+
+/* CEO strip */
+.ceo{max-width:900px;margin:30px auto 0;background:linear-gradient(180deg,rgba(var(--c-hi),.5),rgba(var(--c-lo),.3));border:1px solid var(--line);border-radius:18px;padding:26px 30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ceo .ava{flex-shrink:0;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(139,92,246,.2),rgba(52,224,200,.16));border:1px solid var(--line)}
+.ceo .ava svg{width:28px;height:28px;stroke:var(--green-bright);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ceo .ct{flex:1;min-width:240px}
+.ceo .ct h3{font-family:'Montserrat';font-weight:800;font-size:18px}
+.ceo .ct h3 .tagi{font-size:11px;background:rgba(52,224,200,.16);color:var(--green-bright);padding:3px 10px;border-radius:999px;margin-left:8px;letter-spacing:.04em;vertical-align:middle}
+.ceo .ct p{color:var(--soft);font-size:14.5px;margin-top:6px}
+
+/* bottom bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(11,14,32,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.bar.show{transform:translateY(0)}
+.bar .row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;flex-wrap:wrap}
+.bar .sel-list{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bar .chipb{font-family:'Montserrat';font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;display:flex;align-items:center;gap:7px}
+.bar .chipb.atrium{background:rgba(139,92,246,.16);color:var(--purple-bright);border:1px solid rgba(139,92,246,.4)}
+.bar .chipb.kova{background:rgba(52,224,200,.14);color:var(--green-bright);border:1px solid rgba(52,224,200,.4)}
+.bar .tot{display:flex;align-items:baseline;gap:8px;margin-left:auto}
+.bar .tot .amt{font-family:'Montserrat';font-weight:900;font-size:26px}
+.bar .tot .per{color:var(--dim);font-size:13px}
+.bar .cta{display:flex;align-items:center;gap:16px}
+.bar .trial{color:var(--dim);font-size:12.5px;text-align:right;max-width:180px;line-height:1.4}
+html[data-theme="light"] .bar{background:rgba(255,255,255,.97);border-top-color:var(--line);box-shadow:0 -10px 34px rgba(80,50,140,.12)}
+html[data-theme="light"] .bar .tot .per,html[data-theme="light"] .bar .trial{color:var(--soft)}
+
+/* signup form */
+.signup{padding:60px 0 40px;display:none}
+.signup.show{display:block;animation:fadeup .5s ease}
+@keyframes fadeup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.su-grid{display:grid;grid-template-columns:1fr .9fr;gap:32px;margin-top:24px;align-items:start}
+.su-form{background:linear-gradient(180deg,rgba(var(--c-hi),.6),rgba(var(--c-lo),.4));border:1px solid var(--line);border-radius:22px;padding:32px}
+.field{margin-bottom:16px}
+.field.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-family:'Montserrat';font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.field input{width:100%;background:var(--input);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text-strong);font-family:'Sora';font-size:15px;transition:border-color .2s}
+.field input:focus{outline:none;border-color:var(--purple)}
+.field input::placeholder{color:var(--dim)}
+.su-fieldset{border:0;padding:0;margin:0 0 22px}
+.su-legend{font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-bright);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line);width:100%;display:flex;align-items:center;gap:9px}
+.su-legend svg{width:17px;height:17px;stroke:var(--green-bright);fill:none;stroke-width:2}
+.field select{width:100%;background:var(--input);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text-strong);font-family:'Sora';font-size:15px;cursor:pointer;transition:border-color .2s;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23969FC2' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.field select:focus{outline:none;border-color:var(--purple)}
+.field.row3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.req{color:var(--coral)}
+/* Stripe card mount */
+.card-mount{background:var(--input);border:1px solid var(--line);border-radius:12px;padding:15px;min-height:52px;display:flex;align-items:center;color:var(--dim);font-size:14px;gap:10px}
+.card-mount svg{width:20px;height:20px;stroke:var(--dim);fill:none;stroke-width:1.6;flex-shrink:0}
+.stripe-note{display:flex;align-items:center;gap:8px;color:var(--dim);font-size:12px;margin-top:8px}
+.stripe-note svg{width:14px;height:14px;stroke:var(--green-bright);fill:none;stroke-width:2}
+/* checkbox */
+.chkline{display:flex;align-items:center;gap:10px;margin:2px 0 16px;cursor:pointer;user-select:none}
+.chkline input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
+.chkline span{color:var(--soft);font-size:14px}
+.bill-fields{transition:opacity .2s}
+.bill-fields.hide{display:none}
+.su-form .btn{width:100%;margin-top:8px}
+.su-note{color:var(--dim);font-size:12.5px;margin-top:14px;text-align:center}
+.su-note a{color:var(--green-bright)}
+/* order summary */
+.summary{background:linear-gradient(180deg,rgba(var(--c-hi),.55),rgba(var(--c-lo),.35));border:1px solid var(--line);border-radius:22px;padding:28px;position:sticky;top:96px}
+.summary h3{font-family:'Montserrat';font-weight:800;font-size:16px;margin-bottom:18px}
+.sum-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+.sum-row .nm{display:flex;align-items:center;gap:10px;font-family:'Montserrat';font-weight:700;font-size:14.5px}
+.sum-row .dot{width:9px;height:9px;border-radius:50%}
+.sum-row .dot.a{background:var(--purple-bright)}.sum-row .dot.k{background:var(--green-bright)}
+.sum-row .v{font-family:'Montserrat';font-weight:800;font-size:14.5px}
+.sum-total{display:flex;align-items:baseline;justify-content:space-between;margin-top:16px}
+.sum-total .l{font-family:'Montserrat';font-weight:800;font-size:15px}
+.sum-total .amt{font-family:'Montserrat';font-weight:900;font-size:30px}
+.sum-total .amt .per{font-size:14px;color:var(--dim);font-weight:600}
+.sum-cyc{color:var(--dim);font-size:12.5px;margin-top:6px;text-align:right}
+.sum-trial{margin-top:20px;background:rgba(52,224,200,.08);border:1px solid rgba(52,224,200,.28);border-radius:12px;padding:14px 16px;color:var(--soft);font-size:13.5px;line-height:1.55}
+.sum-trial b{color:var(--green-bright)}
+.sum-ceo{display:flex;align-items:center;gap:10px;margin-top:14px;color:var(--soft);font-size:13px}
+.sum-ceo svg{width:18px;height:18px;stroke:var(--green-bright);fill:none;stroke-width:2}
+
+.done{display:none;text-align:center;padding:60px 0}
+.done.show{display:block;animation:fadeup .5s ease}
+.done .big{width:76px;height:76px;border-radius:50%;background:rgba(52,224,200,.16);border:1px solid var(--green);display:grid;place-items:center;margin:0 auto 22px}
+.done .big svg{width:38px;height:38px;stroke:var(--green-bright);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+footer{border-top:1px solid var(--line);padding:44px 0;background:var(--footer);position:relative;z-index:2;margin-top:30px}
+.foot-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;color:var(--dim);font-size:13px}
+.foot-row a{color:var(--soft)}.foot-row a:hover{color:var(--green-bright)}
+
+@media (max-width:880px){
+  .plans{grid-template-columns:1fr}
+  .su-grid{grid-template-columns:1fr}
+  .summary{position:static}
+  .nav .links a:not(.navbtn){display:none}
+  .bar .tot{margin-left:0}
+}
+
+/* ================= THEMING (Dynamic dark / Professional light) ================= */
+:root{
+  --text-strong:#fff;
+  --c-hi:33,39,72; --c-lo:16,20,42; --nav-rgb:6,6,14;
+  --track:#1b2140; --input:#0C0F22; --chip:#141A36; --footer:#05050B;
+  --btn-bg:#34E0C8; --btn-bg-h:#6DF5E2; --btn-fg:#6D28D9;
+  --line:#343C68; --surface:#131834; --surface2:#1C2247;
+  --card-shadow:0 14px 36px rgba(0,0,0,.5);
+}
+html[data-theme="light"]{
+  --bg:#EFE7D6; --surface:#FFFFFF; --surface2:#EFE7FB; --line:#CBBEE8;
+  --text:#221A38; --soft:#3B3454; --dim:#5D5677;
+  --card-shadow:0 10px 30px rgba(84,52,140,.16),0 2px 8px rgba(84,52,140,.10);
+  --purple:#7C3AED; --purple-2:#6D28D9; --purple-bright:#6D28D9;
+  --green:#0E9E8A; --green-bright:#0A7A6A;
+  --text-strong:#1C1436;
+  --c-hi:255,255,255; --c-lo:246,241,252; --nav-rgb:255,252,245;
+  --track:#E9E2F4; --input:#FBF9FE; --chip:#F2ECFA; --footer:#F5EFE3;
+  --btn-bg:#7C3AED; --btn-bg-h:#6D28D9; --btn-fg:#FFFCF5;
+}
+html{transition:background .3s}
+body{transition:background .3s,color .3s}
+html[data-theme="light"] .orb{opacity:.2}
+html[data-theme="light"] .nav.scrolled{box-shadow:0 2px 22px rgba(80,50,140,.09)}
+/* logos are neon-on-black jpgs: show as small dark badges in light mode (screen-blend would wash out) */
+html[data-theme="light"] .plan .logo{mix-blend-mode:normal;background:#0B0B16;border-radius:10px;padding:4px}
+/* (legacy) combined-band logo pills */
+html[data-theme="light"] .logo-mark:not(.result),
+html[data-theme="light"] .pillbrand,
+html[data-theme="light"] .lm:not(.result){background:#0B193D;border-color:rgba(255,255,255,.14)}
+html[data-theme="light"] .logo-mark.atrium .wm,html[data-theme="light"] .lm.atrium .wm,html[data-theme="light"] .pillbrand.atrium .nm{color:#B49BFF}
+html[data-theme="light"] .logo-mark.kova .wm,html[data-theme="light"] .lm.kova .wm,html[data-theme="light"] .pillbrand.kova .nm{color:#6DF5E2}
+html[data-theme="light"] .logo-mark .wm small{color:#b0b6d6}
+html[data-theme="light"] .btn-outline{border-color:var(--line)}
+html[data-theme="light"] .stars,html[data-theme="light"] .sparks{opacity:.35}
+/* keep the dark-image final CTA readable in light mode */
+html[data-theme="light"] .final{--text:#F1F3FF;--soft:#D7DCF0;--dim:#AEB4CE;--text-strong:#fff}
+/* responsive type: larger on desktop, smaller on phone */
+@media (min-width:1280px){ body{font-size:16.5px} }
+@media (max-width:600px){ body{font-size:15px} .lead{font-size:16px} }
+
+/* theme chooser popup */
+.theme-pop,.theme-toggle{display:none!important}
+.theme-pop{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(6,6,14,.72);backdrop-filter:blur(8px)}
+.theme-pop.show{display:flex}
+.theme-pop-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px 32px;max-width:460px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.tp-eyebrow{font-family:'Montserrat';font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--dim);margin-bottom:10px}
+.theme-pop-card h3{font-family:'Montserrat';font-weight:900;font-size:23px;color:var(--text)}
+.theme-pop-card p{color:var(--soft);font-size:14.5px;margin-top:8px}
+.tp-choices{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.tp-choice{background:transparent;border:2px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;transition:.2s;display:flex;flex-direction:column;align-items:center;gap:8px}
+.tp-choice:hover{border-color:var(--purple);transform:translateY(-3px)}
+.tp-swatch{width:100%;height:48px;border-radius:10px;display:flex;overflow:hidden;border:1px solid var(--line)}
+.tp-swatch span{flex:1}
+.tp-swatch.light span:first-child{background:#FBF8F1}.tp-swatch.light span:last-child{background:#7C3AED}
+.tp-swatch.dark span:first-child{background:#0B193D}.tp-swatch.dark span:last-child{background:#34E0C8}
+.tp-name{font-family:'Montserrat';font-weight:800;font-size:16px;color:var(--text)}
+.tp-sub{font-size:12px;color:var(--dim)}
+.tp-skip{margin-top:18px;background:none;border:0;color:var(--dim);font-size:13px;cursor:pointer;text-decoration:underline}
+.tp-skip:hover{color:var(--text)}
+/* floating toggle */
+.theme-toggle{position:fixed;left:18px;bottom:18px;z-index:130;width:46px;height:46px;border-radius:50%;background:var(--surface);border:1px solid var(--line);color:var(--text);cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.28);transition:transform .2s,border-color .2s}
+.theme-toggle:hover{transform:translateY(-2px);border-color:var(--purple)}
+.theme-toggle svg{width:22px;height:22px}
+
+
+/* ================= MOBILE POLISH ================= */
+/* business-check tiles: 3-up on tablet, 2-up on phone */
+@media (max-width:900px){ .survey-grid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:600px){ .survey-grid{grid-template-columns:1fr 1fr;gap:10px} .scard{padding:13px} }
+/* signup form rows stack on phone */
+@media (max-width:600px){ .field.row2,.field.row3{grid-template-columns:1fr} }
+/* mobile nav: collapse links into a dropdown, move the button inside it */
+@media (max-width:820px){
+  .nav .row{position:relative}
+  .menu-toggle{display:block!important}
+  .nav .links{
+    position:absolute;top:calc(100% + 8px);right:12px;left:12px;
+    flex-direction:column;align-items:stretch;gap:4px;
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:10px;box-shadow:0 24px 60px rgba(0,0,0,.38);display:none;
+  }
+  .nav.open .links{display:flex}
+  .nav .links a{display:block!important;padding:12px 14px;border-radius:11px;font-size:15px;color:var(--text);width:auto}
+  .nav .links a:hover{background:var(--surface2)}
+  .nav .links a.btn-primary{margin-top:6px;justify-content:center;padding:13px;font-size:15px}
+  .nav .links a.btn-primary:hover{background:var(--btn-bg-h)}
+}
+
+
+/* ================= DEPTH / SEPARATION (both themes) ================= */
+body{background:
+  radial-gradient(1100px 640px at 12% -6%, rgba(124,58,237,.09), transparent 55%),
+  radial-gradient(1000px 600px at 106% 16%, rgba(52,224,200,.06), transparent 55%),
+  var(--bg);}
+html[data-theme="light"] body{background:
+  radial-gradient(1100px 640px at 12% -6%, rgba(124,58,237,.08), transparent 58%),
+  radial-gradient(1000px 620px at 106% 16%, rgba(14,158,138,.06), transparent 58%),
+  var(--bg);}
+/* lift content cards off the background in both modes */
+.panel,.umod,.scard,.result-card,.ind,.price,.quote,.survey-howto,
+.combo-card,.val,.stat,.founder,.pillar,.form,
+.plan,.ceo,.rec,.su-form,.summary{box-shadow:var(--card-shadow)}
+/* stronger, more defined borders on light cards */
+html[data-theme="light"] .panel,html[data-theme="light"] .umod,html[data-theme="light"] .scard,
+html[data-theme="light"] .val,html[data-theme="light"] .stat,html[data-theme="light"] .founder,
+html[data-theme="light"] .pillar,html[data-theme="light"] .form,html[data-theme="light"] .plan,
+html[data-theme="light"] .ceo,html[data-theme="light"] .rec,html[data-theme="light"] .su-form,
+html[data-theme="light"] .summary,html[data-theme="light"] .combo-card,html[data-theme="light"] .price,
+html[data-theme="light"] .quote{border-color:#CDBFEA}
+/* alternating section bands to break up the page (About + any page) */
+.band-tint{background:linear-gradient(180deg, rgba(124,58,237,.07), transparent)}
+html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,58,237,.07), rgba(14,158,138,.035))}
+
+.legal-links{display:flex;flex-wrap:wrap;gap:12px 18px;font-size:13.5px}.legal-links a{color:#969FC2;text-decoration:none}.legal-links a:hover{color:#6DF5E2}.legal-copyright{font-size:12.5px;color:#7a86a0;margin-top:12px}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+
+.photoband{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:1120px;margin:0 auto}
+.photoband .pb{aspect-ratio:3/4;border-radius:14px;overflow:hidden;border:1px solid rgba(52,224,200,.22);position:relative;box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.photoband .pb img{width:100%;height:100%;object-fit:cover;transition:transform .55s;display:block}
+.photoband .pb:hover img{transform:scale(1.07)}
+.photoband .pb .cap{position:absolute;inset:auto 0 0 0;padding:9px 11px;background:linear-gradient(0deg,rgba(4,5,14,.85),transparent);font-family:'Montserrat';font-weight:700;font-size:11.5px;color:#fff}
+@media(max-width:900px){.photoband{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.photoband{grid-template-columns:repeat(2,1fr);gap:10px}}
+</style>
 </head>
 <body>
 <div class="orb a"></div><div class="orb b"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="ig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B49BFF"/><stop offset="1" stop-color="#6DF5E2"/></linearGradient></defs></svg>
 
 <nav class="nav" id="nav"><div class="wrap row">
-  <a title="ATROVIA .CO" class="brand" href="index.html"><img title="Atrovia" src="images/AtroviaLogo.png" alt="Atrovia"><span class="w">ATROVIA<span class="co">.CO</span></span></a>
+  <a class="brand" href="index.html"><img src="images/atrovia-mark-color-on-dark-512w.png" alt="Atrovia"><span class="w">ATROVIA<span class="co">.CO</span></span></a>
   <div class="links">
-    <a title="Solution" href="index.html#solution">Solution</a><a title="Business Check" href="index.html#survey">Business Check</a><a title="Pricing" href="index.html#pricing">Pricing</a>
-    <a title="Proof" href="index.html#proof">Proof</a><a title="About" href="about.html">About</a>
-    <a title="Log in" class="btn btn-outline navbtn" href="https://app.atrovia.co/login">Log in</a>
-    <a title="Start for free" class="btn btn-primary navbtn" href="signup.html">Start for free</a>
+    <a href="index.html#industries">Industries</a><a href="index.html#how">How it works</a><a href="index.html#pricing">Pricing</a>
+    <a href="about.html">About</a>
+    <a class="btn btn-primary navbtn" href="signup.html">Start for $99/mo</a>
   </div>
 </div></nav>
 
 <!-- HERO -->
 <header class="hero"><div class="wrap">
   <div class="eyebrow reveal in">Get started</div>
-  <h1 class="reveal in">Choose your plan.<br><span class="gg">Start with one, or both.</span></h1>
-  <p class="lead reveal in">Marketing builds your brand and growth. CRM &amp; Sales organizes your customers and drives repeat business. Pick what you need now — you can add the other anytime.</p>
-  <div class="cycle reveal in" id="cycle">
-    <button data-cyc="m">Monthly</button>
-    <button data-cyc="q">Quarterly <span class="save">Save $20/mo</span></button>
-    <button class="on" data-cyc="a">Annual <span class="save">Save $41/mo</span></button>
-  </div>
+  <h1 class="reveal in">Get the whole system.<br><span class="gg">$99/mo for your first 3 months.</span></h1>
+  <p class="lead reveal in">Marketing, Sales &amp; CRM, Operations, and Finance — every department, your CEO agent, and your living business plan. No picking pieces. Then $699/mo once you're set up and earning.</p>
 </div></header>
 
-<!-- RECOMMENDATION -->
-<section class="wrap"><div class="rec reveal">
-  <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
-  <div class="tx">Moving fast? Most owners plug in CRM &amp; Sales within <b>3–5 days</b> — once the marketing is live, you'll want your CRM ready to catch every new lead. Setting up <b>both from day one</b> means importing contacts, building pipelines, and turning on reminders right away.</div>
-  <button class="btn btn-primary" id="pickboth">Get both</button>
-</div></section>
-
-<!-- PLANS -->
-<section class="wrap"><div class="plans">
-
-  <!-- MARKETING -->
-  <div class="plan atrium" id="plan-atrium">
-    <div class="ceo-badge"><span class="ci"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>CEO agent included</b> — your top-level advisor, free with any plan</span></div>
-    <div class="phead">
-      <div><div class="pname">Marketing</div><div class="ptag">Marketing &amp; Growth</div></div>
-    </div>
-    <div class="price"><span class="amt">$<span data-price>99</span></span><span class="per">/mo</span></div>
-    <div class="cyclenote" data-cyclabel>Billed annually</div>
-    <p class="pdesc">Your AI marketing team of eight specialists — they build the plan, brief the work, and tell you exactly what to do next.</p>
-
-    <div class="feat-h">Your team of 8 specialists</div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></span><div><div class="ft">Maven — your CMO</div><div class="fd">Runs the team, builds your 90-day plan, tracks progress every week.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5"/></svg></span><div><div class="ft">Iris — brand</div><div class="fd">Voice, colors, logo, and messaging that connect with the right customers.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><div><div class="ft">Sage — website &amp; content</div><div class="fd">A fast, well-structured site that tells your story and converts visitors.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.4 20a5.6 5.6 0 0 1 11.2 0"/><path d="M16 5.3a3.2 3.2 0 0 1 0 6"/><path d="M17.6 20a5.6 5.6 0 0 0-3-4.9"/></svg></span><div><div class="ft">Poppy — social</div><div class="fd">Instagram, Facebook, and TikTok content that grows an audience.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 9v6h3l9 5V4L7 9H4z"/><path d="M18 8a4 4 0 0 1 0 8"/></svg></span><div><div class="ft">Dash — paid ads</div><div class="fd">Google, Meta, and TikTok campaigns that bring steady new customers.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><div class="ft">Echo — email &amp; SMS</div><div class="fd">Welcome, nurture, and win-back sequences that drive repeat sales.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 17 14 18.5 21 12 17 5.5 21 7 14 2 9.5 9 9"/></svg></span><div><div class="ft">Stella — reputation</div><div class="fd">Reviews and your Google Business Profile, managed and monitored.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="13"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="9"/></svg></span><div><div class="ft">Atlas — data</div><div class="fd">Your numbers and reporting, reconciled in one place.</div></div></div>
-    <div class="incl"><b>Also included:</b> guided setup, weekly progress reports, and integrations — HubSpot, Google Ads, GA4, Search Console, Meta, and Google Business Profile.</div>
-    <button class="selbtn" data-toggle="atrium"><span class="add">+ Add Marketing</span><span class="check">✓ Marketing added</span></button>
+<!-- WHOLE-SYSTEM OFFER -->
+<section class="wrap"><div class="sys-offer reveal">
+  <div class="offer-badge">Founding offer · limited time</div>
+  <div class="offer-price"><span class="big">$99</span><span class="per">/mo</span><span class="term">for your first 3 months, then $699/mo</span></div>
+  <div class="sys-grid">
+    <div class="sys-col"><div class="sys-h m">Marketing</div><div class="sys-mgr">Maven + team</div></div>
+    <div class="sys-col"><div class="sys-h g">Sales &amp; CRM</div><div class="sys-mgr">Astrid + team</div></div>
+    <div class="sys-col"><div class="sys-h a">Operations</div><div class="sys-mgr">Otto</div></div>
+    <div class="sys-col"><div class="sys-h c">Finance</div><div class="sys-mgr">Fin · QuickBooks</div></div>
   </div>
-
-  <!-- CRM &amp; SALES -->
-  <div class="plan kova" id="plan-kova">
-    <div class="ceo-badge"><span class="ci"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>CEO agent included</b> — your top-level advisor, free with any plan</span></div>
-    <div class="phead">
-      <div><div class="pname">CRM &amp; Sales</div><div class="ptag">CRM &amp; Sales</div></div>
-    </div>
-    <div class="price"><span class="amt">$<span data-price>99</span></span><span class="per">/mo</span></div>
-    <div class="cyclenote" data-cyclabel>Billed annually</div>
-    <p class="pdesc">Your complete CRM — organize every customer, track every deal, and turn one-time buyers into repeat business. An AI agent lives in every section.</p>
-
-    <div class="feat-h">Everything inside CRM &amp; Sales</div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.4 20a5.6 5.6 0 0 1 11.2 0"/><path d="M16 5.3a3.2 3.2 0 0 1 0 6"/><path d="M17.6 20a5.6 5.6 0 0 0-3-4.9"/></svg></span><div><div class="ft">Contacts &amp; Companies</div><div class="fd">Every customer and account in one place — never scattered again.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span><div><div class="ft">Opportunities</div><div class="fd">Pipelines that track every deal from lead to close.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg></span><div><div class="ft">Quotes</div><div class="fd">A reusable template library and drag-and-drop builder that auto-fills details.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5"/></svg></span><div><div class="ft">Products &amp; Services</div><div class="fd">Your catalog with pricing and performance insights.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></span><div><div class="ft">Documents &amp; billing</div><div class="fd">Invoices, purchase orders, and receipts — signed quotes auto-generate invoices.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 4h16v4H4z"/><path d="M4 10h16v10H4z"/><line x1="8" y1="14" x2="16" y2="14"/></svg></span><div><div class="ft">Lists &amp; Marketing</div><div class="fd">Email, SMS, forms, and smart customer segments.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></span><div><div class="ft">Workflows</div><div class="fd">Automate reminders and follow-up so nothing gets dropped.</div></div></div>
-    <div class="feat"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><div><div class="ft">Reports</div><div class="fd">Sales, marketing, financial, and activity dashboards.</div></div></div>
-    <div class="incl"><b>Also included:</b> a dedicated AI agent inside every section — Contacts, Companies, Catalog, and Marketing agents watching your data and suggesting the next move.</div>
-    <button class="selbtn" data-toggle="kova"><span class="add">+ Add CRM &amp; Sales</span><span class="check">✓ CRM &amp; Sales added</span></button>
-  </div>
-
-</div></section>
-
-<!-- CEO AGENT (brief) -->
-<section class="wrap"><div class="ceo reveal">
-  <div class="ava"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5 5.6.5-4.2 3.7 1.3 5.3L12 18.8 6.9 21.5l1.3-5.3L4 12.5 9.6 12z"/></svg></div>
-  <div class="ct">
-    <h3>What's the CEO agent?</h3>
-    <p>It sits above your whole team, sees across Marketing and CRM &amp; Sales, and tells you what matters most each week — like a seasoned CEO on your side from day one. Included free with either plan.</p>
-  </div>
+  <ul class="offer-list">
+    <li><span class="ck">✓</span> Your <b>CEO agent (Orion)</b> + your living 90-day business plan</li>
+    <li><span class="ck">✓</span> Guided onboarding — set up and earning in your first 30 days</li>
+    <li><span class="ck">✓</span> <b>1,000 free text-message credits</b> when you sign up in the next 24 hours</li>
+    <li><span class="ck">✓</span> Cancel anytime — no long contract</li>
+  </ul>
 </div></section>
 
 <!-- SIGNUP FORM (revealed after selection) -->
-<section class="signup" id="signup"><div class="wrap">
+<section style="padding:0 22px 6px"><div class="wrap" style="max-width:1120px;margin:0 auto"><div class="photoband"><div class="pb"><img src="images/biz-bakery-owner.jpg" alt="Bakery"><div class="cap">Bakery</div></div><div class="pb"><img src="images/biz-florist.jpg" alt="Florist"><div class="cap">Florist</div></div><div class="pb"><img src="images/biz-barber.jpg" alt="Barber"><div class="cap">Barber</div></div><div class="pb"><img src="images/biz-bikeshop.jpg" alt="Retail"><div class="cap">Retail</div></div><div class="pb"><img src="images/biz-cafe.jpg" alt="Café"><div class="cap">Café</div></div><div class="pb"><img src="images/biz-owner-open.jpg" alt="Open"><div class="cap">Open</div></div></div></div></section>
+
+<section class="signup show" id="signup"><div class="wrap">
   <div style="text-align:center"><div class="eyebrow">Almost there</div>
   <h2>Create your Atrovia account</h2></div>
   <div class="su-grid">
@@ -142,7 +406,7 @@
            that email verifies the account and routes the user to the atrovia.co app
            (set APP_URL below only if you want a direct post-submit redirect).
          ============================================================ -->
-    <form class="su-form" id="signup-form" autocomplete="on">
+    <form class="su-form" id="signup-form" autocomplete="on" onsubmit="return false">
       <!-- COMPANY INFO -->
       <fieldset class="su-fieldset">
         <legend class="su-legend"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>Company information</legend>
@@ -154,7 +418,7 @@
               <option>C Corporation</option><option>S Corporation</option><option>LLC</option>
               <option>Sole Proprietorship</option><option>Partnership</option><option>Nonprofit</option><option>Other</option>
             </select></div>
-          <div><label for="ein">EIN <span class="req">*</span></label><input id="ein" name="ein" type="text" placeholder="12-3456789" inputmode="numeric" maxlength="10" required></div>
+          <div><label for="ein">EIN <span class="req">*</span></label><input id="ein" name="ein" type="text" placeholder="12-3456789" required></div>
         </div>
         <div class="field"><label for="industry">Industry / business type</label>
           <select id="industry" name="industry">
@@ -166,9 +430,9 @@
           </select></div>
         <div class="field"><label for="business_address1">Business address</label><input id="business_address1" name="business_address1" type="text" placeholder="Street address"></div>
         <div class="field row3">
-          <div><label for="business_city">City</label><input id="business_city" name="business_city" type="text" list="us-cities" autocomplete="address-level2" placeholder="Start typing…"></div>
-          <div><label for="business_state">State</label><select id="business_state" name="business_state" autocomplete="address-level1"></select></div>
-          <div><label for="business_zip">ZIP</label><input id="business_zip" name="business_zip" type="text" inputmode="numeric" maxlength="10" autocomplete="postal-code" placeholder="90001"></div>
+          <div><label for="business_city">City</label><input id="business_city" name="business_city" type="text"></div>
+          <div><label for="business_state">State</label><input id="business_state" name="business_state" type="text"></div>
+          <div><label for="business_zip">ZIP</label><input id="business_zip" name="business_zip" type="text"></div>
         </div>
       </fieldset>
 
@@ -182,15 +446,8 @@
         <div class="field"><label for="rep_title">Title</label><input id="rep_title" name="rep_title" type="text" placeholder="Owner, President, etc."></div>
         <div class="field row2">
           <div><label for="em">Email <span class="req">*</span></label><input id="em" name="email" type="email" placeholder="you@business.com" required></div>
-          <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" inputmode="tel" maxlength="14"></div>
+          <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(555) 123-4567"></div>
         </div>
-        <!-- Consentimiento SMS explícito. Va sin `checked` y sin `required` A PROPÓSITO:
-             las operadoras exigen que el opt-in sea afirmativo y que NO sea condición de
-             compra, así que dejar el teléfono sin marcar la casilla tiene que seguir
-             permitiendo registrarse. Esta casilla + este texto son la prueba que pide la
-             verificación toll-free/10DLC, así que no se quitan sin revisar eso. -->
-        <label class="chkline"><input type="checkbox" id="sms_optin" name="sms_optin" value="yes"><span>Text me about my account. By checking this box you agree to receive text messages from Atrovia about your account, quotes, and appointments at the number above. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to unsubscribe or HELP for help. Consent is not a condition of purchase. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.</span></label>
-        <div class="field"><label for="password">Create a password <span class="req">*</span></label><input id="password" name="password" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password"></div>
       </fieldset>
 
       <!-- PAYMENT (Stripe) -->
@@ -205,50 +462,95 @@
         <div class="bill-fields hide" id="bill-fields">
           <div class="field"><label for="billing_address1">Billing address</label><input id="billing_address1" name="billing_address1" type="text" placeholder="Street address"></div>
           <div class="field row3">
-            <div><label for="billing_city">City</label><input id="billing_city" name="billing_city" type="text" list="us-cities" autocomplete="address-level2" placeholder="Start typing…"></div>
-            <div><label for="billing_state">State</label><select id="billing_state" name="billing_state" autocomplete="address-level1"></select></div>
-            <div><label for="billing_zip">ZIP</label><input id="billing_zip" name="billing_zip" type="text" inputmode="numeric" maxlength="10" autocomplete="postal-code" placeholder="90001"></div>
+            <div><label for="billing_city">City</label><input id="billing_city" name="billing_city" type="text"></div>
+            <div><label for="billing_state">State</label><input id="billing_state" name="billing_state" type="text"></div>
+            <div><label for="billing_zip">ZIP</label><input id="billing_zip" name="billing_zip" type="text"></div>
           </div>
         </div>
       </fieldset>
 
-      <button class="btn btn-primary" id="create" type="submit">Create account &amp; start free trial</button>
-      <p class="su-note">7-day free trial — card required, you won't be charged until day 7. You'll get a verification email to activate your account. By continuing you agree to our <a title="Terms" href="#">Terms</a> and <a title="Privacy Policy" href="#">Privacy Policy</a>.</p>
+      <style>
+.atv-consent{border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:rgba(19,24,52,.55);margin:22px 0;--acc:#34E0C8}
+.atv-consent-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.atv-consent-row:last-of-type{margin-bottom:0}
+.atv-consent input[type=checkbox]{appearance:none;-webkit-appearance:none;width:20px;height:20px;flex-shrink:0;margin-top:2px;border:2px solid #8A97B4;border-radius:5px;cursor:pointer;background:transparent;transition:.12s}
+.atv-consent input[type=checkbox]:checked{background:var(--acc);border-color:var(--acc)}
+.atv-consent input[type=checkbox]:checked::after{content:"";display:block;width:5px;height:10px;margin:1px auto 0;border:solid #06121A;border-width:0 2.5px 2.5px 0;transform:rotate(43deg)}
+.atv-consent input[type=checkbox]:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.atv-consent label{font-size:14px;line-height:1.55;color:#D7DCF0;cursor:pointer}
+.atv-consent label strong{color:#fff;font-weight:600}.atv-consent label a{color:var(--acc)}
+.atv-consent-versions{font-size:12px;color:#8A97B4;margin:14px 0 0;padding-top:13px;border-top:1px solid var(--line)}
+</style>
+<div class="atv-consent">
+  <div class="atv-consent-row">
+    <input type="checkbox" id="atv-terms" name="acceptedTerms" required>
+    <label for="atv-terms">I have read and agree to the <a href="eula.html" target="_blank" rel="noopener">Terms</a>, <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="acceptable-use.html" target="_blank" rel="noopener">Acceptable Use Policy</a>, and I have authority to accept them for my business.</label>
+  </div>
+  <div class="atv-consent-row">
+    <input type="checkbox" id="atv-ai" name="acknowledgedAi" required>
+    <label for="atv-ai">I understand that Atrovia’s AI agents are <strong>experimental</strong>, that everything they produce is a <strong>recommendation rather than a decision</strong>, that they can be wrong, and that <strong>I am responsible for reviewing their work before approving any campaign, price, spend, hire or other business decision</strong>. <a href="ai-disclosure.html" target="_blank" rel="noopener">How our agents work</a></label>
+  </div>
+  <p class="atv-consent-versions">Version accepted: Terms 2026‑09‑13 · Privacy 2026‑09‑13 · AI Disclosure 2026‑09‑13 · Acceptable Use 2026‑09‑13</p>
+</div>
+      <button class="btn btn-primary" id="create" type="submit" disabled>Create account &amp; start for $99/mo</button>
+<script>(function(){var t=document.getElementById('atv-terms'),a=document.getElementById('atv-ai'),s=document.getElementById('create');if(!t||!a||!s)return;function sync(){s.disabled=!(t.checked&&a.checked);}t.addEventListener('change',sync);a.addEventListener('change',sync);sync();})();</script>
+      <p class="su-note">Your intro rate is $99/mo for the first 3 months, then $699/mo. Card required; you'll get a verification email to activate your account. By continuing you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
     </form>
     <div class="summary">
-      <h3>Your plan</h3>
-      <div id="sum-rows"></div>
-      <div class="sum-total"><span class="l">Total</span><span class="amt">$<span id="sum-amt">0</span><span class="per" id="sum-per">/mo</span></span></div>
-      <div class="sum-cyc" id="sum-cyc">Billed annually</div>
-      <div class="sum-ceo"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Your CEO agent is included free.</div>
-      <div class="sum-trial"><b>7 days free.</b> Explore everything, chat with your team, and import your data. You won't be charged until day 7, and you can cancel anytime.</div>
+      <h3>The whole system</h3>
+      <div class="sum-row"><span class="nm"><span class="dot" style="background:var(--purple-bright)"></span>Marketing · Maven</span></div>
+      <div class="sum-row"><span class="nm"><span class="dot" style="background:var(--green-bright)"></span>Sales &amp; CRM · Astrid</span></div>
+      <div class="sum-row"><span class="nm"><span class="dot" style="background:var(--amber)"></span>Operations · Otto</span></div>
+      <div class="sum-row"><span class="nm"><span class="dot" style="background:var(--coral)"></span>Finance · Fin (QuickBooks)</span></div>
+      <div class="sum-total"><span class="l">Today</span><span class="amt">$<span>99</span><span class="per">/mo</span></span></div>
+      <div class="sum-cyc">$99/mo for 3 months, then $699/mo · cancel anytime</div>
+      <div class="sum-ceo"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> CEO agent + living business plan included.</div>
+      <div class="sum-trial"><b>1,000 free text credits</b> when you sign up in the next 24 hours — enough for your first customer-winning SMS campaign.</div>
     </div>
   </div>
   <!-- success state -->
   <div class="done" id="done">
     <div class="big"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
-    <h2>Your account is ready.</h2>
-    <p class="lead" style="margin:16px auto 0">We created your Atrovia account for <b id="done-email" style="color:var(--text-strong)"></b>, but we couldn't start the payment step just now. Nothing has been charged. Sign in at <span class="gg">atrovia.co</span> with the password you just chose — Marketing, CRM &amp; Sales and your team are all there, and you can add your card from Settings.</p>
-    <p class="su-note" style="margin-top:18px">Still stuck? Email <a href="mailto:support@atrovia.co" style="color:var(--green-bright)">support@atrovia.co</a> and we'll finish setting you up.</p>
+    <h2>Check your email to get started.</h2>
+    <p class="lead" style="margin:16px auto 0">We've sent a verification link to <b id="done-email" style="color:var(--text-strong)"></b>. Click it to activate your account — it'll take you straight to your Atrovia home at <span class="gg">atrovia.co</span>, where all four departments and your team live in one place.</p>
+    <p class="su-note" style="margin-top:18px">Didn't get it? Check spam, or <a href="#" style="color:var(--green-bright)">resend the email</a>.</p>
   </div>
 </div></section>
 
-<!-- BOTTOM BAR -->
-<div class="bar" id="bar"><div class="wrap row">
-  <div class="sel-list" id="sel-list"></div>
-  <div class="tot"><span>Total</span><span class="amt">$<span id="bar-amt">0</span></span><span class="per" id="bar-per">/mo</span></div>
-  <div class="cta">
-    <div class="trial">7-day free trial · cancel anytime</div>
-    <button class="btn btn-primary" id="continue">Continue</button>
-  </div>
-</div></div>
-
 <footer><div class="wrap"><div class="foot-row">
   <span>© 2026 Atrovia. Built for business owners ready to move forward.</span>
-  <span><a title="Home" href="index.html">Home</a> · <a title="About" href="about.html">About</a> · <a title="Contact" href="about.html#contact">Contact</a> · <a title="Connect QuickBooks" href="connect-quickbooks.html">Connect QuickBooks</a> · <a title="Privacy" href="privacy.html">Privacy</a> · <a title="Terms" href="terms.html">Terms</a> · <a title="EULA" href="eula.html">EULA</a> · <a title="AI Disclosure" href="ai-disclosure.html">AI Disclosure</a></span>
-</div></div></footer>
+  <span><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="about.html#contact">Contact</a></span>
+</div></div><div class="wrap" style="margin-top:6px"><nav class="legal-links" aria-label="Legal"><a href="eula.html">Terms</a><a href="privacy.html">Privacy</a><a href="ai-disclosure.html">AI Disclosure</a><a href="acceptable-use.html">Acceptable Use</a><a href="credits.html">Credits &amp; Billing</a><a href="refunds.html">Refunds</a><a href="marketplace-terms.html">Add-ons</a><a href="subprocessors.html">Sub-processors</a></nav><p class="legal-copyright">© 2026 Atrovia Corporation · 937 N. Amphlett Blvd., San Mateo, CA 94401 · <a href="mailto:admin@atrovia.co" style="color:#6DF5E2">admin@atrovia.co</a></p></div></footer>
 
-<script src="/assets/js/signup.js"></script>
+<script>
+  const APP_URL = '';  // optional: direct redirect to the atrovia.co app after submit (email verification is the primary flow)
+
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',scrollY>20);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // billing address "same as business" toggle
+  const sameBill=document.getElementById('samebill');
+  if(sameBill) sameBill.addEventListener('change',()=>{
+    document.getElementById('bill-fields').classList.toggle('hide',sameBill.checked);
+  });
+
+  document.getElementById('create').addEventListener('click',(e)=>{
+    e.preventDefault();
+    const em=document.getElementById('em').value.trim();
+    const ein=document.getElementById('ein').value.trim();
+    if(!em){ alert('Please enter your email so we can send your verification link.'); return; }
+    if(!ein){ alert('Please enter your EIN to continue.'); return; }
+    // (Team: submit the form + Stripe PaymentMethod here, then send verification email.)
+    document.getElementById('done-email').textContent=em;
+    document.querySelector('.su-grid').style.display='none';
+    document.getElementById('done').classList.add('show');
+    document.getElementById('done').scrollIntoView({behavior:'smooth'});
+    if(APP_URL){ setTimeout(()=>{ window.location.href=APP_URL; }, 2200); }
+  });
+</script>
 
 <!-- theme chooser (first visit) + floating toggle -->
 <div class="theme-pop" id="themePop" role="dialog" aria-modal="true" aria-label="Choose a look">
@@ -274,12 +576,37 @@
 <button class="theme-toggle" id="themeToggle" aria-label="Switch light or dark mode" title="Switch light / dark">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg>
 </button>
-<script src="/assets/js/theme.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  function apply(t){ t=(t==='light')?'light':'dark'; root.setAttribute('data-theme',t);
+    try{localStorage.setItem('atrovia-theme',t)}catch(e){}
+    try{ if(window.parent&&window.parent!==window&&window.parent.atroviaTheme) window.parent.atroviaTheme(t); }catch(e){} }
+  var stored=null, chosen=false;
+  try{ stored=localStorage.getItem('atrovia-theme'); if(stored) chosen=true; }catch(e){}
+  if(typeof window.__theme!=='undefined' && window.__theme){ stored=window.__theme; }
+  if(window.__themeChosen){ chosen=true; }
+  apply('dark');
+  var pop=document.getElementById('themePop');
+  /* light mode on hold — dark only for launch */
+  function choose(t){ apply(t); if(pop) pop.classList.remove('show');
+    try{ if(window.parent&&window.parent!==window&&window.parent.atroviaThemeChosen) window.parent.atroviaThemeChosen(); }catch(e){} }
+  if(pop){ pop.querySelectorAll('[data-pick]').forEach(function(el){ el.addEventListener('click',function(){ choose(el.getAttribute('data-pick')); }); }); }
+  var tg=document.getElementById('themeToggle');
+  if(tg){ tg.addEventListener('click',function(){ var cur=root.getAttribute('data-theme')==='light'?'light':'dark'; apply(cur==='light'?'dark':'light'); }); }
+})();
+</script>
 
 
-<script src="/assets/js/menu.js"></script>
+<script>
+(function(){
+  var mt=document.getElementById('menuToggle'), nv=document.getElementById('nav');
+  if(!mt||!nv) return;
+  mt.addEventListener('click', function(e){ e.stopPropagation(); nv.classList.toggle('open'); });
+  nv.querySelectorAll('.links a').forEach(function(a){ a.addEventListener('click', function(){ nv.classList.remove('open'); }); });
+  document.addEventListener('click', function(e){ if(nv.classList.contains('open') && !nv.contains(e.target)) nv.classList.remove('open'); });
+})();
+</script>
 
-<datalist id="us-cities"></datalist>
-<div class="toast-wrap" id="toast" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sub-processors — Atrovia</title>
+<meta name="description" content="The companies Atrovia uses to run the platform that may handle your data, what each one does, and how we notify you of changes.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/subprocessors">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400&display=swap">
+<style>
+:root{
+  /* LIGHT — the marketing site */
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57; --ppl:#3A5FD0;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    /* DARK — identical to the Atrovia app shell */
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399; --ppl:#6C8EF5;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:52px 24px 96px}
+header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:36px}
+.brand{display:flex;align-items:center;gap:9px;margin-bottom:26px;text-decoration:none}
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:4px}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,36px);
+  letter-spacing:-.025em;margin:0 0 10px;line-height:1.16}
+.dates{font-size:14.5px;color:var(--ink-3)}
+h2{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:-.02em;
+  margin:44px 0 12px;scroll-margin-top:20px}
+h3{font-family:var(--disp);font-weight:600;font-size:16.5px;margin:26px 0 8px}
+p{margin:0 0 15px}
+ul,ol{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:22px 24px;margin:26px 0}
+.box.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.box.warn{border-left:3px solid var(--warn)}
+.box.crit{border-left:3px solid var(--crit)}
+.box h3{margin-top:0}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.toc{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 24px;margin:30px 0 8px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+.toc li{margin-bottom:5px;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2);font-size:15.5px}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15.5px}
+th{text-align:left;font-family:var(--disp);font-weight:600;font-size:12.5px;
+  padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:bottom;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3)}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+code{font-family:var(--mono);font-size:.88em;background:var(--line-2);padding:1px 5px;
+  border-radius:4px;color:var(--ink)}
+.caps{font-size:15.5px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.01em}
+.pill{display:inline-block;font-family:var(--disp);font-weight:600;font-size:11px;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;
+  border:1px solid currentColor}
+.pill.mkt{color:var(--mkt)} .pill.crm{color:var(--crm)}
+.pill.ops{color:var(--ops)} .pill.fin{color:var(--fin)}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+@media print{.toc{display:none}body{font-size:11pt}.wrap{padding:0}}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="/">
+    <span class="mark">ATR<span class="o">O</span>VIA</span>
+    <span class="sub">Policies</span>
+  </a>
+  <h1>Sub-processors</h1>
+  <p class="dates">Effective <strong>13 September 2026</strong> · Version 2026-09-13</p>
+</header>
+
+<p class="lede">A sub-processor is a company we use to run Atrovia that may handle your data in the
+process. We keep this list current because you're entitled to know who touches your information, and
+because your own customers may ask you the same question.</p>
+
+<div class="box hi">
+  <p>Every provider below is bound by a written agreement requiring them to protect your data, use
+  it only to provide their service to us, and to say nothing about it to anyone else.
+  <strong>None of them is permitted to use your business data to train AI models.</strong></p>
+</div>
+
+<h2 id="infra">Infrastructure</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Provider</th><th>What it does</th><th>Location</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Vercel Inc.</strong></td>
+      <td>Application hosting and content delivery for atrovia.co and the Atrovia app</td>
+      <td>United States</td></tr>
+    <tr><td><strong>Supabase Inc.</strong></td>
+      <td>Database, authentication, file storage and serverless functions — this is where your
+        account data lives</td>
+      <td>United States</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="ai">AI models</h2>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Provider</th><th>What it does</th><th>Location</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Anthropic PBC</strong></td>
+      <td>The models behind the Atrovia agents. Processes the content of your conversations and the
+        business data an agent needs to answer, then returns the response</td>
+      <td>United States</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="box">
+  <p><strong>Under our agreement, your data is not used to train models</strong>, is not retained
+  beyond what's needed to return the response, and is not used for any purpose other than serving
+  your request. This is the commitment in <a href="/privacy#ai">section 5 of the Privacy
+  Policy</a>, and it is contractual rather than a matter of trust.</p>
+</div>
+
+<h2 id="comms">Payments and communications</h2>
+<p>These providers are engaged for billing and for the outbound messaging that credits pay for. We
+publish each one by name as it goes live, and we update this page <strong>before</strong> a new
+provider begins handling customer data — never after.</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Category</th><th>What it would handle</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Payment processing</strong></td>
+      <td>Card details and billing records. <strong>Atrovia never sees or stores full card
+        numbers</strong> — they go directly to the processor.</td>
+      <td>Listed here on activation</td></tr>
+    <tr><td><strong>Telephony and SMS</strong></td>
+      <td>Delivers the text messages and calls your credits pay for. Handles recipient numbers and
+        message content.</td>
+      <td>Listed here on activation</td></tr>
+    <tr><td><strong>Transactional email</strong></td>
+      <td>Account email we send you — receipts, alerts, password resets.</td>
+      <td>Listed here on activation</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="notsub">Services you connect — not sub-processors</h2>
+<p>These are different, and the difference is worth understanding. When you connect QuickBooks or a
+Google account, <strong>you are authorising us to access a service you already hold</strong>. They
+aren't processing data on our behalf; we're reading data on yours.</p>
+<ul>
+  <li><strong>Intuit / QuickBooks Online</strong> — read-only access to the accounting data you
+    authorise. See <a href="/privacy#quickbooks">Privacy Policy §4</a>.</li>
+  <li><strong>Google</strong> — Ads, Analytics, Search Console and Business Profile, where you
+    connect them.</li>
+  <li><strong>Meta</strong> — advertising accounts, where you connect them.</li>
+  <li><strong>Third-party add-on providers</strong> — data and lead services you enable from the App
+    Store. You hold the account, they bill you directly, and their terms govern. See the
+    <a href="/marketplace-terms">Add-on &amp; Marketplace Terms</a>.</li>
+</ul>
+<p>Each is governed by your own agreement with that company, and you can disconnect any of them at
+any time in Settings.</p>
+
+<h2 id="changes">Changes to this list</h2>
+<p>We update this page <strong>before</strong> a new sub-processor starts handling customer data. If
+you'd like to be emailed when it changes, tell us at
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> and we'll add you to the notice list.</p>
+<p>If you have a data processing addendum with us, the objection process in that DPA applies to any
+addition. If you'd like a DPA, ask — we'll send one.</p>
+
+<p class="dates" style="margin-top:38px">Questions about any provider on this page:
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+
+<footer class="end">
+  <p><a href="/">Atrovia</a> · <a href="/terms">Terms</a> ·
+  <a href="/privacy">Privacy</a> · <a href="/ai-disclosure">AI Disclosure</a> ·
+  <a href="/acceptable-use">Acceptable Use</a> · <a href="/credits">Credits &amp; Billing</a> ·
+  <a href="/refunds">Refunds</a> · <a href="/marketplace-terms">Add-ons</a> ·
+  <a href="/subprocessors">Sub-processors</a></p>
+  <p>© 2026 Atrovia Corporation · 937 N. Amphlett Blvd., San Mateo, CA 94401 ·
+  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+</footer>
+
+</div>
+</body>
+</html>
