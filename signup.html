@@ -73,7 +73,14 @@ section{position:relative;z-index:2}
 .cycle button.on .save{background:rgba(255,255,255,.2);color:var(--text-strong)fff}
 
 /* recommendation banner */
-.sys-offer{max-width:620px;margin:30px auto 0;background:linear-gradient(180deg,rgba(139,92,246,.14),rgba(52,224,200,.08));border:1px solid var(--purple);border-radius:24px;padding:36px 32px;text-align:center;box-shadow:0 0 60px rgba(139,92,246,.25)}
+/* The bottom margin was 0 and the photo strip below has no top padding, so the offer card
+   and the row of business photos were touching — the glow around the card bled straight into
+   the first image and the two read as one broken block. 30px above, 34px below: slightly more
+   under it, because the card ends with a list and lists need air to stop looking cut off. */
+.sys-offer{max-width:620px;margin:30px auto 34px;background:linear-gradient(180deg,rgba(139,92,246,.14),rgba(52,224,200,.08));border:1px solid var(--purple);border-radius:24px;padding:36px 32px;text-align:center;box-shadow:0 0 60px rgba(139,92,246,.25)}
+/* The last item had the same 11px gap as the ones between, so it sat hard against the card's
+   bottom padding. */
+.offer-list li:last-child{margin-bottom:0}
 .offer-badge{display:inline-block;font-family:'Montserrat';font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-bright);background:rgba(52,224,200,.14);border:1px solid rgba(52,224,200,.4);padding:6px 14px;border-radius:999px;margin-bottom:18px}
 .offer-price{display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap}
 .offer-price .big{font-family:'Montserrat';font-weight:900;font-size:60px;line-height:1;color:#fff}
@@ -384,15 +391,21 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
     <div class="sys-col"><div class="sys-h c">Finance</div><div class="sys-mgr">Fin · QuickBooks</div></div>
   </div>
   <ul class="offer-list">
-    <li><span class="ck">✓</span> Your <b>CEO agent (Orion)</b> + your living 90-day business plan</li>
-    <li><span class="ck">✓</span> Guided onboarding — set up and earning in your first 30 days</li>
-    <li><span class="ck">✓</span> <b>1,000 free text-message credits</b> when you sign up in the next 24 hours</li>
-    <li><span class="ck">✓</span> Cancel anytime — no long contract</li>
+    <!-- THE TEXT IS WRAPPED IN A SPAN and that is the whole fix for this list.
+         `.offer-list li` is display:flex, so EVERY child becomes a flex item — including
+         each bare text node. "Your", the bold, and "+ your living 90-day business plan"
+         were three separate columns with a 10px gap between them, which is why the first
+         line read as a broken table instead of a sentence. One span, one flex item, and
+         the words flow. -->
+    <li><span class="ck">✓</span><span>Your <b>CEO agent (Orion)</b> + your living 90-day business plan</span></li>
+    <li><span class="ck">✓</span><span>Guided onboarding — set up and earning in your first 30 days</span></li>
+    <li><span class="ck">✓</span><span><b>1,000 free text-message credits</b> when you sign up in the next 24 hours</span></li>
+    <li><span class="ck">✓</span><span>Cancel anytime — no long contract</span></li>
   </ul>
 </div></section>
 
 <!-- SIGNUP FORM (revealed after selection) -->
-<section style="padding:0 22px 6px"><div class="wrap" style="max-width:1120px;margin:0 auto"><div class="photoband"><div class="pb"><img src="images/biz-bakery-owner.jpg" alt="Bakery"><div class="cap">Bakery</div></div><div class="pb"><img src="images/biz-florist.jpg" alt="Florist"><div class="cap">Florist</div></div><div class="pb"><img src="images/biz-barber.jpg" alt="Barber"><div class="cap">Barber</div></div><div class="pb"><img src="images/biz-bikeshop.jpg" alt="Retail"><div class="cap">Retail</div></div><div class="pb"><img src="images/biz-cafe.jpg" alt="Café"><div class="cap">Café</div></div><div class="pb"><img src="images/biz-owner-open.jpg" alt="Open"><div class="cap">Open</div></div></div></div></section>
+<section style="padding:18px 22px 6px"><div class="wrap" style="max-width:1120px;margin:0 auto"><div class="photoband"><div class="pb"><img src="images/biz-bakery-owner.jpg" alt="Bakery"><div class="cap">Bakery</div></div><div class="pb"><img src="images/biz-florist.jpg" alt="Florist"><div class="cap">Florist</div></div><div class="pb"><img src="images/biz-barber.jpg" alt="Barber"><div class="cap">Barber</div></div><div class="pb"><img src="images/biz-bikeshop.jpg" alt="Retail"><div class="cap">Retail</div></div><div class="pb"><img src="images/biz-cafe.jpg" alt="Café"><div class="cap">Café</div></div><div class="pb"><img src="images/biz-owner-open.jpg" alt="Open"><div class="cap">Open</div></div></div></div></section>
 
 <section class="signup show" id="signup"><div class="wrap">
   <div style="text-align:center"><div class="eyebrow">Almost there</div>
