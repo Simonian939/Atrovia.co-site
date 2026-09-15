@@ -33,9 +33,22 @@ const PAGES = globSync
 // no trimming: the browser hashes the raw text, and a stripped newline is a different hash.
 const INLINE = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
 
+// HTML COMMENTS COME OUT FIRST, and the reason is a bug this script caused itself. A comment
+// in signup.html used the word "<script>" in prose — explaining that an inline event handler
+// is blocked the same way a script tag without a hash is. The scanner read that as a real
+// opening tag, which threw the open/close pairing out by one, swallowed the real script that
+// enables the signup button into a mis-parsed block, and never hashed it.
+//
+// The page then looked perfect and the button stayed disabled forever: the browser silently
+// refused the one script that turns it on. Nobody could buy anything.
+//
+// Offsets do not matter here — only the script bodies — so blanking comments entirely is
+// safe, and it is the difference between a scanner that is right and one that is usually right.
+const decomment = (html) => html.replace(/<!--[\s\S]*?-->/g, "");
+
 const hashes = new Set();
 for (const page of PAGES.sort()) {
-  const html = readFileSync(page, "utf8");
+  const html = decomment(readFileSync(page, "utf8"));
   let n = 0;
   for (const m of html.matchAll(INLINE)) {
     const body = m[1];
