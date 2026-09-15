@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- headers stamp 2026-09-15 04:34 -->
+<!-- headers stamp 2026-09-15 05:37 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Get started — Choose Marketing, CRM &amp; Sales, or both | Atrovia</title>
@@ -449,15 +449,25 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
           <div><label for="em">Email <span class="req">*</span></label><input id="em" name="email" type="email" placeholder="you@business.com" required></div>
           <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(555) 123-4567"></div>
         </div>
+        <!-- The page shipped without this field and the account cannot exist without it:
+             /api/auth/register requires a password, and the welcome email tells people to
+             "sign in with the email and password you created at signup". -->
+        <div class="field"><label for="password">Password <span class="req">*</span></label>
+          <input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" required minlength="8">
+          <div class="stripe-note" style="margin-top:6px"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>This is how you'll sign in to Atrovia afterwards.</div>
+        </div>
       </fieldset>
 
       <!-- PAYMENT (Stripe) -->
       <fieldset class="su-fieldset">
         <legend class="su-legend"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Payment</legend>
-        <div class="field"><label for="card-element">Card details</label>
-          <!-- Stripe Elements mounts here — see handoff notes above -->
-          <div class="card-mount" id="card-element"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Secure card field mounts here (Stripe)</div>
-          <div class="stripe-note"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Payments secured by Stripe — we never store your full card number.</div>
+        <div class="field">
+          <!-- This was a placeholder box captioned "Secure card field mounts here (Stripe)",
+               waiting for Stripe Elements. We take payment on Stripe's own hosted Checkout
+               instead, so nothing mounts here and a dead card-shaped box would just look
+               like a field that refuses to accept typing. It says where the card goes. -->
+          <div class="card-mount" id="card-element"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>You'll enter your card on Stripe's secure page, right after this</div>
+          <div class="stripe-note"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Payments secured by Stripe — your card details never touch Atrovia.</div>
         </div>
         <label class="chkline"><input type="checkbox" id="samebill" checked><span>Billing address same as business address</span></label>
         <div class="bill-fields hide" id="bill-fields">
@@ -493,6 +503,10 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
   </div>
   <p class="atv-consent-versions">Version accepted: Terms 2026‑09‑13 · Privacy 2026‑09‑13 · AI Disclosure 2026‑09‑13 · Acceptable Use 2026‑09‑13</p>
 </div>
+      <!-- Errors used to be alert() calls. A modal dialog blocks the page, loses the value
+           of what was typed behind it on some browsers, and cannot say which field is wrong.
+           This sits where the person is already looking. -->
+      <div id="signup-error" role="alert" style="display:none;margin:0 0 14px;padding:12px 15px;border:1px solid #F4506B;border-radius:10px;background:rgba(244,80,107,.10);color:#FFB3C0;font-size:14px;line-height:1.5"></div>
       <button class="btn btn-primary" id="create" type="submit" disabled>Create account &amp; start for $99/mo</button>
 <script>(function(){var t=document.getElementById('atv-terms'),a=document.getElementById('atv-ai'),s=document.getElementById('create');if(!t||!a||!s)return;function sync(){s.disabled=!(t.checked&&a.checked);}t.addEventListener('change',sync);a.addEventListener('change',sync);sync();})();</script>
       <p class="su-note">Your intro rate is $99/mo for the first 3 months, then $699/mo. Card required; you'll get a verification email to activate your account. By continuing you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
@@ -544,18 +558,110 @@ html[data-theme="light"] .band-tint{background:linear-gradient(180deg, rgba(124,
   // cubierto abajo, pero sin esto el Enter recarga la página y se lleva lo escrito.
   document.getElementById('signup-form')?.addEventListener('submit',(e)=>e.preventDefault());
 
-  document.getElementById('create').addEventListener('click',(e)=>{
+  // THE BUTTON USED TO DO NOTHING. It showed the "check your email" panel and redirected —
+  // no account, no Stripe, no acceptance record. The comment where this code should have
+  // been said "(Team: submit the form + Stripe PaymentMethod here...)". The backend was
+  // ready the whole time; nobody was calling it.
+  //
+  // TWO CALLS, IN ORDER, AND THE ORDER MATTERS:
+  //   1 · /api/auth/register  — creates the tenant (status 'pending') and the owner user,
+  //       and writes the legal_acceptances row from this request's own IP.
+  //   2 · /api/checkout-session — Stripe hosted Checkout. The webhook activates the tenant
+  //       when payment completes, matching the account by email.
+  // Step 2 finds nothing to activate if step 1 has not run, which is why register goes first
+  // even though it means an account can exist before it is paid for. That state is handled:
+  // logging in with a pending tenant says "your signup was never completed".
+  const API_BASE = location.hostname.endsWith('atrovia.co') ? 'https://prod.atrovia.co' : 'https://api.atrovia.co';
+  const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+
+  function fail(msg, focusId){
+    const el = focusId && document.getElementById(focusId);
+    if (el) { el.focus(); el.scrollIntoView({behavior:'smooth', block:'center'}); }
+    const box = document.getElementById('signup-error');
+    if (box) { box.textContent = msg; box.style.display = 'block'; box.scrollIntoView({behavior:'smooth', block:'center'}); }
+  }
+
+  document.getElementById('create').addEventListener('click', async (e)=>{
     e.preventDefault();
-    const em=document.getElementById('em').value.trim();
-    const ein=document.getElementById('ein').value.trim();
-    if(!em){ alert('Please enter your email so we can send your verification link.'); return; }
-    if(!ein){ alert('Please enter your EIN to continue.'); return; }
-    // (Team: submit the form + Stripe PaymentMethod here, then send verification email.)
-    document.getElementById('done-email').textContent=em;
-    document.querySelector('.su-grid').style.display='none';
-    document.getElementById('done').classList.add('show');
-    document.getElementById('done').scrollIntoView({behavior:'smooth'});
-    if(APP_URL){ setTimeout(()=>{ window.location.href=APP_URL; }, 2200); }
+    const btn = e.currentTarget;
+    const box = document.getElementById('signup-error');
+    if (box) box.style.display = 'none';
+
+    const em = val('em'), ein = val('ein'), company = val('company_name');
+    const pw = document.getElementById('password').value;
+    const terms = document.getElementById('atv-terms').checked;
+    const ai = document.getElementById('atv-ai').checked;
+
+    if(!em || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ fail('Please enter a valid email address.','em'); return; }
+    if(!pw || pw.length < 8){ fail('Your password needs at least 8 characters.','password'); return; }
+    if(!company){ fail('Please enter your legal business name.','company_name'); return; }
+    if(!/^\d{2}-?\d{7}$/.test(ein.replace(/\s/g,''))){ fail('Enter your EIN as 9 digits (e.g. 12-3456789).','ein'); return; }
+    // The button is already disabled until both are ticked. This is the second lock, for the
+    // case where the button was enabled and then a box was unticked between the two events.
+    if(!terms || !ai){ fail('Please tick both agreement boxes to continue.','atv-terms'); return; }
+
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Creating your account…';
+
+    try {
+      const reg = await fetch(API_BASE + '/api/auth/register', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          firstName: val('rep_first'), lastName: val('rep_last'),
+          email: em, phone: val('phone'), password: pw,
+          companyName: company,
+          companyOwner: (val('rep_first')+' '+val('rep_last')).trim(),
+          ein: ein, stateLicense: '',
+          vertical: val('industry') || 'other',
+          state: val('business_state'), address: val('business_address1'),
+          // One plan now — everything included. Austin, 14 Sep: "instead of trying to buy
+          // marketing, buy sales, buy CRM — just buy the whole thing."
+          atriumEnabled: true, kovaEnabled: true, planTier: 'atrovia',
+          // Sent so the SERVER can record them. The tick is the person's; the timestamp,
+          // the IP and the document versions are the server's, because a record the browser
+          // can fill in is a record the browser can invent.
+          acceptedTerms: true, acknowledgedAi: true, authority: true
+        })
+      });
+      const regBody = await reg.json().catch(()=>({}));
+      if(!reg.ok){
+        // An email that already has an account is the common one, and "try again" is the
+        // wrong advice for it — they need to sign in, not sign up.
+        const dup = reg.status === 409 || /exist|already/i.test(regBody.error || regBody.message || '');
+        fail(dup ? 'An account already exists for that email. Try signing in instead.'
+                 : (regBody.message || regBody.error || 'Could not create your account. Please try again.'),
+             dup ? 'em' : null);
+        btn.disabled = false; btn.textContent = orig; return;
+      }
+
+      const co = await fetch(API_BASE + '/api/checkout-session', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          planTier: 'atrovia', email: em, companyName: company, billingInterval: 'monthly',
+          // Austin's billing fields would otherwise be typed into a form and go nowhere.
+          userData: {
+            businessStructure: val('business_structure'), title: val('rep_title'),
+            address: { line1: val('business_address1'), city: val('business_city'), state: val('business_state'), zip: val('business_zip') },
+            billing: document.getElementById('samebill').checked ? 'same_as_business' : {
+              line1: val('billing_address1'), city: val('billing_city'), state: val('billing_state'), zip: val('billing_zip')
+            }
+          }
+        })
+      });
+      const coBody = await co.json().catch(()=>({}));
+      if(co.ok && coBody.url){ window.location.href = coBody.url; return; }
+
+      // THE ACCOUNT EXISTS at this point — step 1 succeeded. Saying "check your email" here
+      // would promise a verification message that nothing sends, and leave someone waiting
+      // for it with a working account they do not know about.
+      console.error('[signup] checkout-session failed', co.status, coBody && coBody.error);
+      fail('Your account was created, but we could not start checkout. Sign in and finish payment from Settings → Subscription.','em');
+      btn.disabled = false; btn.textContent = orig;
+    } catch(err){
+      console.error('[signup]', err);
+      fail("Couldn't reach the server. Check your connection and try again.");
+      btn.disabled = false; btn.textContent = orig;
+    }
   });
 </script>
 
