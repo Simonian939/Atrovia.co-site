@@ -81,5 +81,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/app",
+      "destination": "https://app.atrovia.co",
+      "permanent": false
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://app.atrovia.co/:path*",
+      "permanent": false
+    }
   ]
 }
