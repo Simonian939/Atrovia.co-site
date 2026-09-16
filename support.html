@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-<!-- headers stamp 2026-09-15 05:37 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QuickBooks Disconnected — Atrovia</title>
-<meta name="description" content="Your QuickBooks company has been disconnected from Atrovia. Here is exactly what that means, what happens to your data, and how to reconnect.">
+<title>Support — Atrovia</title>
+<meta name="description" content="How to reach Atrovia for help: what to email, what to include, when you'll hear back, and where to go for QuickBooks, billing and account problems.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://atrovia.co/quickbooks-disconnected">
+<link rel="canonical" href="https://atrovia.co/support">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
@@ -96,73 +95,107 @@ footer.end p{margin:0 0 8px}
 .brand{text-decoration:none}
 .box.warn{border-left:3px solid var(--warn);background:var(--surf)}
 .box.crit{border-left:3px solid var(--crit);background:var(--surf)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:24px 0}
+.grid .card{margin:0}
+.grid .card h2{font-size:16px}
+.grid .card p{font-size:15px;color:var(--ink-2)}
+dl{margin:0}
+dt{font-weight:600;color:var(--ink);margin-top:14px}
+dd{margin:2px 0 0;color:var(--ink-2)}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <div class="brand">
-  <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Policies</span>
+  <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Support</span>
 </div>
 
-<div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></div>
-
-<h1>QuickBooks has been disconnected</h1>
-<p class="lede">Your QuickBooks company is no longer connected to Atrovia.
-<strong>Nothing in your books was changed, and nothing was deleted.</strong></p>
-
-<div class="card">
-  <h2>What just happened</h2>
-  <ul class="done">
-    <li><strong>Access tokens revoked.</strong> Atrovia can no longer reach your QuickBooks
-      company.</li>
-    <li><strong>All scheduled syncing stopped.</strong> No further data will be retrieved.</li>
-    <li><strong>Your QuickBooks data is untouched.</strong> We only ever read it — we never posted,
-      edited or removed anything.</li>
-  </ul>
-</div>
-
-<h2>What happens to the numbers in Atrovia</h2>
-<p>The reports and history we already built <strong>stay in your account</strong> — your margins,
-costs and past periods are still there. They simply stop updating, and any figure that was measured
-from your books is now <strong>as of the date you disconnected</strong> rather than current.</p>
-<p>Some things will change while you're disconnected:</p>
-<ul>
-  <li>Cash position and profit figures will go stale and be labelled as such.</li>
-  <li>Costs and margins fall back to <strong>your own estimates</strong> where we have them.</li>
-  <li>Fin's hiring readiness signal is paused — it needs measured numbers to mean anything.</li>
-</ul>
-<p>We'd rather show you a figure marked <em>as of 12 September</em> than a confident-looking number
-that quietly stopped being true.</p>
+<h1>Getting help</h1>
+<p class="lede">One inbox, answered by the people who build Atrovia.
+<strong>Email <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></strong> and you'll hear back
+the same business day.</p>
 
 <div class="card hi">
-  <h2>Want your data deleted as well?</h2>
-  <p>Disconnecting stops the flow. It doesn't erase what we already have — some businesses
-  disconnect temporarily and want their history waiting when they come back.</p>
-  <p>If you'd like the financial data we retrieved deleted, email
-  <a href="mailto:admin@atrovia.co">admin@atrovia.co</a> and we'll remove it and confirm when it's
-  done. Details in our <a href="/privacy#keep">Privacy Policy</a>.</p>
+  <h2>admin@atrovia.co</h2>
+  <p>No ticket number, no form to fill in, no queue to pick from. Write what happened and we'll
+  take it from there.</p>
+  <p><strong>Monday to Friday, 9am–6pm Pacific.</strong> Anything sent outside those hours is
+  answered the next business morning.</p>
 </div>
 
-<h2>Changed your mind?</h2>
-<p>Reconnecting takes about a minute, and the history we already built stays intact.</p>
+<h2>What to tell us</h2>
+<p>You don't have to write a bug report. But these four things turn most emails into one reply
+instead of four:</p>
+<dl>
+  <dt>The email address you sign in with</dt>
+  <dd>It tells us which company and which account to look at.</dd>
+  <dt>What you were doing</dt>
+  <dd>"Sending a quote to a client", "connecting QuickBooks", "adding a user".</dd>
+  <dt>What you expected, and what happened instead</dt>
+  <dd>If there was a message on screen, the exact words help — even if they look like nonsense.</dd>
+  <dt>Roughly when</dt>
+  <dd>"About 20 minutes ago" is enough to find it in our logs.</dd>
+</dl>
+
+<h2>Things worth trying first</h2>
+<ul>
+  <li><strong>Something won't send.</strong> If the message mentions agreements, open Atrovia and
+    you'll be asked to accept them once — sending works normally afterwards.</li>
+  <li><strong>A connection looks broken.</strong> Settings → Connectors shows the real state of
+    each one, and reconnecting takes about a minute.</li>
+  <li><strong>A teammate never got their invitation.</strong> An owner can set their password
+    directly from Settings → Users.</li>
+  <li><strong>Figures look stale.</strong> Anything measured from a connected account is labelled
+    with the date it was measured. If that date is old, the connection is the place to look.</li>
+</ul>
+
+<div class="grid">
+  <div class="card">
+    <h2>QuickBooks</h2>
+    <p>What we read and what we never do:
+    <a href="/connect-quickbooks">connecting</a> ·
+    <a href="/quickbooks-disconnected">disconnecting</a>.</p>
+  </div>
+  <div class="card">
+    <h2>Billing &amp; credits</h2>
+    <p>What a credit is, what refunds cover:
+    <a href="/credits">Credits</a> · <a href="/refunds">Refunds</a>.</p>
+  </div>
+  <div class="card">
+    <h2>Your data</h2>
+    <p>What we hold, who touches it, and how to have it deleted:
+    <a href="/privacy">Privacy</a> · <a href="/subprocessors">Sub-processors</a>.</p>
+  </div>
+  <div class="card">
+    <h2>The AI agents</h2>
+    <p>What they can and cannot do on their own:
+    <a href="/ai-disclosure">AI Disclosure</a>.</p>
+  </div>
+</div>
+
+<h2>Deleting your data</h2>
+<p>You can ask us to delete the data we hold for your company at any time, whether or not you're
+closing the account. Email <a href="mailto:admin@atrovia.co">admin@atrovia.co</a> from the address
+you sign in with and we'll remove it and confirm when it's done — within 30 days, and usually far
+sooner. The details are in our <a href="/privacy#keep">Privacy Policy</a>.</p>
+
+<h2>Reporting a security problem</h2>
+<p>If you've found something that looks like a security issue, email
+<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> with <strong>SECURITY</strong> in the
+subject line. We'd rather hear about it from you than from anyone else, and we won't argue with
+someone who took the trouble to tell us.</p>
 
 <div class="btnrow">
-  <a class="btn primary" href="/connect-quickbooks">Reconnect QuickBooks</a>
+  <a class="btn primary" href="mailto:admin@atrovia.co">Email support</a>
   <a class="btn" href="/app">Back to Atrovia</a>
 </div>
-
-<h2>If you didn't mean to disconnect</h2>
-<p>A disconnection can also happen when a QuickBooks admin removes the app, or when an
-authorisation expires. If this is a surprise, check with whoever administers your QuickBooks
-company — and if it still doesn't add up, email
-<a href="mailto:admin@atrovia.co">admin@atrovia.co</a> and we'll look at what happened.</p>
 
 <footer class="end">
   <p>Intuit and QuickBooks are trademarks of Intuit Inc. Atrovia is not affiliated with, endorsed by,
   or sponsored by Intuit Inc.</p>
   <p><a href="/">Atrovia</a> · <a href="/eula">Terms</a> · <a href="/privacy">Privacy</a> ·
-  <a href="/ai-disclosure">AI Disclosure</a> · <a href="/support">Support</a> · <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+  <a href="/ai-disclosure">AI Disclosure</a> · <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
   <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
 </footer>
 

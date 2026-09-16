@@ -49,6 +49,10 @@
     {
       "source": "/subprocessors",
       "destination": "/subprocessors.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/support.html"
     }
   ],
   "headers": [

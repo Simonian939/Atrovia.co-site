@@ -27,6 +27,11 @@ const FIELDS = [
   // Intuit's App Details asks for these two separately, and both are public documents.
   { field: "EULA URL",               url: "https://atrovia.co/eula",                   expect: "loads" },
   { field: "Privacy Policy URL",     url: "https://atrovia.co/privacy",                expect: "loads" },
+  // App Details asks for a support URL and will take an email address. A page is better: the
+  // reviewer clicking it sees hours, what to send, and how to have data deleted, which is three
+  // of their compliance questions answered before they ask. Added 16 September; until then this
+  // was the one field with nothing behind it.
+  { field: "Support URL",            url: "https://atrovia.co/support",                expect: "loads" },
 ];
 
 /** Same registrable domain, or a subdomain of it. www.atrovia.co and app.atrovia.co both pass. */
