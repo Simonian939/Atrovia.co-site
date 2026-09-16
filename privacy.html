@@ -109,7 +109,7 @@ footer.end a{color:var(--ink-2)}
     <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Policies</span>
   </div>
   <h1>Privacy Policy</h1>
-  <p class="dates">Effective <strong>13 September 2026</strong> · Version 2026-09-13</p>
+  <p class="dates">Effective <strong>16 September 2026</strong> · Version 2026-09-16</p>
 </header>
 
 <p class="lede">This policy explains what information Atrovia collects, why we collect it, who we
@@ -208,12 +208,24 @@ changed or sent.</p>
 <div class="box hi">
   <h3>Our commitments on your accounting data</h3>
   <ul>
+    <li><strong>QuickBooks connects to Atrovia, and only to Atrovia.</strong> When you connect,
+    you authorise the Atrovia app. Atrovia Corporation holds the connection and is the only company
+    that can reach your QuickBooks company. No other company — including our hosting, database and
+    AI model providers, and the other services you connect such as Google or Meta — is given access
+    to your QuickBooks account or your connection tokens.</li>
     <li><strong>We use it only to provide Atrovia to you.</strong> It is never used for advertising,
-    never sold, never rented, and never shared with another Atrovia customer.</li>
+    never sold, never rented, and never shared with another Atrovia customer. We do not export, save
+    or store QuickBooks data for any purpose other than running the Atrovia features you use.</li>
+    <li><strong>How the Finance agent uses it.</strong> When you ask Atrovia a question about your
+    numbers, Atrovia's own servers retrieve the data, work out the figures, and include only the
+    figures that answer needs when preparing the response. Our AI model provider processes that
+    request on our behalf, returns the answer, and may not keep it or train on it. It never receives
+    your QuickBooks connection or tokens and cannot access QuickBooks.</li>
     <li><strong>It is isolated per business.</strong> Every record is tagged to your organisation and
     every query is filtered by it. One customer cannot see another's data.</li>
-    <li><strong>Your connection tokens are held in a dedicated secret store</strong> — never in an
-    ordinary database table, a log file, or an error message.</li>
+    <li><strong>Your connection tokens are encrypted and held in a dedicated secret store</strong>
+    — encrypted with AES-256, never kept in an ordinary database table, and never written to a log
+    file or an error message. QuickBooks data itself is never written to our logs.</li>
     <li><strong>We do not post transactions to your books</strong> as part of the finance features
     described in this policy. Where any write capability exists, it happens only on your explicit
     instruction.</li>
@@ -229,7 +241,7 @@ days. If you close your Atrovia account, QuickBooks-derived data is deleted with
 account as described in <a href="#keep">section 8</a>.</p>
 
 <p>Our use of information received from Intuit APIs adheres to the
-<a href="https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/terms-of-service" rel="noopener">Intuit Developer Terms of Service</a>,
+<a href="https://developer.intuit.com/app/developer/qbo/docs/legal-agreements/intuit-terms-of-service-for-intuit-developer-services" rel="noopener">Intuit Developer Terms of Service</a>,
 and we comply with its limited use requirements.</p>
 
 <h2 id="ai">5. How we use AI</h2>
@@ -274,7 +286,7 @@ behavioural advertising.</strong> We share it only in these situations:</p>
   contract to protect the data and use it only to provide their service to us. Our current list is
   at <a href="/subprocessors">atrovia.co/subprocessors</a>.</li>
   <li><strong>Services you connect</strong> — when you ask us to send something to a connected
-  service, we send what that action needs.</li>
+  service, we send what that action needs. QuickBooks data is never sent to another connected service.</li>
   <li><strong>People in your own organisation</strong> — according to the permissions your
   administrator sets.</li>
   <li><strong>Legal requirements</strong> — when we are legally required to, or to protect the
@@ -301,7 +313,7 @@ behavioural advertising.</strong> We share it only in these situations:</p>
   <li>Encryption in transit (TLS) and at rest.</li>
   <li>Row-level isolation per organisation, enforced in the database rather than only in the
   application.</li>
-  <li>Connection tokens stored in a dedicated secret store, separate from application data.</li>
+  <li>Connection tokens encrypted with AES-256 and stored in a dedicated secret store, separate from application data.</li>
   <li>Least-privilege access for staff, granted only where needed and reviewed regularly.</li>
   <li>Logging and monitoring, with alerting on unusual access.</li>
 </ul>
