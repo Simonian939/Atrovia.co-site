@@ -117,9 +117,12 @@ Before you connect, your margin, your labour cost and your cash position are wha
 After you connect, they come from your books.</p>
 
 <div class="btnrow">
-  <!-- ADAPT: point at the app's OAuth start endpoint. It should send a signed-out
-       visitor to sign-in first and continue to Intuit afterwards. -->
-  <a class="qbbtn" href="/api/quickbooks/connect" id="qb-connect">
+  <!-- Deliberately the app's Connectors screen and NOT the OAuth start endpoint.
+       Starting the flow is POST /api/shell/connectors/quickbooks/connect: it needs an
+       owner's session and it returns an authUrl rather than redirecting, so no link on a
+       public page can call it. A signed-out visitor — which is what an Intuit reviewer
+       clicking this cold will be — gets sign-in first and lands back on this tab. -->
+  <a class="qbbtn" href="https://app.atrovia.co/settings/connectors" id="qb-connect">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
     Connect to QuickBooks
   </a>
