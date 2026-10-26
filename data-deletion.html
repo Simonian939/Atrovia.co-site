@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<!-- headers stamp 2026-09-15 05:37 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Deletion — Atrovia</title>
+<meta name="description" content="How to delete the data Atrovia holds from your Facebook, Instagram and WhatsApp accounts, and from any other connected account.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://atrovia.co/data-deletion">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Barlow:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FBFBF9; --surf:#FFFFFF; --surf-2:#F4F6F5;
+  --line:#E2E5E3; --line-2:#EDEFEE;
+  --ink:#111820; --ink-2:#47545F; --ink-3:#75828D;
+  --accent:#0E7A69; --accent-soft:#E2F5F1; --on-accent:#FFFFFF;
+  --mkt:#0E7A69; --crm:#6144C9; --ops:#A96A12; --fin:#0F7A57;
+  --good:#0F7A57; --warn:#B64C1B; --crit:#B52440; --qb:#2CA01C;
+  --disp:"Poppins",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+    --line:#1F2C48; --line-2:#182338;
+    --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+    --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+    --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+    --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070C17; --surf:#101A2E; --surf-2:#152039;
+  --line:#1F2C48; --line-2:#182338;
+  --ink:#EEF3FC; --ink-2:#C9D4E8; --ink-3:#8A97B4;
+  --accent:#5EEAD4; --accent-soft:#0F2A26; --on-accent:#06231F;
+  --mkt:#5EEAD4; --crm:#8B7CF6; --ops:#F0B252; --fin:#34D399;
+  --good:#35D0A5; --warn:#FF8A5B; --crit:#F4506B; --qb:#2CA01C;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 96px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:40px}
+.brand .g{width:28px;height:28px;border-radius:7px;background:var(--accent);
+  display:grid;place-items:center;flex-shrink:0}
+.brand .g svg{width:16px;height:16px;stroke:var(--bg);stroke-width:2.3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.brand a{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  text-decoration:none;letter-spacing:-.02em}
+.tick{width:46px;height:46px;border-radius:50%;background:var(--qb);display:grid;
+  place-items:center;margin-bottom:18px}
+.tick svg{width:24px;height:24px;stroke:#fff;stroke-width:3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(27px,5vw,35px);
+  letter-spacing:-.025em;margin:0 0 12px;line-height:1.18}
+h2{font-family:var(--disp);font-weight:600;font-size:18px;letter-spacing:-.02em;margin:38px 0 10px}
+p{margin:0 0 15px}
+ul{margin:0 0 15px;padding-left:22px}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+.lede{font-size:18.5px;color:var(--ink-2)}
+.lede strong{color:var(--ink)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:14px;
+  padding:26px 28px;margin:28px 0}
+.card.hi{border-left:3px solid var(--accent);background:var(--accent-soft)}
+.card h2{margin-top:0}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.done{list-style:none;padding:0;margin:0}
+.done li{position:relative;padding-left:28px;margin-bottom:10px;color:var(--ink-2)}
+.done li::before{content:"";position:absolute;left:2px;top:9px;width:9px;height:5px;
+  border:solid var(--qb);border-width:0 0 2.5px 2.5px;transform:rotate(-45deg)}
+.done strong{color:var(--ink)}
+.btnrow{margin:28px 0 8px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--disp);
+  font-weight:600;font-size:15.5px;padding:13px 24px;border-radius:9px;text-decoration:none;
+  border:1px solid var(--line);color:var(--ink);background:var(--surf);transition:filter .12s}
+.btn.primary{background:var(--qb);border-color:var(--qb);color:#fff}
+.btn:hover{filter:brightness(1.06)}
+footer.end{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:14px;color:var(--ink-3)}
+footer.end a{color:var(--ink-2)}
+footer.end p{margin:0 0 8px}
+
+.brand .mark{font-family:var(--disp);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:.14em}
+.brand .o{color:var(--accent)}
+.brand .sub{font-family:var(--disp);font-weight:500;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.13em;text-transform:uppercase;margin-left:6px}
+.brand{text-decoration:none}
+.box.warn{border-left:3px solid var(--warn);background:var(--surf)}
+.box.crit{border-left:3px solid var(--crit);background:var(--surf)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="brand">
+  <span class="mark">ATR<span class="o">O</span>VIA</span><span class="sub">Policies</span>
+</div>
+
+<h1>Deleting your data</h1>
+<p class="lede">You can remove what Atrovia holds from your Facebook, Instagram and WhatsApp accounts
+at any time, and from any other account you connected. <strong>Here is what we keep and how to delete it.</strong></p>
+
+<div class="card">
+  <h2>What we keep from Meta (Facebook, Instagram, WhatsApp)</h2>
+  <ul>
+    <li>The access tokens you granted when you connected, stored encrypted.</li>
+    <li>The Pages, Instagram accounts and ad accounts you chose to connect, and their posts,
+      insights, campaigns and ad results.</li>
+    <li>Comments on your own posts, and the Messenger, Instagram and WhatsApp conversations
+      customers start with your business, so your team can answer them in one place.</li>
+  </ul>
+  <p>We only read the accounts you selected, and we only post a reply when a person on your team
+  presses Send.</p>
+</div>
+
+<h2>Option 1 — delete it yourself, right now</h2>
+<p>In Atrovia, open <strong>Marketing → Integrations → Meta Ads → Manage</strong> and choose
+<strong>Disconnect and wipe all synced data</strong>. That revokes our access and deletes the
+synced Facebook and Instagram data for your company. For WhatsApp, revoke the token you gave us in
+<strong>Meta Business → Business settings → System users</strong>, and use option 3 to have the
+messages we stored deleted.</p>
+
+<h2>Option 2 — remove Atrovia from Facebook</h2>
+<p>On Facebook, go to <strong>Settings &amp; privacy → Settings → Business integrations</strong>
+(or <strong>Apps and websites</strong>), select Atrovia and remove it. That stops all access
+straight away. To also have the data we already synced deleted, use option 1 or option 3.</p>
+
+<div class="card hi">
+  <h2>Option 3 — ask us</h2>
+  <p>Email <a href="mailto:admin@atrovia.co?subject=Data%20deletion%20request">admin@atrovia.co</a>
+  with the subject <strong>Data deletion request</strong>, the name of your business, and the
+  Facebook Page, Instagram account or WhatsApp number concerned. We will delete that data and
+  confirm by email when it is done.</p>
+  <p>The same applies to anything else you connected (Google, HubSpot, QuickBooks, Shopify).
+  More detail is in our <a href="/privacy">Privacy Policy</a>.</p>
+</div>
+
+<footer class="end">
+  <p>Facebook, Instagram, Messenger and WhatsApp are trademarks of Meta Platforms, Inc. Atrovia is
+  not affiliated with, endorsed by, or sponsored by Meta.</p>
+  <p><a href="/">Atrovia</a> · <a href="/eula">Terms</a> · <a href="/privacy">Privacy</a> ·
+  <a href="/ai-disclosure">AI Disclosure</a> · <a href="/support">Support</a> · <a href="mailto:admin@atrovia.co">admin@atrovia.co</a></p>
+  <p>© 2026 Atrovia Corporation. San Mateo, California.</p>
+</footer>
+
+</div>
+</body>
+</html>
